@@ -1,0 +1,16 @@
+Hechizos
+	nombre -> 15 caract
+	elemento relacionado -> de la lista
+	potencia -> int 
+	precisión -> int 
+	hechizo base -> id
+	nv aprendizaje ->  max 10
+	
+	Hechizo base:
+		hecizo de etapa anterior
+		debe llegar determinado nivel para desbloquear el hechizo mostrado
+	id -> int AI
+	
+	botones
+		añadir 
+		eliminar: eliminar dependencia
