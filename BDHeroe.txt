@@ -1,0 +1,39 @@
+Heroe
+	ID
+	Nombre
+	Edad
+	Genero
+	clase
+	nivel inicial
+	ataque (int)
+	nombre de pareja
+	pts exp
+	
+	Botones:
+		editar
+		eliminar
+		ver inventario
+	Buscador:
+		nombre
+	Añadir:
+		id AI
+		longNombre 10
+		edad 8-999
+		genero M - F - O
+		longclase 50
+		nivel 1-100
+		ataque > 0
+		pareja IDheroe
+		exp (depende de nivel)
+	
+	Inventario:
+		nombreObjeto debe estar en el catalogo
+		efecto uso
+		peso < atq**2
+		cant_de_objeto int > 0
+		añadir
+		editar:
+		elminar
+			
+		
+	
