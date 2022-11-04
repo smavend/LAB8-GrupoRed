@@ -1,6 +1,6 @@
 package com.example.lab8.Servlet;
 
-import com.example.lab8.Beans.BObjetos;
+import com.example.lab8.Beans.Objeto;
 import com.example.lab8.Daos.DaoObjetos;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -17,8 +17,8 @@ public class ServletFinalFantasy extends HttpServlet {
         RequestDispatcher requestDispatcher;
 
         DaoObjetos daoObjetos = new DaoObjetos();
-        ArrayList<BObjetos>  listaOBjetos = daoObjetos.getObjectList();
-        BObjetos objeto;
+        ArrayList<Objeto>  listaOBjetos = daoObjetos.getObjectList();
+        Objeto objeto;
         if(action==null){
             RequestDispatcher view = request.getRequestDispatcher("home.jsp");
             view.forward(request,response);
@@ -91,7 +91,7 @@ public class ServletFinalFantasy extends HttpServlet {
                         if (peso_f<0){
                             peso_f = peso_f*-1;
                         }
-                        BObjetos newObject = new BObjetos();
+                        Objeto newObject = new Objeto();
                         newObject.setNombre(nombre);
                         newObject.setEfectoUso(efecto);
                         newObject.setPeso(peso_f);
@@ -124,7 +124,7 @@ public class ServletFinalFantasy extends HttpServlet {
             case "buscar":
                 String searchText = request.getParameter("searchText");
 
-                ArrayList<BObjetos> lista = daoObjetos.searchByName(searchText);
+                ArrayList<Objeto> lista = daoObjetos.searchByName(searchText);
                 request.setAttribute("listaObjetos", lista);
                 request.setAttribute("searchText",searchText);
 

@@ -1,13 +1,13 @@
 package com.example.lab8.Daos;
 
-import com.example.lab8.Beans.BObjetos;
+import com.example.lab8.Beans.Objeto;
 
 import java.sql.*;
 import java.util.ArrayList;
 
 public class DaoObjetos {
-    public ArrayList<BObjetos> getObjectList() {
-        ArrayList<BObjetos> objectList = new ArrayList<>();
+    public ArrayList<Objeto> getObjectList() {
+        ArrayList<Objeto> objectList = new ArrayList<>();
         try {
             String user = "root";
             String passw = "root";
@@ -19,7 +19,7 @@ public class DaoObjetos {
             String sql = "select * from objeto";
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-                BObjetos newObject = new BObjetos();
+                Objeto newObject = new Objeto();
                 newObject.setIdObjeto(resultSet.getInt(1));
                 newObject.setNombre(resultSet.getString(2));
                 newObject.setEfectoUso(resultSet.getString(3));
@@ -34,7 +34,7 @@ public class DaoObjetos {
         return objectList;
     }
 
-    public void guardar(BObjetos object) {
+    public void guardar(Objeto object) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -78,8 +78,8 @@ public class DaoObjetos {
         }
     }
 
-    public BObjetos getObjectbyId(String id) {
-        BObjetos object = null;
+    public Objeto getObjectbyId(String id) {
+        Objeto object = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -97,7 +97,7 @@ public class DaoObjetos {
 
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    object = new BObjetos();
+                    object = new Objeto();
                     object.setIdObjeto(rs.getInt(1));
                     object.setNombre(rs.getString(2));
                     object.setEfectoUso(rs.getString(3));
@@ -136,7 +136,7 @@ public class DaoObjetos {
             throw new RuntimeException(e);
         }
     }
-    public ArrayList<BObjetos> searchByName(String nombre) {
+    public ArrayList<Objeto> searchByName(String nombre) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -144,7 +144,7 @@ public class DaoObjetos {
         }
 
         String url = "jdbc:mysql://localhost:3306/grupored";
-        ArrayList<BObjetos> lista = new ArrayList<>();
+        ArrayList<Objeto> lista = new ArrayList<>();
         String sql = "select * from objeto where nombre = ?";
         try (Connection connection = DriverManager.getConnection(url, "root", "root");
              PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -153,7 +153,7 @@ public class DaoObjetos {
 
             try (ResultSet rs = pstmt.executeQuery()) {
                 while (rs.next()) {
-                    BObjetos object = new BObjetos();
+                    Objeto object = new Objeto();
                     object.setIdObjeto(rs.getInt(1));
                     object.setNombre(rs.getString(2));
                     object.setEfectoUso(rs.getString(3));
@@ -168,8 +168,8 @@ public class DaoObjetos {
     }
     public boolean validarNombre(String nombre){
         boolean valid = true;
-        ArrayList<BObjetos> lista = getObjectList();
-        for(BObjetos objeto : lista){
+        ArrayList<Objeto> lista = getObjectList();
+        for(Objeto objeto : lista){
             if(nombre.equalsIgnoreCase(objeto.getNombre())){
                 valid = false;
             }

@@ -1,4 +1,4 @@
-<%@ page import="com.example.lab8.Beans.BObjetos" %><%--
+<%@ page import="com.example.lab8.Beans.Objeto" %><%--
   Created by IntelliJ IDEA.
   User: USUARIO
   Date: 4/11/2022
@@ -6,10 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean id="listaObjetos" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.BObjetos>"/>
+<jsp:useBean id="listaObjetos" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.Objeto>"/>
 <%
   String searchText = (String) request.getAttribute("searchText");
-
 %>
 <html>
 <head>
@@ -57,7 +56,7 @@
 
     <div class="navbar navbar-dark my-4 p-0 font-primary">
       <ul class="navbar-nav w-100">
-        <li class="nav-item active">
+        <li class="nav-item ">
           <a class="nav-link text-white px-0 pt-0" href="<%=request.getContextPath()%>/ServletFinalFantasy">Home</a>
         </li>
 
@@ -75,7 +74,7 @@
         <li class="nav-item ">
           <a class="nav-link text-white px-0" href="<%=request.getContextPath()%>/ServletFinalFantasy?action=hechizos">Hechizos</a>
         </li>
-        <li class="nav-item ">
+        <li class="nav-item active">
           <a class="nav-link text-white px-0" href="<%=request.getContextPath()%>/ServletFinalFantasy?action=objetos">Objetos</a>
         </li>
 
@@ -166,7 +165,7 @@
               <th class="h3" scope="col">Eliminar</th>
             </tr>
             </thead>
-            <%for(BObjetos object : listaObjetos){%>
+            <%for(Objeto object : listaObjetos){%>
             <tbody>
             <tr>
               <td><%=object.getIdObjeto()%></td>

@@ -52,7 +52,7 @@
 
     <div class="navbar navbar-dark my-4 p-0 font-primary">
       <ul class="navbar-nav w-100">
-        <li class="nav-item active">
+        <li class="nav-item ">
           <a class="nav-link text-white px-0 pt-0" href="<%=request.getContextPath()%>/ServletFinalFantasy">Home</a>
         </li>
 
@@ -67,7 +67,7 @@
           </div>
           <a class="nav-link text-white" href="#!" role="button" data-toggle="collapse" data-target="#drop-menu" aria-expanded="false" aria-controls="drop-menu">Lado Maligno</a>
         </li>
-        <li class="nav-item ">
+        <li class="nav-item active">
           <a class="nav-link text-white px-0" href="<%=request.getContextPath()%>/ServletFinalFantasy?action=hechizos">Hechizos</a>
         </li>
         <li class="nav-item ">

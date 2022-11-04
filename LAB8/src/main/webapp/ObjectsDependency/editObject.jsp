@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean id="objeto" type="com.example.lab8.Beans.BObjetos" scope="request"/>
+<jsp:useBean id="objeto" type="com.example.lab8.Beans.Objeto" scope="request"/>
 <html>
 <head>
   <meta charset="utf-8">

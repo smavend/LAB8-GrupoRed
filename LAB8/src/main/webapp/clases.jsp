@@ -52,7 +52,7 @@
 
     <div class="navbar navbar-dark my-4 p-0 font-primary">
       <ul class="navbar-nav w-100">
-        <li class="nav-item active">
+        <li class="nav-item ">
           <a class="nav-link text-white px-0 pt-0" href="<%=request.getContextPath()%>/ServletFinalFantasy">Home</a>
         </li>
 
@@ -60,7 +60,7 @@
           <a class="nav-link text-white px-0" href="<%=request.getContextPath()%>/ServletFinalFantasy?action=heroes">Héroes</a>
         </li>
 
-        <li class="nav-item  accordion">
+        <li class="nav-item active accordion">
           <div id="drop-menu" class="drop-menu collapse">
             <a class="d-block " href="<%=request.getContextPath()%>/ServletFinalFantasy?action=enemigos">Enemigos</a>
             <a class="d-block " href="<%=request.getContextPath()%>/ServletFinalFantasy?action=claseEnemigos">Clases de Enemigos</a>

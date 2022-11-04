@@ -52,7 +52,7 @@
 
     <div class="navbar navbar-dark my-4 p-0 font-primary">
       <ul class="navbar-nav w-100">
-        <li class="nav-item active">
+        <li class="nav-item ">
           <a class="nav-link text-white px-0 pt-0" href="<%=request.getContextPath()%>/ServletFinalFantasy">Home</a>
         </li>
 
@@ -60,7 +60,7 @@
           <a class="nav-link text-white px-0" href="<%=request.getContextPath()%>/ServletFinalFantasy?action=heroes">Héroes</a>
         </li>
 
-        <li class="nav-item  accordion">
+        <li class="nav-item active accordion">
           <div id="drop-menu" class="drop-menu collapse">
             <a class="d-block " href="<%=request.getContextPath()%>/ServletFinalFantasy?action=enemigos">Enemigos</a>
             <a class="d-block " href="<%=request.getContextPath()%>/ServletFinalFantasy?action=claseEnemigos">Clases de Enemigos</a>
@@ -159,7 +159,7 @@
           <div class="widget">
             <h1 class="widget-title text-white d-inline-block mb-4">Lista de enemigos</h1>
             <div class="row">
-              <div class="col-lg-5 col-md-8">
+              <div class="col-lg-5 col-md-6 col-sm-6 col-6">
                 <form class="search-form" action="#">
                   <div class="input-group">
                     <input type="search" class="form-control bg-transparent shadow-none rounded-0" placeholder="Buscar enemigo">
@@ -171,11 +171,16 @@
                   </div>
                 </form>
               </div>
+              <div class="col-lg-5 col-md-6 col-sm-6 col-6">
+                <div class="d-block">
+                  <a class="btn btn-success" href="clases.html">Añadir nuevo enemigo<img src="images/arrow-right.png" alt=""></a>
+                </div>
+              </div>
             </div>
             <table class="table table-bordered text-center text-white table-transparent">
               <thead class="bg-dark">
               <tr>
-                <th class="h3" scope="col">Table</th>
+                <th style="background: #E4112F;" class="h3" scope="col">Table</th>
                 <th class="h3" scope="col">Column</th>
                 <th class="h3" scope="col">Column</th>
               </tr>
