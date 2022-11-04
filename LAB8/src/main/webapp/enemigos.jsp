@@ -204,7 +204,19 @@
               </tbody>
             </table>
             <!-- end table-style -->
+            <nav aria-label="...">
+              <ul class="pagination pagination-sm justify-content-center">
+                <li class="page-item" aria-current="page">
+                  <span style="background: #E4112F; color: white;" class="page-link">1</span>
+                </li>
+                <li class="page-item"><a style="background: #1d2124;color: #E4112F;" class="page-link" href="#">2</a></li>
+                <li class="page-item"><a style="background: #1d2124;color: #E4112F;" class="page-link" href="#">3</a></li>
+                <li class="page-item"><a style="background: #1d2124;color: #E4112F;" class="page-link" href="#">...</a></li>
+              </ul>
+            </nav>
           </div>
+
+
 
           <div class="widget">
             <div class="d-block">
