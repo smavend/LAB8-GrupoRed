@@ -14,7 +14,12 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
+--
+-- Create schema grupored
+--
+DROP DATABASE IF EXISTS `grupored`;
+CREATE DATABASE  IF NOT EXISTS `grupored`;
+USE `grupored`;
 --
 -- Table structure for table `clase`
 --
@@ -50,7 +55,7 @@ CREATE TABLE `elemento` (
   `idElemento` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(7) NOT NULL,
   PRIMARY KEY (`idElemento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,6 +64,7 @@ CREATE TABLE `elemento` (
 
 LOCK TABLES `elemento` WRITE;
 /*!40000 ALTER TABLE `elemento` DISABLE KEYS */;
+INSERT INTO `elemento` VALUES (1,'fuego'),(2,'tierra'),(3,'agua'),(4,'viento'),(5,'void');
 /*!40000 ALTER TABLE `elemento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -248,4 +254,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-03 22:44:53
+-- Dump completed on 2022-11-03 22:50:39

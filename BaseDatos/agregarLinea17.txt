@@ -1,0 +1,6 @@
+--
+-- Create schema grupored
+--
+DROP DATABASE IF EXISTS `grupored`;
+CREATE DATABASE  IF NOT EXISTS `grupored`;
+USE `grupored`;
