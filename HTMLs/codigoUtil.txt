@@ -1,0 +1,7 @@
+<!-- ejemplo Select -->
+<li class="nav-item mt-3">
+    <select class="custom-select bg-transparent rounded-0 text-white shadow-none" id="pick-lang">
+        <option selected value="en">English</option>
+        <option value="fr">French</option>
+    </select>
+</li>
