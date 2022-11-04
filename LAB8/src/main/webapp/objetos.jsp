@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.lab8.Beans.BObjetos" %><%--
   Created by IntelliJ IDEA.
   User: USUARIO
   Date: 4/11/2022
@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="listaObjetos" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.BObjetos>"/>
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -103,244 +105,89 @@
     <!-- end of social-links -->
   </div></aside>
   <!-- end of sidenav -->
-  <div class="main-content">
-    <!-- start of mobile-nav -->
-    <header class="mobile-nav pt-4">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-6">
-            <a href="home.html">
-              <img src="images/logo.png" alt="">
-            </a>
-          </div>
-          <div class="col-6 text-right">
-            <button class="nav-toggle bg-transparent border text-white">
-              <span class="fas fa-bars"></span>
-            </button>
-          </div>
+
+
+  <div class="container py-4 my-5">
+
+
+
+    <div class="row justify-content-between">
+      <div class="col-lg-10">
+        <img class="img-fluid" src="images/items_objetos.png" alt="">
+
+        <!-- https://staticg.sportskeeda.com/editor/2022/10/45ab6-16650758896894-1920.jpg para vista de enemigo individual-->
+        <h1 class="text-white add-letter-space mt-4">Objetos</h1>
+
+        <br><br>
+
+        <p>Aquí encontraras todos los objetos que están dentro del juego.</p>
+        <p>Podrás ver los objetos que tienen tus héroes y enemigos favoritos</p>
+        <br>
+        <p>En esta wiki podrás encontrar a toda la información relacionada a los objetos del juego. Diviértete explorando sus caracterísiticas y descubre curiosidades que quizás aún no conocías. Nútrete de conocimiento.</p>
+
+        <div class="blockquote bg-dark my-5">
+          <p class="blockquote-text pl-2">Al usar los objetos correctos podrás avanzar en el juego con mayor faciliad. Recuerda que objetos poderosos conllevan una gran responsabilidad.</p>
+          <span class="blockquote-footer text-white h4 mt-3">Mold El Grande</span>
         </div>
-      </div>
-    </header>
-    <div class="nav-toggle-overlay"></div>
-    <!-- end of mobile-nav -->
 
-    <div class="container pt-4 mt-5">
-      <div class="row justify-content-between">
-        <div class="col-lg-7">
-          <div class="card post-item bg-transparent border-0 mb-5">
-            <a href="post-details.html">
-              <img class="card-img-top rounded-0" src="images/post/post-lg/01.png" alt="">
-            </a>
-            <div class="card-body px-0">
-              <h2 class="card-title">
-                <a class="text-white opacity-75-onHover" href="post-details.html">Id reprehrenderit mollit in tempor naid incididunt cupidatat consectetura</a>
-              </h2>
-              <ul class="post-meta mt-3">
-                <li class="d-inline-block mr-3">
-                  <span class="fas fa-clock text-primary"></span>
-                  <a class="ml-1" href="#">24 April, 2016</a>
-                </li>
-                <li class="d-inline-block">
-                  <span class="fas fa-list-alt text-primary"></span>
-                  <a class="ml-1" href="#">Photography</a>
-                </li>
-              </ul>
-              <p class="card-text my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt leo mi, viverra urna. Arcu velit risus, condimentum ut vulputate cursus porttitor turpis in. Diam egestas nec massa, habitasse. Tincidt dui.</p>
-              <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
+        <div class="widget">
+          <h1 class="widget-title text-white d-inline-block mb-4">Lista de objetos</h1>
+          <br>
+          <a class="btn btn-primary" href="<%=request.getContextPath()%>/ServletFinalFantasy?action=newObject" role="button">Añadir Objeto</a>
+          <br>
+          <div class="row">
+            <div class="col-lg-5 col-md-8">
+              <br>
+              <form class="search-form" action="#">
+                <div class="input-group">
+                  <input type="search" class="form-control bg-transparent shadow-none rounded-0" placeholder="Buscar Objeto">
+                  <div class="input-group-append">
+                    <button class="btn" type="submit">
+                      <span class="fas fa-search"></span>
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
-          <!-- end of post-item -->
 
-          <div class="card post-item bg-transparent border-0 mb-5">
-            <a href="post-details.html">
-              <img class="card-img-top rounded-0" src="images/post/post-lg/02.png" alt="">
-            </a>
-            <div class="card-body px-0">
-              <h2 class="card-title">
-                <a class="text-white opacity-75-onHover" href="post-details.html">Excepteur ado Do minim duis laborum Fugiat ea labore qui veniam labore</a>
-              </h2>
-              <ul class="post-meta mt-3">
-                <li class="d-inline-block mr-3">
-                  <span class="fas fa-clock text-primary"></span>
-                  <a class="ml-1" href="#">24 April, 2016</a>
-                </li>
-                <li class="d-inline-block">
-                  <span class="fas fa-list-alt text-primary"></span>
-                  <a class="ml-1" href="#">Photography</a>
-                </li>
-              </ul>
-              <p class="card-text my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt leo mi, viverra urna. Arcu velit risus, condimentum ut vulputate cursus porttitor turpis in. Diam egestas nec massa, habitasse. Tincidt dui.</p>
-              <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
-            </div>
-          </div>
-          <!-- end of post-item -->
-
-          <div class="card post-item bg-transparent border-0 mb-5">
-            <a href="post-details.html">
-              <img class="card-img-top rounded-0" src="images/post/post-lg/03.png" alt="">
-            </a>
-            <div class="card-body px-0">
-              <h2 class="card-title">
-                <a class="text-white opacity-75-onHover" href="post-details.html">Aliquip excepteur cilludm irure laboris sint ea qui ex amet id. Ex nulla etno</a>
-              </h2>
-              <ul class="post-meta mt-3">
-                <li class="d-inline-block mr-3">
-                  <span class="fas fa-clock text-primary"></span>
-                  <a class="ml-1" href="#">24 April, 2016</a>
-                </li>
-                <li class="d-inline-block">
-                  <span class="fas fa-list-alt text-primary"></span>
-                  <a class="ml-1" href="#">Photography</a>
-                </li>
-              </ul>
-              <p class="card-text my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt leo mi, viverra urna. Arcu velit risus, condimentum ut vulputate cursus porttitor turpis in. Diam egestas nec massa, habitasse. Tincidt dui.</p>
-              <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
-            </div>
-          </div>
-          <!-- end of post-item -->
+          <table class="table table-bordered text-center text-white table-transparent">
+            <thead class="bg-dark">
+            <tr>
+              <th class="h3" scope="col">ID</th>
+              <th class="h3" scope="col">Nombre</th>
+              <th class="h3" scope="col">Efecto/Uso</th>
+              <th class="h3" scope="col">Peso</th>
+              <th class="h3" scope="col">Usado por</th>
+              <th class="h3" scope="col">Editar</th>
+            </tr>
+            </thead>
+            <%for(BObjetos object : listaObjetos){%>
+            <tbody>
+            <tr>
+              <td><%=object.getIdObjeto()%></td>
+              <td><%=object.getNombre()%></td>
+              <td><%=object.getEfectoUso()%></td>
+              <td><%=object.getPeso()%></td>
+              <td>uso</td>
+              <td>
+                <a class="btn btn-primary" href="#" role="button" style="width: 2.5rem; height: 1.3rem ; margin: 0; padding: 0">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16" style="padding: 0; margin: 0 ">
+                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                  </svg>
+                </a>
+              </td>
+            </tr>
+            </tbody>
+            <%}%>
+          </table>
+          <!-- end table-style -->
         </div>
-        <div class="col-lg-4 col-md-5">
-          <div class="widget text-center">
-            <img class="author-thumb-sm rounded-circle d-block mx-auto" src="images/author-sm.png" alt="">
-            <h2 class="widget-title text-white d-inline-block mt-4">About Me</h2>
-            <p class="mt-4">Lorem ipsum dolor sit coectetur adiing elit. Tincidunfywjt leo mi, viearra urna. Arcu ve isus, condimentum ut vulpate cursus por turpis.</p>
-            <ul class="list-inline mt-3">
-              <li class="list-inline-item">
-                <a href="#!" class="text-white text-primary-onHover p-2">
-                  <span class="fab fa-twitter"></span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#!" class="text-white text-primary-onHover p-2">
-                  <span class="fab fa-facebook-f"></span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#!" class="text-white text-primary-onHover p-2">
-                  <span class="fab fa-instagram"></span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#!" class="text-white text-primary-onHover p-2">
-                  <span class="fab fa-linkedin-in"></span>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <!-- end of author-widget -->
 
-          <div class="widget bg-dark p-4 text-center">
-            <h2 class="widget-title text-white d-inline-block mt-4">Subscribe Blog</h2>
-            <p class="mt-4">Lorem ipsum dolor sit coectetur elit. Tincidu nfywjt leo mi, urna. Arcu ve isus, condimentum ut vulpate cursus por.</p>
-            <form action="#">
-              <div class="form-group">
-                <input type="email" class="form-control bg-transparent rounded-0 my-4" placeholder="Your Email Address">
-                <button class="btn btn-primary">Subscribe Now <img src="images/arrow-right.png" alt=""></button>
-              </div>
-            </form>
-          </div>
-          <!-- end of subscription-widget -->
 
-          <div class="widget">
-            <div class="mb-5 text-center">
-              <h2 class="widget-title text-white d-inline-block">Featured Posts</h2>
-            </div>
-            <div class="card post-item bg-transparent border-0 mb-5">
-              <a href="post-details.html">
-                <img class="card-img-top rounded-0" src="images/post/post-sm/01.png" alt="">
-              </a>
-              <div class="card-body px-0">
-                <h2 class="card-title">
-                  <a class="text-white opacity-75-onHover" href="post-details.html">Excepteur ado Do minimal duis laborum Fugiat ea</a>
-                </h2>
-                <ul class="post-meta mt-3 mb-4">
-                  <li class="d-inline-block mr-3">
-                    <span class="fas fa-clock text-primary"></span>
-                    <a class="ml-1" href="#">24 April, 2016</a>
-                  </li>
-                  <li class="d-inline-block">
-                    <span class="fas fa-list-alt text-primary"></span>
-                    <a class="ml-1" href="#">Photography</a>
-                  </li>
-                </ul>
-                <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
-              </div>
-            </div>
-            <!-- end of widget-post-item -->
-            <div class="card post-item bg-transparent border-0 mb-5">
-              <a href="post-details.html">
-                <img class="card-img-top rounded-0" src="images/post/post-sm/02.png" alt="">
-              </a>
-              <div class="card-body px-0">
-                <h2 class="card-title">
-                  <a class="text-white opacity-75-onHover" href="post-details.html">Excepteur ado Do minimal duis laborum Fugiat ea</a>
-                </h2>
-                <ul class="post-meta mt-3 mb-4">
-                  <li class="d-inline-block mr-3">
-                    <span class="fas fa-clock text-primary"></span>
-                    <a class="ml-1" href="#">24 April, 2016</a>
-                  </li>
-                  <li class="d-inline-block">
-                    <span class="fas fa-list-alt text-primary"></span>
-                    <a class="ml-1" href="#">Photography</a>
-                  </li>
-                </ul>
-                <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
-              </div>
-            </div>
-            <!-- end of widget-post-item -->
-          </div>
-          <!-- end of post-items widget -->
-        </div>
       </div>
     </div>
-
-    <!-- start of footer -->
-    <footer class="bg-dark">
-      <div class="container">
-        <div class="row text-center">
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Inspirations</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Templates</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Resource</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Company</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- end of footer -->
   </div>
-
 </section>
 <!-- END main-wrapper -->
 
