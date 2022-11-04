@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
 -- Host: localhost    Database: grupored
 -- ------------------------------------------------------
--- Server version	8.0.28
+-- Server version	8.0.31
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,7 +14,12 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
+--
+-- Create schema grupored
+--
+DROP DATABASE IF EXISTS `grupored`;
+CREATE DATABASE  IF NOT EXISTS `grupored`;
+USE `grupored`;
 --
 -- Table structure for table `clase`
 --
@@ -175,7 +180,7 @@ CREATE TABLE `heroe` (
   PRIMARY KEY (`idHeroe`),
   KEY `fk_heroes_heroes_idx` (`idPareja`),
   CONSTRAINT `fk_heroes_heroes` FOREIGN KEY (`idPareja`) REFERENCES `heroe` (`idHeroe`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,6 +189,7 @@ CREATE TABLE `heroe` (
 
 LOCK TABLES `heroe` WRITE;
 /*!40000 ALTER TABLE `heroe` DISABLE KEYS */;
+INSERT INTO `heroe` VALUES (1,2,'Erde',15,'F','claseprimera',8,12),(2,1,'Robin',20,'M','clasesegunda',15,14),(3,NULL,'Mold',16,'F','clasetercera',18,13);
 /*!40000 ALTER TABLE `heroe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -250,4 +256,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-04 15:37:53
+-- Dump completed on 2022-11-04 16:04:06
