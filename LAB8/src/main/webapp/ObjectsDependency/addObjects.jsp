@@ -133,19 +133,20 @@
                                     </td>
                                     <td style="padding-left: 1rem;">
                                         <ul class="list-group list-group-flush">
-                                            <input type="text" class="form-control"   id="nombre" name="nombre"  value="">
+                                            <input type="text" class="form-control"  style="color: black" id="nombre" name="nombre"  value="">
                                         </ul>
                                         <br>
                                         <ul class="list-group list-group-flush">
-                                            <input type="text" class="form-control"   id="efecto" name="efecto"  value=" ">
+                                            <input type="text" class="form-control" style="color: black"   id="efecto" name="efecto"  value=" ">
                                         </ul>
                                         <br>
                                         <ul class="list-group list-group-flush">
-                                            <input type="text" class="form-control"   id="peso" name="peso"  value=" ">
+                                            <input type="text" class="form-control"  style="color: black" id="peso" name="peso"  value=" ">
                                         </ul>
                                     </td>
                                 </tr>
                             </table>
+                            <br>
                             <div class="d-flex justify-content-center">
                                 <button type="submit" class="btn btn-primary">Confirmar</button>
                             </div>

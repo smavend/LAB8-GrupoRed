@@ -18,7 +18,7 @@ public class ServletFinalFantasy extends HttpServlet {
 
         DaoObjetos daoObjetos = new DaoObjetos();
         ArrayList<BObjetos>  listaOBjetos = daoObjetos.getObjectList();
-
+        BObjetos objeto;
         if(action==null){
             RequestDispatcher view = request.getRequestDispatcher("home.jsp");
             view.forward(request,response);
@@ -47,15 +47,90 @@ public class ServletFinalFantasy extends HttpServlet {
                     requestDispatcher.forward(request,response);
                     break;
                 case "newObject":
-                    requestDispatcher = request.getRequestDispatcher("/ObjectsDependency/hola.jsp");
+                    requestDispatcher = request.getRequestDispatcher("/ObjectsDependency/addObjects.jsp");
                     requestDispatcher.forward(request,response);
                     break;
+                case "borrar":  // JobServlet?action=borrar&id=50
+                    String objectID = request.getParameter("id");
+                    daoObjetos.deleteObject(objectID);
+                    response.sendRedirect(request.getContextPath() + "/ServletFinalFantasy?action=objetos");
+                    break;
+                case "editObject":
+                    String id = request.getParameter("id");
+                    objeto = daoObjetos.getObjectbyId(id);
+
+                    if (objeto != null) { //abro el form para editar
+                        request.setAttribute("objeto", objeto);
+                        requestDispatcher = request.getRequestDispatcher("/ObjectsDependency/editObject.jsp");
+                        requestDispatcher.forward(request, response);
+                    } else { //id no encontrado
+                        response.sendRedirect(request.getContextPath() + "//ServletFinalFantasy?action=objetos");
+                    }
+
+                    requestDispatcher = request.getRequestDispatcher("/ObjectsDependency/editObjects.jsp");
+                    requestDispatcher.forward(request,response);
+                    break;
+
             }
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        DaoObjetos daoObjetos = new DaoObjetos();
 
+        switch (action){
+            case "guardar":
+                String nombre = request.getParameter("nombre");
+                String efecto = request.getParameter("efecto");
+                String peso = request.getParameter("peso");
+                if(daoObjetos.validarNombre(nombre)){
+                    try {
+                        float peso_f = Float.parseFloat(peso);
+                        if (peso_f<0){
+                            peso_f = peso_f*-1;
+                        }
+                        BObjetos newObject = new BObjetos();
+                        newObject.setNombre(nombre);
+                        newObject.setEfectoUso(efecto);
+                        newObject.setPeso(peso_f);
+                        daoObjetos.guardar(newObject);
+
+                        response.sendRedirect(request.getContextPath() + "/ServletFinalFantasy?action=objetos");
+
+                    } catch (NumberFormatException e) {
+                        response.sendRedirect(request.getContextPath() + "/ServletFinalFantasy?action=newObject");
+                    }
+                }
+                else {
+                    response.sendRedirect(request.getContextPath() + "/ServletFinalFantasy?action=newObject");
+                }
+                break;
+            case "actualizar":
+                String idObject = request.getParameter("idObject");
+                String nombre_up = request.getParameter("nombre");
+                String efecto_up = request.getParameter("efecto");
+                String peso_up = request.getParameter("peso");
+                try {
+                    int id = Integer.parseInt(idObject);
+                    float peso_upf = Float.parseFloat(peso_up);
+                    daoObjetos.updateObject(id,nombre_up,efecto_up,peso_upf);
+                    response.sendRedirect(request.getContextPath() + "/ServletFinalFantasy?action=objetos");
+                } catch (NumberFormatException e) {
+                    response.sendRedirect(request.getContextPath() + "/ServletFinalFantasy?action=editObject&id=" + idObject);
+                }
+                break;
+            case "buscar":
+                String searchText = request.getParameter("searchText");
+
+                ArrayList<BObjetos> lista = daoObjetos.searchByName(searchText);
+                request.setAttribute("listaObjetos", lista);
+                request.setAttribute("searchText",searchText);
+
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("objetos.jsp");
+                requestDispatcher.forward(request, response);
+                break;
+        }
     }
 }
