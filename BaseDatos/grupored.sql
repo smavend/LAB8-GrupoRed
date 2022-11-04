@@ -16,13 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Create schema hr
---
-DROP DATABASE IF EXISTS `grupored`;
-CREATE DATABASE  IF NOT EXISTS `grupored`;
-USE `grupored`;
-
---
 -- Table structure for table `clase`
 --
 
@@ -77,14 +70,14 @@ DROP TABLE IF EXISTS `elementodeclase`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `elementodeclase` (
-  `elemento_idElemento` int NOT NULL,
-  `clase_idClase` int NOT NULL,
+  `idElemento` int NOT NULL,
+  `idClase` int NOT NULL,
   `porcDano` int NOT NULL,
-  PRIMARY KEY (`elemento_idElemento`,`clase_idClase`),
-  KEY `fk_elemento_has_clase_clase1_idx` (`clase_idClase`),
-  KEY `fk_elemento_has_clase_elemento1_idx` (`elemento_idElemento`),
-  CONSTRAINT `fk_elemento_has_clase_clase1` FOREIGN KEY (`clase_idClase`) REFERENCES `clase` (`idClase`),
-  CONSTRAINT `fk_elemento_has_clase_elemento1` FOREIGN KEY (`elemento_idElemento`) REFERENCES `elemento` (`idElemento`)
+  PRIMARY KEY (`idElemento`,`idClase`),
+  KEY `fk_elemento_has_clase_clase1_idx` (`idClase`),
+  KEY `fk_elemento_has_clase_elemento1_idx` (`idElemento`),
+  CONSTRAINT `fk_elemento_has_clase_clase1` FOREIGN KEY (`idClase`) REFERENCES `clase` (`idClase`),
+  CONSTRAINT `fk_elemento_has_clase_elemento1` FOREIGN KEY (`idElemento`) REFERENCES `elemento` (`idElemento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -143,12 +136,12 @@ CREATE TABLE `hechizo` (
   `potencia` int NOT NULL,
   `precision` int NOT NULL,
   `aprendizaje` int NOT NULL,
-  `elemento_idElemento` int NOT NULL,
+  `idElemento` int NOT NULL,
   `idHechizoBase` int DEFAULT NULL,
   PRIMARY KEY (`idHechizo`),
-  KEY `fk_hechizo_elemento1_idx` (`elemento_idElemento`),
+  KEY `fk_hechizo_elemento1_idx` (`idElemento`),
   KEY `fk_hechizo_hechizo1_idx` (`idHechizoBase`),
-  CONSTRAINT `fk_hechizo_elemento1` FOREIGN KEY (`elemento_idElemento`) REFERENCES `elemento` (`idElemento`),
+  CONSTRAINT `fk_hechizo_elemento1` FOREIGN KEY (`idElemento`) REFERENCES `elemento` (`idElemento`),
   CONSTRAINT `fk_hechizo_hechizo1` FOREIGN KEY (`idHechizoBase`) REFERENCES `hechizo` (`idHechizo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -255,4 +248,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-03 22:34:31
+-- Dump completed on 2022-11-03 22:44:53
