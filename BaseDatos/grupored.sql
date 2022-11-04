@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: localhost    Database: grupored
 -- ------------------------------------------------------
--- Server version	8.0.31
+-- Server version	8.0.28
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,12 +14,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
---
--- Create schema grupored
---
-DROP DATABASE IF EXISTS `grupored`;
-CREATE DATABASE  IF NOT EXISTS `grupored`;
-USE `grupored`;
+
 --
 -- Table structure for table `clase`
 --
@@ -233,7 +228,7 @@ CREATE TABLE `objeto` (
   `efectoUso` varchar(200) NOT NULL,
   `peso` float NOT NULL,
   PRIMARY KEY (`idObjeto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -242,6 +237,7 @@ CREATE TABLE `objeto` (
 
 LOCK TABLES `objeto` WRITE;
 /*!40000 ALTER TABLE `objeto` DISABLE KEYS */;
+INSERT INTO `objeto` VALUES (1,'Pala','Permite hacer hueco para atacar a un rival por sorpesa',1.5),(2,'Pico',' Permite obtener materia prima de la naturaleza',2.8),(3,'Espada','Ataca a los enemigos, baja los ps de estos',5);
 /*!40000 ALTER TABLE `objeto` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -254,4 +250,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-03 22:56:16
+-- Dump completed on 2022-11-04 15:37:53
