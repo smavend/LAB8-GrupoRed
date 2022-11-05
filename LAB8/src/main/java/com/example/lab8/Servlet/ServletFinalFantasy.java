@@ -19,9 +19,7 @@ public class ServletFinalFantasy extends HttpServlet {
         RequestDispatcher requestDispatcher;
 
         DaoObjetos daoObjetos = new DaoObjetos();
-        DaoEnemigos daoEnemigos = new DaoEnemigos();
         ArrayList<Objeto> listaObjetos = daoObjetos.getObjectList();
-        ArrayList<Enemigo> listaEnemigos = daoEnemigos.listarEnemigos();
         Objeto objeto;
         if(action==null){
             RequestDispatcher view = request.getRequestDispatcher("home.jsp");
@@ -47,7 +45,7 @@ public class ServletFinalFantasy extends HttpServlet {
                     requestDispatcher.forward(request,response);
                     break;
                 case "newObject":
-                    requestDispatcher = request.getRequestDispatcher("/ObjectsDependency/addObjects.jsp");
+                    requestDispatcher = request.getRequestDispatcher("ObjectsDependency/addObjects.jsp");
                     requestDispatcher.forward(request,response);
                     break;
                 case "borrarObject":  // JobServlet?action=borrarObject&id=50
