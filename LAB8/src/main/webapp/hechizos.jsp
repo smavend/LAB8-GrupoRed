@@ -153,11 +153,13 @@
     </div>
 
     <div style="height: 30px; display: block;"></div>
-    <h1 style="font-weight: bold; color: white" align="center"> Lista de Hechizos en el Juego </h1>
+    <div align="center">
+      <h1 class="widget-title text-white d-inline-block mb-4"> Lista de Hechizos en el Juego </h1>
+    </div>
 
     <div style="height: 20px; display: block;"></div>
-    <div class="col-lg-5 col-md-8" style="margin-left: 30px;">
-      <form class="search-form" action="#">
+    <div class="col-lg-5 col-md-8" style="margin-left: 14px">
+      <form class="search-form" action="#" >
         <div class="input-group">
           <input type="search" class="form-control bg-transparent shadow-none rounded-0" placeholder="Buscar enemigo">
           <div class="input-group-append">
@@ -169,6 +171,53 @@
       </form>
     </div>
 
+    <div class="row">
+
+      <div class="col-sm-11">
+
+        <table class="table table-bordered text-center text-white table-transparent" style="margin: 0px 30px 30px 30px">
+          <thead class="bg-dark">
+          <tr>
+            <th class="h3" scope="col">Nombre</th>
+            <th class="h3" scope="col">Elemento</th>
+            <th class="h3" scope="col">Potencia</th>
+            <th class="h3" scope="col">Precisión</th>
+            <th class="h3" scope="col">Aprendizaje</th>
+            <th class="h3" scope="col">Hechizo Base</th>
+          </tr>
+          </thead>
+          <tbody style="color: #B0B0B0">
+          <tr>
+            <td>Ráfaga de Hechizos</td>
+            <td>Viento</td>
+            <td>300</td>
+            <td>90%</td>
+            <td>120</td>
+            <td>Hechizo Primero</td>
+          </tr>
+          <tr>
+            <td>Hechizo de Concentración</td>
+            <td>Fuego</td>
+            <td>500</td>
+            <td>110%</td>
+            <td>200</td>
+            <td>Rafaga de Hechizo</td>
+          </tr>
+          <tr>
+            <td>Hechizo Veloces</td>
+            <td>Agua</td>
+            <td>800</td>
+            <td>70%</td>
+            <td>100</td>
+            <td>Hechizo Primero</td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <div class="col-sm"></div>
+
+    </div>
   </div>
 
 
