@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 </head>
-<body data-spy="scroll" data-target="#navbar-nav-header" class="static-layout" style="background: #FFFFFF">
+<body data-spy="scroll" data-target="#navbar-nav-header" class="static-layout" style="background: #000000">
 <!-- START preloader-wrapper -->
 <div class="preloader-wrapper">
   <div class="preloader-inner">
@@ -124,49 +124,49 @@
   <!-- imagen y titulo-->
   <div class="main-content">
 
-    <div>
+    <div style="color: white">
       Imagen y título
     </div>
 
     <div style="height: 30px; display: block;"></div>
 
-    <div class="accordion" id="accordionExample" style="margin: 10px 20px 10px 20px">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            ¿Qué son los hechizos?
-          </button>
-        </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-          </div>
+    <div class="row">
+
+      <div class="col-sm-5" style="margin: 10px 5px 10px 80px; border:2px solid #e4112f; border-radius: 8px">
+        <div class="container-fluid" style="color: #ffffff">
+          <div style="height: 15px; display: block;"></div>
+          <p align="center" style="font-weight: bolder; color: #ffffff; font-size: 20px">¿Qué son los hechizos?</p>
+          <p align="center" style="color: #B0B0B0"> Las poderosas armas elementales que se usa
+            para poder librar la guerra en este mundo tan hostil. </p>
         </div>
       </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingTwo">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            Accordion Item #2
-          </button>
-        </h2>
-        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-          </div>
+      <div class="col-sm-5" style="margin: 10px 5px 10px 30px; border:2px solid #e4112f; border-radius: 8px">
+        <div class="container-fluid" style="color: #ffffff">
+          <div style="height: 10px; display: block;"></div>
+          <p align="center" style="font-weight: bolder; color: #ffffff; font-size: 20px">¿Cómo funcionan los hechizos?</p>
+          <p align="center" style="color: #B0B0B0"> Los hechizos se caracterizan por tener
+            un nombre, un elemento, potencia de hechizo y precisión del
+            hechizo. </p>
         </div>
       </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            Accordion Item #3
-          </button>
-        </h2>
-        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+
+    </div>
+
+    <div style="height: 30px; display: block;"></div>
+    <h1 style="font-weight: bold; color: white" align="center"> Lista de Hechizos en el Juego </h1>
+
+    <div style="height: 20px; display: block;"></div>
+    <div class="col-lg-5 col-md-8" style="margin-left: 30px;">
+      <form class="search-form" action="#">
+        <div class="input-group">
+          <input type="search" class="form-control bg-transparent shadow-none rounded-0" placeholder="Buscar enemigo">
+          <div class="input-group-append">
+            <button class="btn" type="submit">
+              <span class="fas fa-search"></span>
+            </button>
           </div>
         </div>
-      </div>
+      </form>
     </div>
 
   </div>
