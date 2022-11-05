@@ -22,6 +22,7 @@ public class ServletHeroe extends HttpServlet {
 
         switch (id){
             case "heroe":
+                System.out.println("nombre: " + listaHeroes.get(0).getNombre());
                 request.setAttribute("listaHeroes",listaHeroes);
                 requestDispatcher = request.getRequestDispatcher("heroes.jsp");
                 requestDispatcher.forward(request,response);

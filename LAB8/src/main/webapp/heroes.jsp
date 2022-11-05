@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.lab8.Beans.Heroes" %><%--
   Created by IntelliJ IDEA.
   User: USUARIO
   Date: 4/11/2022
@@ -7,6 +7,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="listaHeroes" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.Heroes>"/>
+<%
+  String searchText = (String) request.getAttribute("searchText");
+%>
 <html>
 <head>
   <meta charset="utf-8">
@@ -23,6 +26,7 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="plugins/fontawesome/css/all.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
   <!-- Main Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
@@ -104,244 +108,131 @@
     <!-- end of social-links -->
   </div></aside>
   <!-- end of sidenav -->
-  <div class="main-content">
-    <!-- start of mobile-nav -->
-    <header class="mobile-nav pt-4">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-6">
-            <a href="home.html">
-              <img src="images/logo.png" alt="">
-            </a>
+
+  <div class="container py-4 my-5">
+    <div class="row justify-content-between">
+      <div class="col-lg-12">
+        <div class="widget">
+          <h1 class="widget-title text-white d-inline-block mb-4">Lista de Héroes</h1>
+          <br>
+          <a class="btn btn-primary" href="<%=request.getContextPath()%>/ServletFinalFantasy?action=newObject" role="button">Añadir Héroe</a>
+          <br>
+          <div class="row">
+            <div class="col-lg-4 col-md-6">
+              <br>
+              <form class="search-form" method="post" action="<%=request.getContextPath()%>/ServletFinalFantasy?action=buscar">
+                <div class="input-group">
+                  <input type="search" name="searchText" class="form-control bg-transparent shadow-none rounded-0" id="busqueda"
+                         placeholder="Buscar Héroe" value="<%=searchText!=null?searchText:""%>">
+                  <div class="input-group-append">
+                    <button class="btn" type="submit">
+                      <span class="fas fa-search"></span>
+                    </button>
+                    <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=objetos" class="btn btn-secondary">Limpiar</a>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
-          <div class="col-6 text-right">
-            <button class="nav-toggle bg-transparent border text-white">
-              <span class="fas fa-bars"></span>
-            </button>
-          </div>
+
+          <table class="table table-bordered text-center text-white table-transparent">
+            <thead class="bg-dark">
+            <tr>
+              <th class="h3" scope="col">
+                <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=sortByid" style="color: white">
+                  ID
+                </a>
+              </th>
+              <th class="h3" scope="col">
+                <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=sortBynombre" style="color: white">
+                  Nombre
+                </a>
+              </th>
+              <th class="h3" scope="col">
+                Edad
+              </th>
+              <th class="h3" scope="col">
+                <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=sortBypeso" style="color: white">
+                  Genero
+                </a>
+              </th>
+              <th class="h3" scope="col">
+                <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=sortByhero" style="color: white">
+                  Clase
+                </a>
+              </th>
+              <th class="h3" scope="col">
+                Nivel Inicial
+              </th>
+              <th class="h3" scope="col">
+                Ataque
+              </th>
+              <th class="h3" scope="col">
+                Nombre Pareja
+              </th>
+              <th class="h3" scope="col">
+                Pts Exp
+              </th>
+              <th class="h3" scope="col">Editar</th>
+              <th class="h3" scope="col">Eliminar</th>
+              <th class="h3" scope="col">Inventario</th>
+            </thead>
+            <%for(Heroes hero : listaHeroes){%>
+            <tbody>
+            <tr>
+              <td><%=hero.getIdHeroe()%></td>
+              <td><%=hero.getNombre()%></td>
+              <td><%=hero.getEdad()%></td>
+              <td><%=hero.getGenero()%></td>
+              <td><%=hero.getClase()%></td>
+              <td><%=hero.getNivelInicial()%></td>
+              <td><%=hero.getAtaque()%></td>
+              <td><%=hero.getIdPareja()%></td>
+              <td><%=hero.getExperiencia()%></td>
+              <td>
+                <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=editObject&id=<%//=object.getIdObjeto()%>" class="btn btn-secondary">
+                  <i class="bi bi-pencil-square">
+                  </i>
+                </a>
+              </td>
+              <td>
+                <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=borrarObject&id=<%//=object.getIdObjeto()%>" class="btn btn-danger">
+                  <i class="bi bi-trash-fill">
+                  </i>
+                </a>
+              </td>
+              <td>
+                <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=editObject&id=<%//=object.getIdObjeto()%>" class="btn btn-secondary">
+                  <i class="bi bi-bag"></i>
+                </a>
+              </td>
+            </tr>
+            </tbody>
+            <%}%>
+          </table>
+          <!-- end table-style -->
         </div>
-      </div>
-    </header>
-    <div class="nav-toggle-overlay"></div>
-    <!-- end of mobile-nav -->
+        <img class="img-fluid" src="images/hero.jpg" alt="">
 
-    <div class="container pt-4 mt-5">
-      <div class="row justify-content-between">
-        <div class="col-lg-7">
-          <div class="card post-item bg-transparent border-0 mb-5">
-            <a href="post-details.html">
-              <img class="card-img-top rounded-0" src="images/post/post-lg/01.png" alt="">
-            </a>
-            <div class="card-body px-0">
-              <h2 class="card-title">
-                <a class="text-white opacity-75-onHover" href="post-details.html">Id reprehrenderit mollit in tempor naid incididunt cupidatat consectetura</a>
-              </h2>
-              <ul class="post-meta mt-3">
-                <li class="d-inline-block mr-3">
-                  <span class="fas fa-clock text-primary"></span>
-                  <a class="ml-1" href="#">24 April, 2016</a>
-                </li>
-                <li class="d-inline-block">
-                  <span class="fas fa-list-alt text-primary"></span>
-                  <a class="ml-1" href="#">Photography</a>
-                </li>
-              </ul>
-              <p class="card-text my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt leo mi, viverra urna. Arcu velit risus, condimentum ut vulputate cursus porttitor turpis in. Diam egestas nec massa, habitasse. Tincidt dui.</p>
-              <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
-            </div>
-          </div>
-          <!-- end of post-item -->
+        <!-- https://staticg.sportskeeda.com/editor/2022/10/45ab6-16650758896894-1920.jpg para vista de enemigo individual-->
+        <h1 class="text-white add-letter-space mt-4">Héroes</h1>
 
-          <div class="card post-item bg-transparent border-0 mb-5">
-            <a href="post-details.html">
-              <img class="card-img-top rounded-0" src="images/post/post-lg/02.png" alt="">
-            </a>
-            <div class="card-body px-0">
-              <h2 class="card-title">
-                <a class="text-white opacity-75-onHover" href="post-details.html">Excepteur ado Do minim duis laborum Fugiat ea labore qui veniam labore</a>
-              </h2>
-              <ul class="post-meta mt-3">
-                <li class="d-inline-block mr-3">
-                  <span class="fas fa-clock text-primary"></span>
-                  <a class="ml-1" href="#">24 April, 2016</a>
-                </li>
-                <li class="d-inline-block">
-                  <span class="fas fa-list-alt text-primary"></span>
-                  <a class="ml-1" href="#">Photography</a>
-                </li>
-              </ul>
-              <p class="card-text my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt leo mi, viverra urna. Arcu velit risus, condimentum ut vulputate cursus porttitor turpis in. Diam egestas nec massa, habitasse. Tincidt dui.</p>
-              <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
-            </div>
-          </div>
-          <!-- end of post-item -->
+        <br><br>
 
-          <div class="card post-item bg-transparent border-0 mb-5">
-            <a href="post-details.html">
-              <img class="card-img-top rounded-0" src="images/post/post-lg/03.png" alt="">
-            </a>
-            <div class="card-body px-0">
-              <h2 class="card-title">
-                <a class="text-white opacity-75-onHover" href="post-details.html">Aliquip excepteur cilludm irure laboris sint ea qui ex amet id. Ex nulla etno</a>
-              </h2>
-              <ul class="post-meta mt-3">
-                <li class="d-inline-block mr-3">
-                  <span class="fas fa-clock text-primary"></span>
-                  <a class="ml-1" href="#">24 April, 2016</a>
-                </li>
-                <li class="d-inline-block">
-                  <span class="fas fa-list-alt text-primary"></span>
-                  <a class="ml-1" href="#">Photography</a>
-                </li>
-              </ul>
-              <p class="card-text my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt leo mi, viverra urna. Arcu velit risus, condimentum ut vulputate cursus porttitor turpis in. Diam egestas nec massa, habitasse. Tincidt dui.</p>
-              <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
-            </div>
-          </div>
-          <!-- end of post-item -->
+        <p>Aquí encontraras todos los objetos que están dentro del juego.</p>
+        <p>Podrás ver los objetos que tienen tus héroes y enemigos favoritos</p>
+        <br>
+        <p>En esta wiki podrás encontrar a toda la información relacionada a los objetos del juego. Diviértete explorando sus caracterísiticas y descubre curiosidades que quizás aún no conocías. Nútrete de conocimiento.</p>
+
+        <div class="blockquote bg-dark my-5">
+          <p class="blockquote-text pl-2">Al usar los objetos correctos podrás avanzar en el juego con mayor faciliad. Recuerda que objetos poderosos conllevan una gran responsabilidad.</p>
+          <span class="blockquote-footer text-white h4 mt-3">Mold El Grande</span>
         </div>
-        <div class="col-lg-4 col-md-5">
-          <div class="widget text-center">
-            <img class="author-thumb-sm rounded-circle d-block mx-auto" src="images/author-sm.png" alt="">
-            <h2 class="widget-title text-white d-inline-block mt-4">About Me</h2>
-            <p class="mt-4">Lorem ipsum dolor sit coectetur adiing elit. Tincidunfywjt leo mi, viearra urna. Arcu ve isus, condimentum ut vulpate cursus por turpis.</p>
-            <ul class="list-inline mt-3">
-              <li class="list-inline-item">
-                <a href="#!" class="text-white text-primary-onHover p-2">
-                  <span class="fab fa-twitter"></span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#!" class="text-white text-primary-onHover p-2">
-                  <span class="fab fa-facebook-f"></span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#!" class="text-white text-primary-onHover p-2">
-                  <span class="fab fa-instagram"></span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#!" class="text-white text-primary-onHover p-2">
-                  <span class="fab fa-linkedin-in"></span>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <!-- end of author-widget -->
 
-          <div class="widget bg-dark p-4 text-center">
-            <h2 class="widget-title text-white d-inline-block mt-4">Subscribe Blog</h2>
-            <p class="mt-4">Lorem ipsum dolor sit coectetur elit. Tincidu nfywjt leo mi, urna. Arcu ve isus, condimentum ut vulpate cursus por.</p>
-            <form action="#">
-              <div class="form-group">
-                <input type="email" class="form-control bg-transparent rounded-0 my-4" placeholder="Your Email Address">
-                <button class="btn btn-primary">Subscribe Now <img src="images/arrow-right.png" alt=""></button>
-              </div>
-            </form>
-          </div>
-          <!-- end of subscription-widget -->
 
-          <div class="widget">
-            <div class="mb-5 text-center">
-              <h2 class="widget-title text-white d-inline-block">Featured Posts</h2>
-            </div>
-            <div class="card post-item bg-transparent border-0 mb-5">
-              <a href="post-details.html">
-                <img class="card-img-top rounded-0" src="images/post/post-sm/01.png" alt="">
-              </a>
-              <div class="card-body px-0">
-                <h2 class="card-title">
-                  <a class="text-white opacity-75-onHover" href="post-details.html">Excepteur ado Do minimal duis laborum Fugiat ea</a>
-                </h2>
-                <ul class="post-meta mt-3 mb-4">
-                  <li class="d-inline-block mr-3">
-                    <span class="fas fa-clock text-primary"></span>
-                    <a class="ml-1" href="#">24 April, 2016</a>
-                  </li>
-                  <li class="d-inline-block">
-                    <span class="fas fa-list-alt text-primary"></span>
-                    <a class="ml-1" href="#">Photography</a>
-                  </li>
-                </ul>
-                <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
-              </div>
-            </div>
-            <!-- end of widget-post-item -->
-            <div class="card post-item bg-transparent border-0 mb-5">
-              <a href="post-details.html">
-                <img class="card-img-top rounded-0" src="images/post/post-sm/02.png" alt="">
-              </a>
-              <div class="card-body px-0">
-                <h2 class="card-title">
-                  <a class="text-white opacity-75-onHover" href="post-details.html">Excepteur ado Do minimal duis laborum Fugiat ea</a>
-                </h2>
-                <ul class="post-meta mt-3 mb-4">
-                  <li class="d-inline-block mr-3">
-                    <span class="fas fa-clock text-primary"></span>
-                    <a class="ml-1" href="#">24 April, 2016</a>
-                  </li>
-                  <li class="d-inline-block">
-                    <span class="fas fa-list-alt text-primary"></span>
-                    <a class="ml-1" href="#">Photography</a>
-                  </li>
-                </ul>
-                <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
-              </div>
-            </div>
-            <!-- end of widget-post-item -->
-          </div>
-          <!-- end of post-items widget -->
-        </div>
       </div>
     </div>
-
-    <!-- start of footer -->
-    <footer class="bg-dark">
-      <div class="container">
-        <div class="row text-center">
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Inspirations</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Templates</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Resource</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Company</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- end of footer -->
   </div>
-
 </section>
 <!-- END main-wrapper -->
 
@@ -351,5 +242,16 @@
 
 <!-- Main Script -->
 <script src="js/script.js"></script>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+  <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+</svg>
 </body>
 </html>
