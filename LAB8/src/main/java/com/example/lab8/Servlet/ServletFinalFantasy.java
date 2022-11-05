@@ -70,7 +70,25 @@ public class ServletFinalFantasy extends HttpServlet {
                     requestDispatcher = request.getRequestDispatcher("/ObjectsDependency/editObjects.jsp");
                     requestDispatcher.forward(request,response);
                     break;
+                case "sortByid":
+                    ArrayList<BObjetos> listaByid = daoObjetos.getObjectListSortByID();
+                    request.setAttribute("listaObjetos",listaByid);
+                    requestDispatcher = request.getRequestDispatcher("objetos.jsp");
+                    requestDispatcher.forward(request,response);
+                    break;
 
+                case "sortBynombre":
+                    ArrayList<BObjetos> listaByName = daoObjetos.getObjectListSortByname();
+                    request.setAttribute("listaObjetos",listaByName);
+                    requestDispatcher = request.getRequestDispatcher("objetos.jsp");
+                    requestDispatcher.forward(request,response);
+                    break;
+                case "sortBypeso":
+                    ArrayList<BObjetos> listaBypeso = daoObjetos.getObjectListSortBypeso();
+                    request.setAttribute("listaObjetos",listaBypeso);
+                    requestDispatcher = request.getRequestDispatcher("objetos.jsp");
+                    requestDispatcher.forward(request,response);
+                    break;
             }
         }
     }
@@ -123,13 +141,12 @@ public class ServletFinalFantasy extends HttpServlet {
                 break;
             case "buscar":
                 String searchText = request.getParameter("searchText");
-
                 ArrayList<BObjetos> lista = daoObjetos.searchByName(searchText);
                 request.setAttribute("listaObjetos", lista);
                 request.setAttribute("searchText",searchText);
-
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("objetos.jsp");
                 requestDispatcher.forward(request, response);
+
                 break;
         }
     }

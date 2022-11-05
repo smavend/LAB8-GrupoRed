@@ -9,7 +9,6 @@
 <jsp:useBean id="listaObjetos" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.BObjetos>"/>
 <%
   String searchText = (String) request.getAttribute("searchText");
-
 %>
 <html>
 <head>
@@ -157,11 +156,27 @@
             <thead class="bg-dark">
             <tr>
 
-              <th class="h3" scope="col">ID</th>
-              <th class="h3" scope="col">Nombre</th>
+              <th class="h3" scope="col">
+                <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=sortByid" style="color: white">
+                  ID
+                </a>
+              </th>
+              <th class="h3" scope="col">
+                <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=sortBynombre" style="color: white">
+                  Nombre
+                </a>
+              </th>
               <th class="h3" scope="col">Efecto/Uso</th>
-              <th class="h3" scope="col">Peso</th>
-              <th class="h3" scope="col">Héroe</th>
+              <th class="h3" scope="col">
+                <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=sortBypeso" style="color: white">
+                  Peso
+                </a>
+              </th>
+              <th class="h3" scope="col">
+                <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=sortByhero" style="color: white">
+                  Héroe
+                </a>
+              </th>
               <th class="h3" scope="col">Editar</th>
               <th class="h3" scope="col">Eliminar</th>
             </tr>
