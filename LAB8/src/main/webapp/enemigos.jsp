@@ -150,10 +150,59 @@
           <p>Rellenar aquí</p>
           <br>
           <p>En esta wiki podrás encontrar a todos los enemigos vigentes del juego. Diviértete explorando sus caracterísiticas y descubre curiosidades que quizás aún no conocías. Nútrete de conocimiento, querido héroe.</p>
+          <br>
 
-          <div class="blockquote bg-dark my-5">
-            <p class="blockquote-text pl-2">A wise girls knows her limit to touch sky.Rpelat sapiesd praesentium adipisci.The question me an idea so asered</p>
-            <span class="blockquote-footer text-white h4 mt-3">James Hopkins</span>
+          <div class="widget bg-dark p-4 text-center">
+            <h2 class="widget-title text-white d-inline-block mt-4">Lo más popular en enemigos...<br></h2>
+            <div class="container">
+              <div class="row text-center">
+                <div class="col-lg-6 col-lg-6 col-sm-6 col-12 mb-5">
+                  <h4 style="padding-top: 10px;">Clase más común</h4>
+                  <div class="row justify-content-center">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center justify-content-center">
+                      <span class="me-2 text-xs font-weight-bold">Dragón</span>
+                      <div class="figure">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="80" height="50" viewBox="-5 20 120 100">
+                          <line x1="10" y1="70" x2="100" y2="70" stroke-width="25" stroke="Gainsboro" stroke-linecap="round"></line>
+                          <line x1="10" y1="70" x2="60" y2="70" stroke-width="20" stroke="crimson" stroke-linecap="round"></line>
+                        </svg>
+                      </div>
+                      <span class="me-2 text-xs font-weight">60%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-lg-6 col-sm-6 col-12 mb-5">
+                  <h4 style="padding-top: 10px;">Objeto regalado más común</h4>
+                  <div class="row justify-content-center">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center justify-content-center">
+                      <span class="me-2 text-xs font-weight-bold">Pico</span>
+                      <div class="figure">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="80" height="50" viewBox="-5 20 120 100">
+                          <line x1="10" y1="70" x2="100" y2="70" stroke-width="25" stroke="Gainsboro" stroke-linecap="round"></line>
+                          <line x1="10" y1="70" x2="50.6" y2="70" stroke-width="20" stroke="crimson" stroke-linecap="round"></line>
+                        </svg>
+                      </div>
+                      <span class="me-2 text-xs font-weight">50.6%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-lg-12 col-sm-12 col-12 mb-5">
+                  <h4 style="padding-top: 10px;">Enemigos sin género</h4>
+                  <div class="row justify-content-center">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center justify-content-center">
+                      <span class="me-2 text-xs font-weight-bold">Sin género</span>
+                      <div class="figure">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="80" height="50" viewBox="-5 20 120 100">
+                          <line x1="10" y1="70" x2="100" y2="70" stroke-width="25" stroke="Gainsboro" stroke-linecap="round"></line>
+                          <line x1="10" y1="70" x2="20" y2="70" stroke-width="20" stroke="crimson" stroke-linecap="round"></line>
+                        </svg>
+                      </div>
+                      <span class="me-2 text-xs font-weight">20%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="widget">
