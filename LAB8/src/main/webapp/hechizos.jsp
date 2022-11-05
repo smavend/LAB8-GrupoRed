@@ -53,7 +53,7 @@
     <div class="navbar navbar-dark my-4 p-0 font-primary">
       <ul class="navbar-nav w-100">
         <li class="nav-item ">
-          <a class="nav-link text-white px-0 pt-0" href="<%=request.getContextPath()%>/ServletFinalFantasy">Home</a>
+          <a class="nav-link text-white px-0 pt-0" href="<%=request.getContextPath()%>/ServletFinalFantasy">Inicio</a>
         </li>
 
         <li class="nav-item ">
