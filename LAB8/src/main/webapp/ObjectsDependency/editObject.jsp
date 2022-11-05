@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean id="objeto" type="com.example.lab8.Beans.BObjetos" scope="request"/>
+<jsp:useBean id="objeto" type="com.example.lab8.Beans.Objeto" scope="request"/>
 <html>
 <head>
   <meta charset="utf-8">
@@ -63,8 +63,8 @@
 
         <li class="nav-item  accordion">
           <div id="drop-menu" class="drop-menu collapse">
-            <a class="d-block " href="<%=request.getContextPath()%>/ServletFinalFantasy?action=enemigos">Enemigos</a>
-            <a class="d-block " href="<%=request.getContextPath()%>/ServletFinalFantasy?action=claseEnemigos">Clases de Enemigos</a>
+            <a class="d-block " href="<%=request.getContextPath()%>/Enemigos">Enemigos</a>
+            <a class="d-block " href="<%=request.getContextPath()%>/Enemigo?id=clase">Clases de Enemigos</a>
           </div>
           <a class="nav-link text-white" href="#!" role="button" data-toggle="collapse" data-target="#drop-menu" aria-expanded="false" aria-controls="drop-menu">Lado Maligno</a>
         </li>

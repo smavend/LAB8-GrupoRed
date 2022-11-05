@@ -1,6 +1,8 @@
 package com.example.lab8.Servlet;
 
-import com.example.lab8.Beans.BObjetos;
+import com.example.lab8.Beans.Enemigo;
+import com.example.lab8.Beans.Objeto;
+import com.example.lab8.Daos.DaoEnemigos;
 import com.example.lab8.Daos.DaoObjetos;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -17,18 +19,16 @@ public class ServletFinalFantasy extends HttpServlet {
         RequestDispatcher requestDispatcher;
 
         DaoObjetos daoObjetos = new DaoObjetos();
-        ArrayList<BObjetos>  listaOBjetos = daoObjetos.getObjectList();
-        BObjetos objeto;
+        DaoEnemigos daoEnemigos = new DaoEnemigos();
+        ArrayList<Objeto> listaObjetos = daoObjetos.getObjectList();
+        ArrayList<Enemigo> listaEnemigos = daoEnemigos.listarEnemigos();
+        Objeto objeto;
         if(action==null){
             RequestDispatcher view = request.getRequestDispatcher("home.jsp");
             view.forward(request,response);
         }
         else {
             switch (action){
-                case "enemigos":
-                    requestDispatcher = request.getRequestDispatcher("enemigos.jsp");
-                    requestDispatcher.forward(request,response);
-                    break;
                 case "claseEnemigos":
                     requestDispatcher = request.getRequestDispatcher("clases.jsp");
                     requestDispatcher.forward(request,response);
@@ -42,7 +42,7 @@ public class ServletFinalFantasy extends HttpServlet {
                     requestDispatcher.forward(request,response);
                     break;
                 case "objetos":
-                    request.setAttribute("listaObjetos",listaOBjetos);
+                    request.setAttribute("listaObjetos",listaObjetos);
                     requestDispatcher = request.getRequestDispatcher("objetos.jsp");
                     requestDispatcher.forward(request,response);
                     break;
@@ -50,7 +50,7 @@ public class ServletFinalFantasy extends HttpServlet {
                     requestDispatcher = request.getRequestDispatcher("/ObjectsDependency/addObjects.jsp");
                     requestDispatcher.forward(request,response);
                     break;
-                case "borrar":  // JobServlet?action=borrar&id=50
+                case "borrarObject":  // JobServlet?action=borrarObject&id=50
                     String objectID = request.getParameter("id");
                     daoObjetos.deleteObject(objectID);
                     response.sendRedirect(request.getContextPath() + "/ServletFinalFantasy?action=objetos");
@@ -109,7 +109,7 @@ public class ServletFinalFantasy extends HttpServlet {
                         if (peso_f<0){
                             peso_f = peso_f*-1;
                         }
-                        BObjetos newObject = new BObjetos();
+                        Objeto newObject = new Objeto();
                         newObject.setNombre(nombre);
                         newObject.setEfectoUso(efecto);
                         newObject.setPeso(peso_f);
@@ -141,7 +141,12 @@ public class ServletFinalFantasy extends HttpServlet {
                 break;
             case "buscar":
                 String searchText = request.getParameter("searchText");
+<<<<<<< HEAD
                 ArrayList<BObjetos> lista = daoObjetos.searchByName(searchText);
+=======
+
+                ArrayList<Objeto> lista = daoObjetos.searchByName(searchText);
+>>>>>>> bcaf5b3a76600e793bd0d36f031c2259afcd9acb
                 request.setAttribute("listaObjetos", lista);
                 request.setAttribute("searchText",searchText);
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("objetos.jsp");

@@ -117,7 +117,7 @@ CREATE TABLE `enemigo` (
   KEY `fk_enemigo_clase1_idx` (`idClase`),
   CONSTRAINT `fk_enemigo_clase1` FOREIGN KEY (`idClase`) REFERENCES `clase` (`idClase`),
   CONSTRAINT `fk_enemigo_objeto1` FOREIGN KEY (`idObjeto`) REFERENCES `objeto` (`idObjeto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,6 +126,7 @@ CREATE TABLE `enemigo` (
 
 LOCK TABLES `enemigo` WRITE;
 /*!40000 ALTER TABLE `enemigo` DISABLE KEYS */;
+INSERT INTO `enemigo` VALUES (1,'Atrix',20,12,41.1,'M',1,1);
 /*!40000 ALTER TABLE `enemigo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,7 +181,7 @@ CREATE TABLE `heroe` (
   PRIMARY KEY (`idHeroe`),
   KEY `fk_heroes_heroes_idx` (`idPareja`),
   CONSTRAINT `fk_heroes_heroes` FOREIGN KEY (`idPareja`) REFERENCES `heroe` (`idHeroe`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -234,7 +235,7 @@ CREATE TABLE `objeto` (
   `efectoUso` varchar(200) NOT NULL,
   `peso` float NOT NULL,
   PRIMARY KEY (`idObjeto`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -243,7 +244,7 @@ CREATE TABLE `objeto` (
 
 LOCK TABLES `objeto` WRITE;
 /*!40000 ALTER TABLE `objeto` DISABLE KEYS */;
-INSERT INTO `objeto` VALUES (1,'Pala','Permite hacer hueco para atacar a un rival por sorpesa',1.5),(2,'Pico',' Permite obtener materia prima de la naturaleza',2.8),(3,'Espada','Ataca a los enemigos, baja los ps de estos',5);
+INSERT INTO `objeto` VALUES (1,'Pala','Permite hacer hueco para atacar a un rival por sorpesa',1.5),(2,'Pico',' Permite obtener materia prima de la naturaleza',2.8),(3,'Espada','Ataca a los enemigos, baja los ps de estos',5),(4,'Hacha','Peleas y defensa. Quita la mitad de vida a los enemigos de la clase Dragón',1.2),(5,'Hi','destruccion',8.9),(6,'Hola','KAJSJA',4.1);
 /*!40000 ALTER TABLE `objeto` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -256,4 +257,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-04 16:04:06
+-- Dump completed on 2022-11-04 19:50:54
