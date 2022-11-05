@@ -1,7 +1,7 @@
 package com.example.lab8.Servlet;
 
-import com.example.lab8.Beans.Enemigo;
-import com.example.lab8.Daos.DaoEnemigos;
+import com.example.lab8.Beans.Heroes;
+import com.example.lab8.Daos.DaoHeroes;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -16,8 +16,13 @@ public class ServletHeroe extends HttpServlet {
         String id = request.getParameter("id");
         id = (id == null) ? "heroe" : id;
         RequestDispatcher requestDispatcher;
+
+        DaoHeroes daoHeroes = new DaoHeroes();
+        ArrayList<Heroes> listaHeroes = daoHeroes.getHeroesList();
+
         switch (id){
             case "heroe":
+                request.setAttribute("listaHeroes",listaHeroes);
                 requestDispatcher = request.getRequestDispatcher("heroes.jsp");
                 requestDispatcher.forward(request,response);
                 break;

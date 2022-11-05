@@ -1,6 +1,6 @@
 package com.example.lab8.Beans;
 
-public class Heores {
+public class Heroes {
     private int idHeroe;
     private int idPareja;
     private String nombre;
