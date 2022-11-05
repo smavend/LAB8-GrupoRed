@@ -57,7 +57,7 @@
         </li>
 
         <li class="nav-item ">
-          <a class="nav-link text-white px-0" href="<%=request.getContextPath()%>/ServletFinalFantasy?action=heroes">Héroes</a>
+          <a class="nav-link text-white px-0" href="<%=request.getContextPath()%>/Heroes">Héroes</a>
         </li>
 
         <li class="nav-item active accordion">
