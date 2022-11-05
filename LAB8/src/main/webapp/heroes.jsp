@@ -115,7 +115,7 @@
         <div class="widget">
           <h1 class="widget-title text-white d-inline-block mb-4">Lista de Héroes</h1>
           <br>
-          <a class="btn btn-primary" href="<%=request.getContextPath()%>/ServletFinalFantasy?action=newObject" role="button">Añadir Héroe</a>
+          <a class="btn btn-primary" href="<%=request.getContextPath()%>/ServletHeroe?id=newHero" role="button">Añadir Héroe</a>
           <br>
           <div class="row">
             <div class="col-lg-4 col-md-6">
@@ -190,19 +190,19 @@
               <td><%=hero.getIdPareja()%></td>
               <td><%=hero.getExperiencia()%></td>
               <td>
-                <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=editObject&id=<%//=object.getIdObjeto()%>" class="btn btn-secondary">
+                <a href="<%=request.getContextPath()%>/ServletHeroe?id=editHero&id=<%=hero.getIdHeroe()%>" class="btn btn-secondary">
                   <i class="bi bi-pencil-square">
                   </i>
                 </a>
               </td>
               <td>
-                <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=borrarObject&id=<%//=object.getIdObjeto()%>" class="btn btn-danger">
+                <a href="<%=request.getContextPath()%>/ServletHeroe?id=deleteHero&id=<%=hero.getIdHeroe()%>" class="btn btn-danger">
                   <i class="bi bi-trash-fill">
                   </i>
                 </a>
               </td>
               <td>
-                <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=editObject&id=<%//=object.getIdObjeto()%>" class="btn btn-secondary">
+                <a href="<%=request.getContextPath()%>/ServletHeroe?id=inventario&id=<%=hero.getIdHeroe()%>" class="btn btn-secondary">
                   <i class="bi bi-bag"></i>
                 </a>
               </td>

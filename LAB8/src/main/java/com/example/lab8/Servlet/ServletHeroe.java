@@ -27,6 +27,19 @@ public class ServletHeroe extends HttpServlet {
                 requestDispatcher = request.getRequestDispatcher("heroes.jsp");
                 requestDispatcher.forward(request,response);
                 break;
+            case"newHero":
+                requestDispatcher = request.getRequestDispatcher("/HeroDependency/addHero.jsp");
+                requestDispatcher.forward(request,response);
+                break;
+            case "deleteHero":
+                System.out.println("Borrando heroe");
+                break;
+            case "inventario":
+                System.out.println("Inventario Heroe");
+                break;
+            case "editHero":
+                System.out.println("Eduicioon");
+                break;
         }
 
     }
