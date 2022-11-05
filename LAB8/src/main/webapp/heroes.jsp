@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="listaHeroes" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.Heroes>"/>
 <html>
 <head>
   <meta charset="utf-8">
