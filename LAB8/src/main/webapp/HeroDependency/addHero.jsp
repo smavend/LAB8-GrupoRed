@@ -115,47 +115,40 @@
                 <div class="widget">
                     <h1 class="widget-title text-white d-inline-block mb-4">Creación de nuevo héroe</h1>
                     <br>
-                    <form method="post" action="<%=request.getContextPath()%>/ServletFinalFantasy?action=guardar">
-                        <table>
-                            <tr>
-                                <td>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item" style="border-radius: 10%;">Nombres:</li>
-                                    </ul>
-                                    <br>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item" style="border-radius: 10%;">Edad:</li>
-                                    </ul>
-                                    <br>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item" style="border-radius: 10%;">Genero:</li>
-                                    </ul>
-                                </td>
-                                <td style="padding-left: 1rem;">
-                                    <ul class="list-group list-group-flush">
-                                        <input type="text" class="form-control"  style="color: black" id="nombre" name="nombre"  value="">
-                                    </ul>
-                                    <br>
-                                    <ul class="list-group list-group-flush">
-                                        <input type="text" class="form-control" style="color: black"   id="efecto" name="efecto"  value=" ">
-                                    </ul>
-                                    <br>
-                                    <ul class="list-group list-group-flush">
-                                        <div class="input-group mb-3">
-                                            <label class="input-group-text" for="inputGroupSelect01">Genero</label>
-                                            <select class="form-select" id="inputGroupSelect01">
-                                                <option selected>Choose...</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                        </div>
-                                    </ul>
-
-                                </td>
-                            </tr>
-                        </table>
-                        <br>
+                    <form method="post" action="<%=request.getContextPath()%>/ServletHeroe?id=guardar">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" >Nombre</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="nombre" name="nombre"  style="color:black ">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" >Edad</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  id="edad" name="edad" style="color:black">
+                        </div>
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="genero">Options</label>
+                            <select class="form-select" id="genero" name="genero">
+                                <option selected>Escoger...</option>
+                                <option value="M">Masculino</option>
+                                <option value="F">Femenino</option>
+                                <option value="O">Otros</option>
+                            </select>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" >Clase</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  id="clase" name="clase" style="color:black">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" >Nivel Inicial</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="nivelInicial" name="nivelInicial" style="color:black">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" >Ataque</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="ataque" name="ataque" style="color:black">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" >Pareja</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="pareja" name="pareja" style="color:black">
+                        </div>
                         <div class="d-flex justify-content-center">
                             <button type="submit" class="btn btn-primary">Confirmar</button>
                         </div>
