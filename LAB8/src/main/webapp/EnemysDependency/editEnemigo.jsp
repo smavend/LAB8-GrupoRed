@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="enemy" scope="request" type="com.example.lab8.Beans.Enemigo"/>
+<jsp:useBean id="listaEnemigos" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.Enemigo>"/>
 <html>
     <head>
         <meta charset="utf-8">
@@ -131,21 +132,25 @@
                     <div class="row">
                         <div class="col-md-10">
                             <div class="contact-form bg-dark">
-                                <h1 class="text-white add-letter-space mb-5">Lets Contact Us</h1>
+                                <h1 class="text-white add-letter-space mb-5">Edita a tu enemigo</h1>
                                 <form method="POST" class="needs-validation" novalidate>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group mb-5">
-                                                <label for="firstName" class="text-black-300">Your First Name</label>
-                                                <input type="text" id="firstName" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" placeholder="Robert Lee" required>
-                                                <p class="invalid-feedback">Your first-name is required!</p>
+                                                <label for="nombre" class="text-black-300">Nombre</label>
+                                                    <input type="text" id="nombre" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="nombre"  value="<%=enemy.getNombre()%>" required>
+
+                                                <p class="invalid-feedback">¡Se necesita un nombre!</p>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-2">
                                             <div class="form-group mb-5">
-                                                <label for="lastName" class="text-black-300">Your Last Name</label>
-                                                <input type="text" id="lastName" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" placeholder="Anderson" required>
-                                                <p class="invalid-feedback">Your last-name is required!</p>
+                                                <label for="clase" class="text-black-300">Clase</label>
+                                                <select class="d-block w-100">
+                                                    <% for (Enemigo e: listaEnemigos) {%>
+                                                    <option id="clase" name="clase" value="<%=e.getClase()%>" <%=(e.getIdClase()==enemy.getIdClase())?"selected":""%>><%=e.getIdClase()%></option>
+                                                    <% } %>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -163,13 +168,6 @@
                                                     <option value="2">Business Purpose</option>
                                                     <option value="3">Want to say hello</option>
                                                 </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group mb-5">
-                                                <label for="message" class="text-black-300">Your message</label>
-                                                <textarea name="message" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" placeholder="Lorem Ipsum is simply dummy text of the printing and..." required></textarea>
-                                                <p class="invalid-feedback">Message is required!</p>
                                             </div>
                                         </div>
                                         <div class="col-md-12">

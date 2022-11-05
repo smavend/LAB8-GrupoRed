@@ -37,6 +37,8 @@ public class ServletEnemigo extends HttpServlet {
 
                 if(e!=null){
                     request.setAttribute("enemy", e);
+                    request.setAttribute("listaEnemigos", listaEnemigos);
+                    
                     requestDispatcher = request.getRequestDispatcher("EnemysDependency/editEnemigo.jsp");
                     requestDispatcher.forward(request, response);
                 }

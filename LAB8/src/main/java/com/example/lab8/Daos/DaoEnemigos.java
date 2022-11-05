@@ -17,14 +17,15 @@ public class DaoEnemigos {
         String user = "root";
         String pasw = "root";
         String url = "jdbc:mysql://localhost:3306/grupored";
-        String sql = "SELECT e.nombre, c.nombre, ataque, experiencia, o.nombre, probObjeto, genero, e.idEnemigo" +
+        String sql = "SELECT e.nombre, c.nombre, ataque, experiencia, o.nombre, probObjeto, genero, e.idEnemigo, c.idClase" +
                 " FROM enemigo e, clase c, objeto o " +
                 "WHERE e.idClase = c.idClase and e.idObjeto=o.idObjeto";
         try (Connection connection = DriverManager.getConnection(url, user, pasw);
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
+            Enemigo enemigo = null;
             while (rs.next()) {
-                Enemigo enemigo = new Enemigo();
+                enemigo = new Enemigo();
                 enemigo.setNombre(rs.getString(1));
                 enemigo.setClase(rs.getString(2));
                 enemigo.setAtaque(rs.getInt(3));
@@ -33,6 +34,7 @@ public class DaoEnemigos {
                 enemigo.setProbObjeto(rs.getFloat(6));
                 enemigo.setGenero(rs.getString(7));
                 enemigo.setIdEnemigo(rs.getInt(8));
+                enemigo.setIdClase(rs.getInt(9));
 
                 lista.add(enemigo);
             }
@@ -53,7 +55,7 @@ public class DaoEnemigos {
         String user = "root";
         String pasw = "root";
         String url = "jdbc:mysql://localhost:3306/grupored";
-        String sql = "SELECT e.nombre, c.idClase, ataque, experiencia, o.nombre, probObjeto, genero, e.idEnemigo" +
+        String sql = "SELECT e.nombre, c.nombre, ataque, experiencia, o.nombre, probObjeto, genero, e.idEnemigo, c.idClase" +
                 " FROM enemigo e, clase c, objeto o " +
                 "WHERE e.idClase = c.idClase and e.idObjeto=o.idObjeto and e.idEnemigo = ?";
         Enemigo enemigo = null;
@@ -68,13 +70,14 @@ public class DaoEnemigos {
                     enemigo = new Enemigo();
 
                     enemigo.setNombre(rs.getString(1));
-                    enemigo.setIdClase(rs.getInt(2));
+                    enemigo.setClase(rs.getString(2));
                     enemigo.setAtaque(rs.getInt(3));
                     enemigo.setExperiencia(rs.getInt(4));
                     enemigo.setObjetoDado(rs.getString(5));
                     enemigo.setProbObjeto(rs.getFloat(6));
                     enemigo.setGenero(rs.getString(7));
                     enemigo.setIdEnemigo(rs.getInt(8));
+                    enemigo.setIdClase(rs.getInt(9));
                 }
             }
 
@@ -82,7 +85,6 @@ public class DaoEnemigos {
         catch (SQLException e){
             throw new RuntimeException();
         }
-
         return enemigo;
     }
 }
