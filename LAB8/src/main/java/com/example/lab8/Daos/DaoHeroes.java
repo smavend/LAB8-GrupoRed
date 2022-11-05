@@ -40,7 +40,6 @@ public class DaoHeroes {
     }
 
     public void guardar(Heroes hero) {
-        System.out.println("ENTRA A GUARDAR");
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -61,6 +60,28 @@ public class DaoHeroes {
             pstmt.setInt(6,hero.getNivelInicial());
             pstmt.setInt(7,hero.getAtaque());
 
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public void deleteHero(int heroid) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String url = "jdbc:mysql://localhost:3306/grupored";
+        String sql = "DELETE FROM heroe WHERE idHeroe = ?";
+
+        try (Connection connection = DriverManager.getConnection(url, "root", "root");
+             PreparedStatement pstmt = connection.prepareStatement(sql)) {
+
+            pstmt.setInt(1,heroid);
             pstmt.executeUpdate();
 
         } catch (SQLException e) {

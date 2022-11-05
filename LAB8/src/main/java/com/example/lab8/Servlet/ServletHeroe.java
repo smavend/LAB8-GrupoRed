@@ -34,7 +34,11 @@ public class ServletHeroe extends HttpServlet {
                 requestDispatcher.forward(request,response);
                 break;
             case "deleteHero":
-                System.out.println("Borrando heroe");
+                String heroID = request.getParameter("heroid");
+                int idHERO = Integer.parseInt(heroID);
+                daoHeroes.deleteHero(idHERO);
+
+                response.sendRedirect(request.getContextPath() + "/ServletHeroe");
                 break;
             case "inventario":
                 System.out.println("Inventario Heroe");
@@ -77,9 +81,7 @@ public class ServletHeroe extends HttpServlet {
                         newHero.setClase(clase);
                         newHero.setIdPareja(idParjea);
                         newHero.setExperiencia(daoHeroes.getExp(nivelInicial));
-
                         daoHeroes.guardar(newHero);
-                        System.out.println("GUARDA");
                         response.sendRedirect(request.getContextPath() + "/ServletHeroe");
 
                     } catch (NumberFormatException e) {

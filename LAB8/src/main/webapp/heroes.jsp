@@ -196,7 +196,7 @@
                 </a>
               </td>
               <td>
-                <a href="<%=request.getContextPath()%>/ServletHeroe?id=deleteHero&id=<%=hero.getIdHeroe()%>" class="btn btn-danger">
+                <a href="<%=request.getContextPath()%>/ServletHeroe?id=deleteHero&heroid=<%=hero.getIdHeroe()%>" class="btn btn-danger">
                   <i class="bi bi-trash-fill">
                   </i>
                 </a>
