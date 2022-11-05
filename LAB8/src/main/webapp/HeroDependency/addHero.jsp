@@ -124,11 +124,11 @@
                                     </ul>
                                     <br>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item" style="border-radius: 10%;">Efecto:</li>
+                                        <li class="list-group-item" style="border-radius: 10%;">Edad:</li>
                                     </ul>
                                     <br>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item" style="border-radius: 10%;">Peso:</li>
+                                        <li class="list-group-item" style="border-radius: 10%;">Genero:</li>
                                     </ul>
                                 </td>
                                 <td style="padding-left: 1rem;">
@@ -141,8 +141,17 @@
                                     </ul>
                                     <br>
                                     <ul class="list-group list-group-flush">
-                                        <input type="text" class="form-control"  style="color: black" id="peso" name="peso"  value=" ">
+                                        <div class="input-group mb-3">
+                                            <label class="input-group-text" for="inputGroupSelect01">Genero</label>
+                                            <select class="form-select" id="inputGroupSelect01">
+                                                <option selected>Choose...</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
                                     </ul>
+
                                 </td>
                             </tr>
                         </table>
