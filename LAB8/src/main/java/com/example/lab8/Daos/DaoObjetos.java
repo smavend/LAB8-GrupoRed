@@ -145,11 +145,11 @@ public class DaoObjetos {
 
         String url = "jdbc:mysql://localhost:3306/grupored";
         ArrayList<Objeto> lista = new ArrayList<>();
-        String sql = "select * from objeto where nombre = ?";
+        String sql = "select * from objeto where lower(nombre) like ?";
         try (Connection connection = DriverManager.getConnection(url, "root", "root");
              PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
-            pstmt.setString(1, nombre);
+            pstmt.setString(1, "%"+nombre+"%");
 
             try (ResultSet rs = pstmt.executeQuery()) {
                 while (rs.next()) {
