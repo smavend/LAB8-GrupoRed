@@ -39,6 +39,35 @@ public class DaoHeroes {
         return heroesList;
     }
 
+    public void guardar(Heroes hero) {
+        System.out.println("ENTRA A GUARDAR");
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String url = "jdbc:mysql://localhost:3306/grupored";
+        String sql = "INSERT INTO heroe (idPareja,nombre,edad,genero,clase,nivelInicial,ataque) VALUES (?,?,?,?,?,?,?)";
+
+        try (Connection connection = DriverManager.getConnection(url, "root", "root");
+             PreparedStatement pstmt = connection.prepareStatement(sql)) {
+
+            pstmt.setInt(1,hero.getIdPareja());
+            pstmt.setString(2, hero.getNombre());
+            pstmt.setInt(3,hero.getEdad());
+            pstmt.setString(4,hero.getGenero());
+            pstmt.setString(5,hero.getClase());
+            pstmt.setInt(6,hero.getNivelInicial());
+            pstmt.setInt(7,hero.getAtaque());
+
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public int getExp(int n){
         int exp=0;
         if(n<=15){
