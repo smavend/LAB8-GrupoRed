@@ -23,7 +23,7 @@ public class DaoEnemigos {
         try (Connection connection = DriverManager.getConnection(url, user, pasw);
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
-            Enemigo enemigo = null;
+            Enemigo enemigo;
             while (rs.next()) {
                 enemigo = new Enemigo();
                 enemigo.setNombre(rs.getString(1));

@@ -137,11 +137,11 @@
                                         </ul>
                                         <br>
                                         <ul class="list-group list-group-flush">
-                                            <input type="text" class="form-control" style="color: black"   id="efecto" name="efecto"  value=" ">
+                                            <input type="text" class="form-control" style="color: black"   id="efecto" name="efecto"  value="">
                                         </ul>
                                         <br>
                                         <ul class="list-group list-group-flush">
-                                            <input type="text" class="form-control"  style="color: black" id="peso" name="peso"  value=" ">
+                                            <input type="text" class="form-control"  style="color: black" id="peso" name="peso"  value="">
                                         </ul>
                                     </td>
                                 </tr>

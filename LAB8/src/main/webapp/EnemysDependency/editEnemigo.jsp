@@ -139,7 +139,6 @@
                                             <div class="form-group mb-5">
                                                 <label for="nombre" class="text-black-300">Nombre</label>
                                                     <input type="text" id="nombre" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="nombre"  value="<%=enemy.getNombre()%>" required>
-
                                                 <p class="invalid-feedback">¡Se necesita un nombre!</p>
                                             </div>
                                         </div>
@@ -153,11 +152,12 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-2">
                                             <div class="form-group mb-5">
-                                                <label for="email" class="text-black-300">E-Mail Address</label>
-                                                <input type="email" id="email" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" placeholder="kevin.jones@mail.com" required>
-                                                <p class="invalid-feedback">Your email is required!</p>
+                                                <label for="ataque" class="text-black-300">Ataque</label>
+                                                <input type="number" id="ataque" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="ataque" value="<%=enemy.getAtaque()%>" required>
+
+                                                <p class="invalid-feedback">¡Ingresa ataque!</p>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
