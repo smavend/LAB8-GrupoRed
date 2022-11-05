@@ -33,10 +33,6 @@ public class ServletFinalFantasy extends HttpServlet {
                     requestDispatcher = request.getRequestDispatcher("clases.jsp");
                     requestDispatcher.forward(request,response);
                     break;
-                case "heroes":
-                    requestDispatcher = request.getRequestDispatcher("heroes.jsp");
-                    requestDispatcher.forward(request,response);
-                    break;
                 case "hechizos":
                     requestDispatcher = request.getRequestDispatcher("hechizos.jsp");
                     requestDispatcher.forward(request,response);
