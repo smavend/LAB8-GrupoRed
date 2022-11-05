@@ -39,6 +39,8 @@
 
 </head>
 <body data-spy="scroll" data-target="#navbar-nav-header" class="static-layout" style="background: #000000">
+
+<video src="https://carontestudio.com/img/f4.mp4" autoplay="true" muted="true" loop="true" poster="https://carontestudio.com/img/contacto.jpg"></video>
 <!-- START preloader-wrapper -->
 <div class="preloader-wrapper">
   <div class="preloader-inner">
@@ -124,9 +126,10 @@
   <!-- imagen y titulo-->
   <div class="main-content">
 
-    <div style="color: white">
-      Imagen y título
-    </div>
+    <section id="sect1" class="sect">
+      <video src="https://carontestudio.com/img/f4.mp4" autoplay="true" muted="true" loop="true" poster="https://carontestudio.com/img/contacto.jpg"></video>
+      <h1>Sección primera - Con vídeo</h1>
+    </section>
 
     <div style="height: 30px; display: block;"></div>
 
