@@ -2,12 +2,21 @@ package com.example.lab8.Beans;
 
 public class Hechizo {
 
+    private String idHechizo;
     private String nombreHechizo;
     private String elementoRelacionado;
     private String potencia;
     private String precision;
     private int hechizoBase;
     private int nivelDeAprendizaje;
+
+    public String getIdHechizo() {
+        return idHechizo;
+    }
+
+    public void setIdHechizo(String idHechizo) {
+        this.idHechizo = idHechizo;
+    }
 
     public String getNombreHechizo() {
         return nombreHechizo;
