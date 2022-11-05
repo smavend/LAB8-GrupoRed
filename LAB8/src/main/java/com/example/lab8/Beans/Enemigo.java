@@ -6,6 +6,7 @@ public class Enemigo {
     private int ataque;
     private int experiencia;
     private String objetoDado;
+    private float probObjeto;
     private String genero;
 
     public String getNombre() {
@@ -54,5 +55,13 @@ public class Enemigo {
 
     public void setGenero(String genero) {
         this.genero = genero;
+    }
+
+    public float getProbObjeto() {
+        return probObjeto;
+    }
+
+    public void setProbObjeto(float probObjeto) {
+        this.probObjeto = probObjeto;
     }
 }

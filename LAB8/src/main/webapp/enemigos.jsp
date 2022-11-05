@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="listaEnemigos" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.Enemigo>"/>
 <html>
 <head>
   <meta charset="utf-8">
@@ -62,8 +63,8 @@
 
         <li class="nav-item active accordion">
           <div id="drop-menu" class="drop-menu collapse">
-            <a class="d-block " href="<%=request.getContextPath()%>/ServletFinalFantasy?action=enemigos">Enemigos</a>
-            <a class="d-block " href="<%=request.getContextPath()%>/ServletFinalFantasy?action=claseEnemigos">Clases de Enemigos</a>
+            <a class="d-block " href="<%=request.getContextPath()%>/Enemigos">Enemigos</a>
+            <a class="d-block " href="<%=request.getContextPath()%>/Enemigos?id=clase">Clases de Enemigos</a>
           </div>
           <a class="nav-link text-white" href="#!" role="button" data-toggle="collapse" data-target="#drop-menu" aria-expanded="false" aria-controls="drop-menu">Lado Maligno</a>
         </li>
@@ -131,6 +132,65 @@
 
       <div class="row justify-content-between">
         <div class="col-lg-10">
+          <div class="widget">
+            <h1 class="widget-title text-white d-inline-block mb-4">Lista de enemigos</h1>
+            <div class="row">
+              <div class="col-lg-5 col-md-6 col-sm-6 col-6">
+                <form class="search-form" action="#">
+                  <div class="input-group">
+                    <input type="search" class="form-control bg-transparent shadow-none rounded-0" placeholder="Buscar enemigo">
+                    <div class="input-group-append">
+                      <button class="btn" type="submit">
+                        <span class="fas fa-search"></span>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-lg-5 col-md-6 col-sm-6 col-6">
+                <div class="d-block">
+                  <a href="<%=request.getContextPath()%>/Enemigo?id=vistaAdd" class="btn btn-success">Añadir nuevo enemigo<img src="images/arrow-right.png" alt=""></a>
+                </div>
+              </div>
+            </div>
+            <table class="table table-bordered text-center text-white table-transparent">
+              <thead class="bg-dark">
+                <tr>
+                  <th style="background: #E4112F;" class="h3" scope="col">Table</th>
+                  <th class="h3" scope="col">Column</th>
+                  <th class="h3" scope="col">Column</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Row 1.1</td>
+                  <td>Row 2.1</td>
+                  <td>Row 3.1</td>
+                </tr>
+                <tr>
+                  <td>Row 1.2</td>
+                  <td>Row 2.2</td>
+                  <td>Row 3.2</td>
+                </tr>
+                <tr>
+                  <td>Row 1.3</td>
+                  <td>Row 2.3</td>
+                  <td>Row 3.3</td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- end table-style -->
+            <nav aria-label="...">
+              <ul class="pagination pagination-sm justify-content-center">
+                <li class="page-item" aria-current="page">
+                  <span style="background: #E4112F; color: white;" class="page-link">1</span>
+                </li>
+                <li class="page-item"><a style="background: #1d2124;color: #E4112F;" class="page-link" href="#">2</a></li>
+                <li class="page-item"><a style="background: #1d2124;color: #E4112F;" class="page-link" href="#">3</a></li>
+                <li class="page-item"><a style="background: #1d2124;color: #E4112F;" class="page-link" href="#">...</a></li>
+              </ul>
+            </nav>
+          </div>
           <img class="img-fluid" src="https://as01.epimg.net/meristation/imagenes/2021/09/09/noticias/1631177647_549262_1631177716_noticia_normal.jpg" alt="">
 
           <!-- https://staticg.sportskeeda.com/editor/2022/10/45ab6-16650758896894-1920.jpg para vista de enemigo individual-->
@@ -138,11 +198,11 @@
           <ul class="post-meta mt-3 mb-4">
             <li class="d-inline-block mr-3">
               <span class="fas fa-clock text-primary"></span>
-              <a class="ml-1" href="#">24 April, 2016</a>
+              <a class="ml-1">24 April, 2016</a>
             </li>
             <li class="d-inline-block">
               <span class="fas fa-list-alt text-primary"></span>
-              <a class="ml-1" href="#">Photography</a>
+              <a class="ml-1">Photography</a>
             </li>
           </ul>
 
@@ -205,65 +265,7 @@
             </div>
           </div>
 
-          <div class="widget">
-            <h1 class="widget-title text-white d-inline-block mb-4">Lista de enemigos</h1>
-            <div class="row">
-              <div class="col-lg-5 col-md-6 col-sm-6 col-6">
-                <form class="search-form" action="#">
-                  <div class="input-group">
-                    <input type="search" class="form-control bg-transparent shadow-none rounded-0" placeholder="Buscar enemigo">
-                    <div class="input-group-append">
-                      <button class="btn" type="submit">
-                        <span class="fas fa-search"></span>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div class="col-lg-5 col-md-6 col-sm-6 col-6">
-                <div class="d-block">
-                  <a class="btn btn-success" href="clases.html">Añadir nuevo enemigo<img src="images/arrow-right.png" alt=""></a>
-                </div>
-              </div>
-            </div>
-            <table class="table table-bordered text-center text-white table-transparent">
-              <thead class="bg-dark">
-              <tr>
-                <th style="background: #E4112F;" class="h3" scope="col">Table</th>
-                <th class="h3" scope="col">Column</th>
-                <th class="h3" scope="col">Column</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td>Row 1.1</td>
-                <td>Row 2.1</td>
-                <td>Row 3.1</td>
-              </tr>
-              <tr>
-                <td>Row 1.2</td>
-                <td>Row 2.2</td>
-                <td>Row 3.2</td>
-              </tr>
-              <tr>
-                <td>Row 1.3</td>
-                <td>Row 2.3</td>
-                <td>Row 3.3</td>
-              </tr>
-              </tbody>
-            </table>
-            <!-- end table-style -->
-            <nav aria-label="...">
-              <ul class="pagination pagination-sm justify-content-center">
-                <li class="page-item" aria-current="page">
-                  <span style="background: #E4112F; color: white;" class="page-link">1</span>
-                </li>
-                <li class="page-item"><a style="background: #1d2124;color: #E4112F;" class="page-link" href="#">2</a></li>
-                <li class="page-item"><a style="background: #1d2124;color: #E4112F;" class="page-link" href="#">3</a></li>
-                <li class="page-item"><a style="background: #1d2124;color: #E4112F;" class="page-link" href="#">...</a></li>
-              </ul>
-            </nav>
-          </div>
+
 
 
 

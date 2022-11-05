@@ -62,8 +62,8 @@
 
         <li class="nav-item active accordion">
           <div id="drop-menu" class="drop-menu collapse">
-            <a class="d-block " href="<%=request.getContextPath()%>/ServletFinalFantasy?action=enemigos">Enemigos</a>
-            <a class="d-block " href="<%=request.getContextPath()%>/ServletFinalFantasy?action=claseEnemigos">Clases de Enemigos</a>
+            <a class="d-block " href="<%=request.getContextPath()%>/Enemigos">Enemigos</a>
+            <a class="d-block " href="<%=request.getContextPath()%>/Enemigo?id=clase">Clases de Enemigos</a>
           </div>
           <a class="nav-link text-white" href="#!" role="button" data-toggle="collapse" data-target="#drop-menu" aria-expanded="false" aria-controls="drop-menu">Lado Maligno</a>
         </li>

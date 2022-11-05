@@ -144,12 +144,14 @@ public class DaoObjetos {
         }
 
         String url = "jdbc:mysql://localhost:3306/grupored";
+
         ArrayList<Objeto> lista = new ArrayList<>();
-        String sql = "select * from objeto where nombre = ?";
+        String sql = "select * from objeto where lower(nombre) like ?";
+
         try (Connection connection = DriverManager.getConnection(url, "root", "root");
              PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
-            pstmt.setString(1, nombre);
+            pstmt.setString(1, "%"+nombre+"%");
 
             try (ResultSet rs = pstmt.executeQuery()) {
                 while (rs.next()) {
@@ -166,6 +168,90 @@ public class DaoObjetos {
         }
         return lista;
     }
+    public ArrayList<Objeto> getObjectListSortByID() {
+        ArrayList<Objeto> objectList = new ArrayList<>();
+        try {
+            String user = "root";
+            String passw = "root";
+            String url = "jdbc:mysql://localhost:3306/grupored";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            Connection connection = DriverManager.getConnection(url, user, passw);
+            Statement statement = connection.createStatement();
+            String sql = "select * from objeto order by idObjeto ASC";
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                Objeto newObject = new Objeto();
+                newObject.setIdObjeto(resultSet.getInt(1));
+                newObject.setNombre(resultSet.getString(2));
+                newObject.setEfectoUso(resultSet.getString(3));
+                newObject.setPeso(resultSet.getFloat(4));
+
+                objectList.add(newObject);
+            }
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return objectList;
+    }
+    public ArrayList<Objeto> getObjectListSortByname() {
+        ArrayList<Objeto> objectList = new ArrayList<>();
+        try {
+            String user = "root";
+            String passw = "root";
+            String url = "jdbc:mysql://localhost:3306/grupored";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            Connection connection = DriverManager.getConnection(url, user, passw);
+            Statement statement = connection.createStatement();
+            String sql = "select * from objeto order by nombre ASC";
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                Objeto newObject = new Objeto();
+                newObject.setIdObjeto(resultSet.getInt(1));
+                newObject.setNombre(resultSet.getString(2));
+                newObject.setEfectoUso(resultSet.getString(3));
+                newObject.setPeso(resultSet.getFloat(4));
+
+                objectList.add(newObject);
+            }
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return objectList;
+    }
+
+    public ArrayList<Objeto> getObjectListSortBypeso() {
+        ArrayList<Objeto> objectList = new ArrayList<>();
+        try {
+            String user = "root";
+            String passw = "root";
+            String url = "jdbc:mysql://localhost:3306/grupored";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            Connection connection = DriverManager.getConnection(url, user, passw);
+            Statement statement = connection.createStatement();
+            String sql = "select * from objeto order by peso ASC";
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                Objeto newObject = new Objeto();
+                newObject.setIdObjeto(resultSet.getInt(1));
+                newObject.setNombre(resultSet.getString(2));
+                newObject.setEfectoUso(resultSet.getString(3));
+                newObject.setPeso(resultSet.getFloat(4));
+
+                objectList.add(newObject);
+            }
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return objectList;
+    }
+
+
     public boolean validarNombre(String nombre){
         boolean valid = true;
         ArrayList<Objeto> lista = getObjectList();
