@@ -36,7 +36,7 @@ public class ServletEnemigo extends HttpServlet {
                 e = daoEnemigos.buscarId(enemy);
 
                 if(e!=null){
-                    request.setAttribute("enemigoEdit", e);
+                    request.setAttribute("enemy", e);
                     requestDispatcher = request.getRequestDispatcher("EnemysDependency/editEnemigo.jsp");
                     requestDispatcher.forward(request, response);
                 }
