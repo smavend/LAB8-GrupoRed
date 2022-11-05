@@ -1,5 +1,8 @@
 package com.example.lab8.Beans;
 
+import java.sql.*;
+import java.util.ArrayList;
+
 public class Objeto {
     private int idObjeto;
     private String nombre;
@@ -37,4 +40,5 @@ public class Objeto {
     public void setPeso(float peso) {
         this.peso = peso;
     }
+
 }

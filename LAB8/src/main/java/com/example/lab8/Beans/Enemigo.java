@@ -10,6 +10,7 @@ public class Enemigo {
     private String objetoDado;
     private float probObjeto;
     private String genero;
+    private int idObjeto;
 
     public String getNombre() {
         return nombre;
@@ -81,5 +82,13 @@ public class Enemigo {
 
     public void setIdClase(int idClase) {
         this.idClase = idClase;
+    }
+
+    public int getIdObjeto() {
+        return idObjeto;
+    }
+
+    public void setIdObjeto(int idObjeto) {
+        this.idObjeto = idObjeto;
     }
 }

@@ -17,7 +17,7 @@ public class DaoEnemigos {
         String user = "root";
         String pasw = "root";
         String url = "jdbc:mysql://localhost:3306/grupored";
-        String sql = "SELECT e.nombre, c.nombre, ataque, experiencia, o.nombre, probObjeto, genero, e.idEnemigo, c.idClase" +
+        String sql = "SELECT e.nombre, c.nombre, ataque, experiencia, o.nombre, probObjeto, genero, e.idEnemigo, c.idClase, e.idObjeto" +
                 " FROM enemigo e, clase c, objeto o " +
                 "WHERE e.idClase = c.idClase and e.idObjeto=o.idObjeto";
         try (Connection connection = DriverManager.getConnection(url, user, pasw);
@@ -35,6 +35,7 @@ public class DaoEnemigos {
                 enemigo.setGenero(rs.getString(7));
                 enemigo.setIdEnemigo(rs.getInt(8));
                 enemigo.setIdClase(rs.getInt(9));
+                enemigo.setIdObjeto(rs.getInt(10));
 
                 lista.add(enemigo);
             }
@@ -55,7 +56,7 @@ public class DaoEnemigos {
         String user = "root";
         String pasw = "root";
         String url = "jdbc:mysql://localhost:3306/grupored";
-        String sql = "SELECT e.nombre, c.nombre, ataque, experiencia, o.nombre, probObjeto, genero, e.idEnemigo, c.idClase" +
+        String sql = "SELECT e.nombre, c.nombre, ataque, experiencia, o.nombre, probObjeto, genero, e.idEnemigo, c.idClase, e.idObjeto" +
                 " FROM enemigo e, clase c, objeto o " +
                 "WHERE e.idClase = c.idClase and e.idObjeto=o.idObjeto and e.idEnemigo = ?";
         Enemigo enemigo = null;
@@ -78,6 +79,7 @@ public class DaoEnemigos {
                     enemigo.setGenero(rs.getString(7));
                     enemigo.setIdEnemigo(rs.getInt(8));
                     enemigo.setIdClase(rs.getInt(9));
+                    enemigo.setIdObjeto(rs.getInt(10));
                 }
             }
 
@@ -87,9 +89,37 @@ public class DaoEnemigos {
         }
         return enemigo;
     }
-    public boolean validarAtaque(int ataque){
-        boolean valid = true;
-        int x = (int) 6.4;
-        return  valid;
+
+    public boolean editar(int idEnemigo, String nombre, int clase, int ataque, int experiencia, int objeto, float probObjeto, String genero){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String user = "root";
+        String pasw = "root";
+        String url = "jdbc:mysql://localhost:3306/grupored";
+        String sql = "UPDATE enemigo SET nombre = ?, idClase = ?, ataque = ?, experiencia = ?, idObjeto = ?, probObjeto=?, genero = ? WHERE idEnemigo = ?";
+        Enemigo enemigo;
+
+        try(Connection conn = DriverManager.getConnection(url, user, pasw);
+            PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, nombre);
+            pstmt.setInt(2,clase);
+            pstmt.setInt(3, ataque);
+            pstmt.setInt(4,experiencia);
+            pstmt.setInt(5,objeto);
+            pstmt.setFloat(6,probObjeto);
+            pstmt.setString(7,(genero.equals("")?null:genero));
+            pstmt.setInt(8,idEnemigo);
+
+            pstmt.executeUpdate();
+            return true;
+        }
+        catch (SQLException e){
+            return false;
+        }
     }
 }

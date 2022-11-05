@@ -1,4 +1,5 @@
-<%@ page import="com.example.lab8.Beans.Enemigo" %><%--
+<%@ page import="com.example.lab8.Beans.Enemigo" %>
+<%@ page import="com.example.lab8.Beans.Clase" %><%--
   Created by IntelliJ IDEA.
   User: USUARIO
   Date: 4/11/2022
@@ -8,6 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="enemy" scope="request" type="com.example.lab8.Beans.Enemigo"/>
 <jsp:useBean id="listaEnemigos" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.Enemigo>"/>
+<jsp:useBean id="listaClases" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.Clase>"/>
 <html>
     <head>
         <meta charset="utf-8">
@@ -133,26 +135,34 @@
                         <div class="col-md-10">
                             <div class="contact-form bg-dark">
                                 <h1 class="text-white add-letter-space mb-5">Edita a tu enemigo</h1>
-                                <form method="POST" class="needs-validation" novalidate>
+                                <form method="POST" class="needs-validation" action="<%=request.getContextPath()%>/Enemigos?post=edit" novalidate>
                                     <div class="row">
-                                        <div class="col-md-3">
+                                        <div class="col-lg-2 col-md-12 col-sm-12 col-12" hidden>
+                                            <div class="form-group mb-5">
+                                                <label for="idEnemigo" class="text-black-300">id Enemigo</label>
+                                                <input type="number" id="idEnemigo" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="idEnemigo" value="<%=enemy.getIdEnemigo()%>">
+
+                                                <p class="invalid-feedback">¡Ingresa la experiencia!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-12 col-sm-12 col-12">
                                             <div class="form-group mb-5">
                                                 <label for="nombre" class="text-black-300">Nombre</label>
                                                     <input type="text" id="nombre" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="nombre"  value="<%=enemy.getNombre()%>" required>
                                                 <p class="invalid-feedback">¡Se necesita un nombre!</p>
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-lg-2 col-md-12 col-sm-12 col-12">
                                             <div class="form-group mb-5">
                                                 <label for="clase" class="text-black-300">Clase</label>
                                                 <select class="d-block w-100">
-                                                    <% for (Enemigo e: listaEnemigos) {%>
-                                                    <option id="clase" name="clase" value="<%=e.getClase()%>" <%=(e.getIdClase()==enemy.getIdClase())?"selected":""%>><%=e.getIdClase()%></option>
+                                                    <% for (Clase c: listaClases) {%>
+                                                    <option id="clase" name="clase" value="<%=c.getIdClase()%>" <%=(c.getIdClase()==enemy.getIdClase())?"selected":""%>><%=e.getIdClase()%></option>
                                                     <% } %>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-lg-2 col-md-12 col-sm-12 col-12">
                                             <div class="form-group mb-5">
                                                 <label for="ataque" class="text-black-300">Ataque</label>
                                                 <input type="number" id="ataque" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="ataque" value="<%=enemy.getAtaque()%>" required>
@@ -160,7 +170,7 @@
                                                 <p class="invalid-feedback">¡Ingresa ataque!</p>
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-lg-2 col-md-12 col-sm-12 col-12">
                                             <div class="form-group mb-5">
                                                 <label for="experiencia" class="text-black-300">Experiencia</label>
                                                 <input type="number" id="experiencia" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="experiencia" value="<%=enemy.getExperiencia()%>" required>
@@ -168,17 +178,17 @@
                                                 <p class="invalid-feedback">¡Ingresa la experiencia!</p>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-lg-3 col-md-12 col-sm-12 col-12">
                                             <div class="form-group mb-5">
-                                                <label for="objeto" class="text-black-300">Objeto que da</label>
-                                                <select class="d-block w-100" id="objeto" name="objeto">
+                                                <label for="idObjeto" class="text-black-300">Objeto que da</label>
+                                                <select class="d-block w-100" id="idObjeto" name="idObjeto">
                                                     <% for (Enemigo e: listaEnemigos) {%>
-                                                    <option value="<%=e.getObjetoDado()%>" <%=(e.getObjetoDado().equalsIgnoreCase(enemy.getObjetoDado()))?"selected":""%>><%=e.getObjetoDado()%></option>
+                                                    <option value="<%=e.getIdObjeto()%>" <%=(e.getObjetoDado().equalsIgnoreCase(enemy.getObjetoDado()))?"selected":""%>><%=e.getObjetoDado()%></option>
                                                     <% } %>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                                             <div class="form-group mb-5">
                                                 <label for="probObjeto" class="text-black-300">Probabilidad de que dé el objeto</label>
                                                 <input type="text" id="probObjeto" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="probObjeto" value="<%=enemy.getProbObjeto()%>" required>
@@ -186,9 +196,9 @@
                                                 <p class="invalid-feedback">¡Ingresa la probabilidad!</p>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                                             <div class="form-group mb-5">
-                                                <label for="genero" class="text-black-300">Género</label>
+                                                <label for="genero" class="text-black-300">Género del enemigo</label>
                                                 <select class="d-block w-100" id="genero" name="genero">
                                                     <option value="M" <%=(enemy.getGenero().equalsIgnoreCase("masculino"))?"selected":""%>>M</option>
                                                     <option value="F" <%=(enemy.getGenero().equalsIgnoreCase("femenino"))?"selected":""%>>F</option>
@@ -197,8 +207,17 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-12">
-                                            <button type="submit" class="btn btn-sm btn-primary">Send Now <img src="images/arrow-right.png" alt=""></button>
+                                        <div class="row justify-content-start">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <div class="d-block">
+                                                    <button type="submit" class="btn btn-sm btn-primary">Confirmar<img src="images/arrow-right.png" alt=""></button>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <div class="d-block">
+                                                    <a href="<%=request.getContextPath()%>/Enemigo" class="btn btn-secondary">Cancelar<img src="images/arrow-right.png" alt=""></a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>

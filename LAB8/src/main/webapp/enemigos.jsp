@@ -181,7 +181,7 @@
                   <td><%=e.getObjetoDado()%></td>
                   <td><%=e.getProbObjeto()%></td>
                   <td><%=(e.getGenero() == null)?"-":(e.getGenero().equalsIgnoreCase("M"))?"Masculino":"Femenino"%></td>
-                  <td><a href="<%=request.getContextPath()%>/Enemigos?id=edit&enemy=<%=e.getIdEnemigo()%>" class="btn btn-secondary">
+                  <td><a href="<%=request.getContextPath()%>/Enemigos?id=vistaEdit&enemy=<%=e.getIdEnemigo()%>" class="btn btn-secondary">
                     <i class="bi bi-pencil-square"></i>
                   </a>
                   </td>
