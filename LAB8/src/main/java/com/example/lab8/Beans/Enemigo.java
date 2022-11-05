@@ -1,8 +1,10 @@
 package com.example.lab8.Beans;
 
 public class Enemigo {
+    private int idEnemigo;
     private String nombre;
     private String clase;
+    private int idClase;
     private int ataque;
     private int experiencia;
     private String objetoDado;
@@ -63,5 +65,21 @@ public class Enemigo {
 
     public void setProbObjeto(float probObjeto) {
         this.probObjeto = probObjeto;
+    }
+
+    public int getIdEnemigo() {
+        return idEnemigo;
+    }
+
+    public void setIdEnemigo(int idEnemigo) {
+        this.idEnemigo = idEnemigo;
+    }
+
+    public int getIdClase() {
+        return idClase;
+    }
+
+    public void setIdClase(int idClase) {
+        this.idClase = idClase;
     }
 }

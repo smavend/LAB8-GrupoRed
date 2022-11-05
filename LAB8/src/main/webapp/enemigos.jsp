@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.lab8.Beans.Enemigo" %><%--
   Created by IntelliJ IDEA.
   User: USUARIO
   Date: 4/11/2022
@@ -23,6 +23,7 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="plugins/fontawesome/css/all.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
   <!-- Main Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
@@ -156,40 +157,42 @@
             <table class="table table-bordered text-center text-white table-transparent">
               <thead class="bg-dark">
                 <tr>
-                  <th style="background: #E4112F;" class="h3" scope="col">Table</th>
-                  <th class="h3" scope="col">Column</th>
-                  <th class="h3" scope="col">Column</th>
+                  <th style="background: #E4112F;" class="h3" scope="col">#</th>
+                  <th class="h3" scope="col">Nombre</th>
+                  <th class="h3" scope="col">Clase</th>
+                  <th class="h3" scope="col">Ataque</th>
+                  <th class="h3" scope="col">Experiencia dada</th>
+                  <th class="h3" scope="col">Objeto dado</th>
+                  <th class="h3" scope="col">Prob. Objeto</th>
+                  <th class="h3" scope="col">Género</th>
+                  <th class="h3" scope="col">Editar</th>
+                  <th class="h3" scope="col">Eliminar</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Row 1.1</td>
-                  <td>Row 2.1</td>
-                  <td>Row 3.1</td>
-                </tr>
-                <tr>
-                  <td>Row 1.2</td>
-                  <td>Row 2.2</td>
-                  <td>Row 3.2</td>
-                </tr>
-                <tr>
-                  <td>Row 1.3</td>
-                  <td>Row 2.3</td>
-                  <td>Row 3.3</td>
+              <% int i = 1;
+                for (Enemigo e : listaEnemigos){ %>
+                  <td><%=i%></td>
+                  <td><%=e.getNombre()%></td>
+                  <td><%=e.getClase()%></td>
+                  <td><%=e.getAtaque()%></td>
+                  <td><%=e.getExperiencia()%></td>
+                  <td><%=e.getObjetoDado()%></td>
+                  <td><%=e.getProbObjeto()%></td>
+                  <td><%=(e.getGenero() == null)?"-":(e.getGenero().equalsIgnoreCase("M"))?"Masculino":"Femenino"%></td>
+                  <td><a href="<%=request.getContextPath()%>/Enemigos?id=edit&enemy=<%=e.getIdEnemigo()%>" class="btn btn-secondary">
+                    <i class="bi bi-pencil-square"></i>
+                  </a>
+                  </td>
+                  <td><a class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+                  </td>
+               <%i++;
+                } %>
                 </tr>
               </tbody>
             </table>
             <!-- end table-style -->
-            <nav aria-label="...">
-              <ul class="pagination pagination-sm justify-content-center">
-                <li class="page-item" aria-current="page">
-                  <span style="background: #E4112F; color: white;" class="page-link">1</span>
-                </li>
-                <li class="page-item"><a style="background: #1d2124;color: #E4112F;" class="page-link" href="#">2</a></li>
-                <li class="page-item"><a style="background: #1d2124;color: #E4112F;" class="page-link" href="#">3</a></li>
-                <li class="page-item"><a style="background: #1d2124;color: #E4112F;" class="page-link" href="#">...</a></li>
-              </ul>
-            </nav>
           </div>
           <img class="img-fluid" src="https://as01.epimg.net/meristation/imagenes/2021/09/09/noticias/1631177647_549262_1631177716_noticia_normal.jpg" alt="">
 
