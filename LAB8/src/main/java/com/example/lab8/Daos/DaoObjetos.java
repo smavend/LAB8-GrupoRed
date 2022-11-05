@@ -144,13 +144,10 @@ public class DaoObjetos {
         }
 
         String url = "jdbc:mysql://localhost:3306/grupored";
-<<<<<<< HEAD
-        ArrayList<BObjetos> lista = new ArrayList<>();
-        String sql = "select * from grupored.objeto where nombre = ? ";
-=======
+
         ArrayList<Objeto> lista = new ArrayList<>();
         String sql = "select * from objeto where lower(nombre) like ?";
->>>>>>> bcaf5b3a76600e793bd0d36f031c2259afcd9acb
+
         try (Connection connection = DriverManager.getConnection(url, "root", "root");
              PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
@@ -171,10 +168,8 @@ public class DaoObjetos {
         }
         return lista;
     }
-
-
-    public ArrayList<BObjetos> getObjectListSortByID() {
-        ArrayList<BObjetos> objectList = new ArrayList<>();
+    public ArrayList<Objeto> getObjectListSortByID() {
+        ArrayList<Objeto> objectList = new ArrayList<>();
         try {
             String user = "root";
             String passw = "root";
@@ -186,7 +181,7 @@ public class DaoObjetos {
             String sql = "select * from objeto order by idObjeto ASC";
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-                BObjetos newObject = new BObjetos();
+                Objeto newObject = new Objeto();
                 newObject.setIdObjeto(resultSet.getInt(1));
                 newObject.setNombre(resultSet.getString(2));
                 newObject.setEfectoUso(resultSet.getString(3));
@@ -200,8 +195,8 @@ public class DaoObjetos {
         }
         return objectList;
     }
-    public ArrayList<BObjetos> getObjectListSortByname() {
-        ArrayList<BObjetos> objectList = new ArrayList<>();
+    public ArrayList<Objeto> getObjectListSortByname() {
+        ArrayList<Objeto> objectList = new ArrayList<>();
         try {
             String user = "root";
             String passw = "root";
@@ -213,7 +208,7 @@ public class DaoObjetos {
             String sql = "select * from objeto order by nombre ASC";
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-                BObjetos newObject = new BObjetos();
+                Objeto newObject = new Objeto();
                 newObject.setIdObjeto(resultSet.getInt(1));
                 newObject.setNombre(resultSet.getString(2));
                 newObject.setEfectoUso(resultSet.getString(3));
@@ -228,8 +223,8 @@ public class DaoObjetos {
         return objectList;
     }
 
-    public ArrayList<BObjetos> getObjectListSortBypeso() {
-        ArrayList<BObjetos> objectList = new ArrayList<>();
+    public ArrayList<Objeto> getObjectListSortBypeso() {
+        ArrayList<Objeto> objectList = new ArrayList<>();
         try {
             String user = "root";
             String passw = "root";
@@ -241,7 +236,7 @@ public class DaoObjetos {
             String sql = "select * from objeto order by peso ASC";
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-                BObjetos newObject = new BObjetos();
+                Objeto newObject = new Objeto();
                 newObject.setIdObjeto(resultSet.getInt(1));
                 newObject.setNombre(resultSet.getString(2));
                 newObject.setEfectoUso(resultSet.getString(3));

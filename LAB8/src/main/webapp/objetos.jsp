@@ -1,10 +1,4 @@
-<%@ page import="com.example.lab8.Beans.Objeto" %><%--
-  Created by IntelliJ IDEA.
-  User: USUARIO
-  Date: 4/11/2022
-  Time: 09:23
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.example.lab8.Beans.Objeto" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="listaObjetos" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.Objeto>"/>
 <%
@@ -138,8 +132,6 @@
           <table class="table table-bordered text-center text-white table-transparent">
             <thead class="bg-dark">
               <tr>
-
-<<<<<<< HEAD
               <th class="h3" scope="col">
                 <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=sortByid" style="color: white">
                   ID
@@ -163,17 +155,6 @@
               </th>
               <th class="h3" scope="col">Editar</th>
               <th class="h3" scope="col">Eliminar</th>
-            </tr>
-=======
-                <th class="h3" scope="col">ID</th>
-                <th class="h3" scope="col">Nombre</th>
-                <th class="h3" scope="col">Efecto/Uso</th>
-                <th class="h3" scope="col">Peso</th>
-                <th class="h3" scope="col">Héroe</th>
-                <th class="h3" scope="col">Editar</th>
-                <th class="h3" scope="col">Eliminar</th>
-              </tr>
->>>>>>> bcaf5b3a76600e793bd0d36f031c2259afcd9acb
             </thead>
             <%for(Objeto object : listaObjetos){%>
             <tbody>
