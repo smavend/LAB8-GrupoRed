@@ -125,12 +125,12 @@
 
   <!-- imagen y titulo-->
   <div class="main-content">
-
+    <!--
     <section id="sect1" class="sect">
       <video src="https://carontestudio.com/img/f4.mp4" autoplay="true" muted="true" loop="true" poster="https://carontestudio.com/img/contacto.jpg"></video>
       <h1>Sección primera - Con vídeo</h1>
     </section>
-
+    -->
     <div style="height: 30px; display: block;"></div>
 
     <div class="row">
@@ -189,17 +189,19 @@
             <th class="h3" scope="col">Hechizo Base</th>
           </tr>
           </thead>
-          <%for(Hechizo hechizo : listaHechizos){%>
+          <!--
+          <//%for(Hechizo hechizo : listaHechizos){%>
           <tbody style="color: #B0B0B0">
           <tr>
-            <td><%hechizo.getNombreHechizo()%></td>
-            <td><%hechizo.getElementoRelacionado()%></td>
-            <td><%hechizo.getPotencia()%></td>
-            <td><%hechizo.getPrecision()%>%</td>
-            <td><%hechizo.getNivelDeAprendizaje()%></td>
-            <td><%hechizo.getHechizoBase()%></td>
+            <td><%//hechizo.getNombreHechizo()%></td>
+            <td><%//hechizo.getElementoRelacionado()%></td>
+            <td><%//hechizo.getPotencia()%></td>
+            <td><%//hechizo.getPrecision()%>%</td>
+            <td><%//hechizo.getNivelDeAprendizaje()%></td>
+            <td><%//hechizo.getHechizoBase()%></td>
           </tr>
           </tbody>
+          -->
         </table>
 
       </div>

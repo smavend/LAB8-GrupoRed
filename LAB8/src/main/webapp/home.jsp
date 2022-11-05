@@ -42,14 +42,13 @@
 
 <!-- START main-wrapper -->
 <section class="d-flex">
-
   <!-- start of sidenav -->
-  <aside><div class="sidenav position-sticky d-flex flex-column justify-content-between">
+  <aside>
+    <div class="sidenav position-sticky d-flex flex-column justify-content-between">
     <a class="navbar-brand" href="<%=request.getContextPath()%>/ServletFinalFantasy" class="logo">
-      <img src="images/logo.png" alt="">
+      <img src="images/FFlogo.png">
     </a>
     <!-- end of navbar-brand -->
-
     <div class="navbar navbar-dark my-4 p-0 font-primary">
       <ul class="navbar-nav w-100">
         <li class="nav-item active">
@@ -126,118 +125,104 @@
 
     <div class="container pt-4 mt-5">
       <div class="row justify-content-between">
-        <div class="col-lg-7">
+        <div class="col-lg-8">
           <div class="card post-item bg-transparent border-0 mb-5">
-            <a href="post-details.html">
-              <img class="card-img-top rounded-0" src="images/post/post-lg/01.png" alt="">
-            </a>
             <div class="card-body px-0">
               <h2 class="card-title">
-                <a class="text-white opacity-75-onHover" href="post-details.html">Id reprehrenderit mollit in tempor naid incididunt cupidatat consectetura</a>
+                <a class="text-white opacity-75-onHover">Bienvenidos a la wiki sobre Final Fantasy,
+                  todo lo que debes saber sobre este juego lo podrás encontrar aca.
+                </a>
               </h2>
-              <ul class="post-meta mt-3">
-                <li class="d-inline-block mr-3">
-                  <span class="fas fa-clock text-primary"></span>
-                  <a class="ml-1" href="#">24 April, 2016</a>
-                </li>
-                <li class="d-inline-block">
-                  <span class="fas fa-list-alt text-primary"></span>
-                  <a class="ml-1" href="#">Photography</a>
-                </li>
-              </ul>
-              <p class="card-text my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt leo mi, viverra urna. Arcu velit risus, condimentum ut vulputate cursus porttitor turpis in. Diam egestas nec massa, habitasse. Tincidt dui.</p>
-              <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
+              <img class="card-img-top rounded-0" src="/images/imageHome.jpg" alt="">
+              <p class="card-text my-4">
+                Empezaremos con una breve explicación delo juego.....
+                Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto
+                de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta)
+                desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió
+                500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original.
+                Fue popularizado en los 60s con la creación de las hojas "Letraset",
+                las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.
+              </p>
             </div>
           </div>
           <!-- end of post-item -->
-
           <div class="card post-item bg-transparent border-0 mb-5">
-            <a href="post-details.html">
-              <img class="card-img-top rounded-0" src="images/post/post-lg/02.png" alt="">
-            </a>
             <div class="card-body px-0">
               <h2 class="card-title">
-                <a class="text-white opacity-75-onHover" href="post-details.html">Excepteur ado Do minim duis laborum Fugiat ea labore qui veniam labore</a>
+                <a class="text-white opacity-75-onHover" href="post-details.html">Heores</a>
               </h2>
-              <ul class="post-meta mt-3">
-                <li class="d-inline-block mr-3">
-                  <span class="fas fa-clock text-primary"></span>
-                  <a class="ml-1" href="#">24 April, 2016</a>
-                </li>
-                <li class="d-inline-block">
-                  <span class="fas fa-list-alt text-primary"></span>
-                  <a class="ml-1" href="#">Photography</a>
-                </li>
-              </ul>
-              <p class="card-text my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt leo mi, viverra urna. Arcu velit risus, condimentum ut vulputate cursus porttitor turpis in. Diam egestas nec massa, habitasse. Tincidt dui.</p>
-              <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
+              <img class="card-img-top rounded-0" src="images/hero.jpg" alt="">
+              <p class="card-text my-4">
+                Los Heroes son .....
+                Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las
+                industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los
+                mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno
+                n documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset"
+                , las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.
+              </p>
             </div>
           </div>
           <!-- end of post-item -->
-
           <div class="card post-item bg-transparent border-0 mb-5">
-            <a href="post-details.html">
-              <img class="card-img-top rounded-0" src="images/post/post-lg/03.png" alt="">
-            </a>
             <div class="card-body px-0">
               <h2 class="card-title">
-                <a class="text-white opacity-75-onHover" href="post-details.html">Aliquip excepteur cilludm irure laboris sint ea qui ex amet id. Ex nulla etno</a>
+                <a class="text-white opacity-75-onHover" href="post-details.html">Enemigos en Final Fantasy</a>
               </h2>
-              <ul class="post-meta mt-3">
-                <li class="d-inline-block mr-3">
-                  <span class="fas fa-clock text-primary"></span>
-                  <a class="ml-1" href="#">24 April, 2016</a>
-                </li>
-                <li class="d-inline-block">
-                  <span class="fas fa-list-alt text-primary"></span>
-                  <a class="ml-1" href="#">Photography</a>
-                </li>
-              </ul>
-              <p class="card-text my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt leo mi, viverra urna. Arcu velit risus, condimentum ut vulputate cursus porttitor turpis in. Diam egestas nec massa, habitasse. Tincidt dui.</p>
-              <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
+              <img class="card-img-top rounded-0" src="https://as01.epimg.net/meristation/imagenes/2021/09/09/noticias/1631177647_549262_1631177716_noticia_normal.jpg" alt="">
+              <p class="card-text my-4">
+                Los enemigos son. ....
+                Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las
+                industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos
+              </p>
+            </div>
+          </div>
+          <div class="card post-item bg-transparent border-0 mb-5">
+            <div class="card-body px-0">
+              <h2 class="card-title">
+                <a class="text-white opacity-75-onHover" href="post-details.html">Hechizos en Final Fantasy</a>
+              </h2>
+              <img class="card-img-top rounded-0" src="images/hechizoHome.jpg" alt="">
+              <p class="card-text my-4">
+                Los hecizos en Final Fantasy permiten...
+                Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las
+                industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos
+              </p>
+            </div>
+          </div>
+          <div class="card post-item bg-transparent border-0 mb-5">
+            <div class="card-body px-0">
+              <h2 class="card-title">
+                <a class="text-white opacity-75-onHover" href="post-details.html">Objetos de Final Fantasy</a>
+              </h2>
+              <img class="card-img-top rounded-0" src="images/items_objetos.png" alt="">
+              <p class="card-text my-4">
+                Los objetos en Final Fantasy son parte importante del juego pues ...
+                Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las
+                industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos
+              </p>
             </div>
           </div>
           <!-- end of post-item -->
         </div>
-        <div class="col-lg-4 col-md-5">
+
+        <div class="col-lg-3 col-md-4">
           <div class="widget text-center">
-            <img class="author-thumb-sm rounded-circle d-block mx-auto" src="images/author-sm.png" alt="">
-            <h2 class="widget-title text-white d-inline-block mt-4">About Me</h2>
-            <p class="mt-4">Lorem ipsum dolor sit coectetur adiing elit. Tincidunfywjt leo mi, viearra urna. Arcu ve isus, condimentum ut vulpate cursus por turpis.</p>
-            <ul class="list-inline mt-3">
-              <li class="list-inline-item">
-                <a href="#!" class="text-white text-primary-onHover p-2">
-                  <span class="fab fa-twitter"></span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#!" class="text-white text-primary-onHover p-2">
-                  <span class="fab fa-facebook-f"></span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#!" class="text-white text-primary-onHover p-2">
-                  <span class="fab fa-instagram"></span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#!" class="text-white text-primary-onHover p-2">
-                  <span class="fab fa-linkedin-in"></span>
-                </a>
-              </li>
-            </ul>
+            <img class="author-thumb-sm rounded-circle d-block mx-auto" src="images/chino.jpg" style="height: 210px">
+            <h2 class="widget-title text-white d-inline-block mt-4">Creador</h2>
+            <p class="mt-4">
+              Final Fantasy es una franquicia de medios creada por Hironobu Sakaguchi y desarrollada, distribuida y propiedad de Square Enix
+            </p>
           </div>
           <!-- end of author-widget -->
-
           <div class="widget bg-dark p-4 text-center">
-            <h2 class="widget-title text-white d-inline-block mt-4">Subscribe Blog</h2>
-            <p class="mt-4">Lorem ipsum dolor sit coectetur elit. Tincidu nfywjt leo mi, urna. Arcu ve isus, condimentum ut vulpate cursus por.</p>
-            <form action="#">
-              <div class="form-group">
-                <input type="email" class="form-control bg-transparent rounded-0 my-4" placeholder="Your Email Address">
-                <button class="btn btn-primary">Subscribe Now <img src="images/arrow-right.png" alt=""></button>
-              </div>
-            </form>
+            <h2 class="widget-title text-white d-inline-block mt-4">Noticias</h2>
+            <p class="mt-4">
+              La ultima versión de Final Fantasy será "Final Fantasy XVI", esta saldrá al mercado en el 2023
+            </p>
+            <br>
+            <div class="form-group">
+              <a href="https://na.finalfantasyxvi.com/"><button class="btn btn-primary">Mas información</button></a>
+            </div>
           </div>
           <!-- end of subscription-widget -->
 
@@ -294,45 +279,17 @@
         </div>
       </div>
     </div>
-
     <!-- start of footer -->
-    <footer class="bg-dark">
+    <footer class="bg-dark" style="margin: 0; padding: 2rem">
       <div class="container">
-        <div class="row text-center">
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Inspirations</h5>
+        <div class="col text-center" >
+          <div class="col-lg-12 col-sm-12 mb-12" >
+            <h4 class="font-primary text-white mb-4">Pagina Web elaborada para el curso de Ingenería Web</h4>
+            <h5 class="font-primary text-white mb-4">Desarrolladores</h5>
             <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Templates</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Resource</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Company</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
+              <li>Beatriz Manrique Avedaño</li>
+              <li>Dana Nolasco Vallejos</li>
+              <li>Sebastian Segura Abanto</li>
             </ul>
           </div>
         </div>
