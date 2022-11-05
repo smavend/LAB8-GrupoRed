@@ -87,4 +87,9 @@ public class DaoEnemigos {
         }
         return enemigo;
     }
+    public boolean validarAtaque(int ataque){
+        boolean valid = true;
+        int x = (int) 6.4;
+        return  valid;
+    }
 }
