@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.lab8.Beans.Hechizo" %><%--
   Created by IntelliJ IDEA.
   User: USUARIO
   Date: 4/11/2022
@@ -189,30 +189,15 @@
             <th class="h3" scope="col">Hechizo Base</th>
           </tr>
           </thead>
+          <%for(Hechizo hechizo : listaHechizos){%>
           <tbody style="color: #B0B0B0">
           <tr>
-            <td>Ráfaga de Hechizos</td>
-            <td>Viento</td>
-            <td>300</td>
-            <td>90%</td>
-            <td>120</td>
-            <td>Hechizo Primero</td>
-          </tr>
-          <tr>
-            <td>Hechizo de Concentración</td>
-            <td>Fuego</td>
-            <td>500</td>
-            <td>110%</td>
-            <td>200</td>
-            <td>Rafaga de Hechizo</td>
-          </tr>
-          <tr>
-            <td>Hechizo Veloces</td>
-            <td>Agua</td>
-            <td>800</td>
-            <td>70%</td>
-            <td>100</td>
-            <td>Hechizo Primero</td>
+            <td><%hechizo.getNombreHechizo()%></td>
+            <td><%hechizo.getElementoRelacionado()%></td>
+            <td><%hechizo.getPotencia()%></td>
+            <td><%hechizo.getPrecision()%>%</td>
+            <td><%hechizo.getNivelDeAprendizaje()%></td>
+            <td><%hechizo.getHechizoBase()%></td>
           </tr>
           </tbody>
         </table>
@@ -223,6 +208,55 @@
     </div>
   </div>
 
+  <div class="widget">
+    <div class="mb-5 text-center">
+      <h2 class="widget-title text-white d-inline-block">Featured Posts</h2>
+    </div>
+    <div class="card post-item bg-transparent border-0 mb-5">
+      <a href="post-details.html">
+        <img class="card-img-top rounded-0" src="images/post/post-sm/01.png" alt="">
+      </a>
+      <div class="card-body px-0">
+        <h2 class="card-title">
+          <a class="text-white opacity-75-onHover" href="post-details.html">Excepteur ado Do minimal duis laborum Fugiat ea</a>
+        </h2>
+        <ul class="post-meta mt-3 mb-4">
+          <li class="d-inline-block mr-3">
+            <span class="fas fa-clock text-primary"></span>
+            <a class="ml-1" href="#">24 April, 2016</a>
+          </li>
+          <li class="d-inline-block">
+            <span class="fas fa-list-alt text-primary"></span>
+            <a class="ml-1" href="#">Photography</a>
+          </li>
+        </ul>
+        <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
+      </div>
+    </div>
+    <!-- end of widget-post-item -->
+    <div class="card post-item bg-transparent border-0 mb-5">
+      <a href="post-details.html">
+        <img class="card-img-top rounded-0" src="images/post/post-sm/02.png" alt="">
+      </a>
+      <div class="card-body px-0">
+        <h2 class="card-title">
+          <a class="text-white opacity-75-onHover" href="post-details.html">Excepteur ado Do minimal duis laborum Fugiat ea</a>
+        </h2>
+        <ul class="post-meta mt-3 mb-4">
+          <li class="d-inline-block mr-3">
+            <span class="fas fa-clock text-primary"></span>
+            <a class="ml-1" href="#">24 April, 2016</a>
+          </li>
+          <li class="d-inline-block">
+            <span class="fas fa-list-alt text-primary"></span>
+            <a class="ml-1" href="#">Photography</a>
+          </li>
+        </ul>
+        <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
+      </div>
+    </div>
+    <!-- end of widget-post-item -->
+  </div>
 
 </section>
 <!-- END main-wrapper -->
