@@ -31,10 +31,6 @@ public class ServletFinalFantasy extends HttpServlet {
                     requestDispatcher = request.getRequestDispatcher("clases.jsp");
                     requestDispatcher.forward(request,response);
                     break;
-                case "heroes":
-                    requestDispatcher = request.getRequestDispatcher("heroes.jsp");
-                    requestDispatcher.forward(request,response);
-                    break;
                 case "hechizos":
                     requestDispatcher = request.getRequestDispatcher("hechizos.jsp");
                     requestDispatcher.forward(request,response);
@@ -68,7 +64,25 @@ public class ServletFinalFantasy extends HttpServlet {
                     requestDispatcher = request.getRequestDispatcher("/ObjectsDependency/editObjects.jsp");
                     requestDispatcher.forward(request,response);
                     break;
+                case "sortByid":
+                    ArrayList<Objeto> listaByid = daoObjetos.getObjectListSortByID();
+                    request.setAttribute("listaObjetos",listaByid);
+                    requestDispatcher = request.getRequestDispatcher("objetos.jsp");
+                    requestDispatcher.forward(request,response);
+                    break;
 
+                case "sortBynombre":
+                    ArrayList<Objeto> listaByName = daoObjetos.getObjectListSortByname();
+                    request.setAttribute("listaObjetos",listaByName);
+                    requestDispatcher = request.getRequestDispatcher("objetos.jsp");
+                    requestDispatcher.forward(request,response);
+                    break;
+                case "sortBypeso":
+                    ArrayList<Objeto> listaBypeso = daoObjetos.getObjectListSortBypeso();
+                    request.setAttribute("listaObjetos",listaBypeso);
+                    requestDispatcher = request.getRequestDispatcher("objetos.jsp");
+                    requestDispatcher.forward(request,response);
+                    break;
             }
         }
     }
@@ -123,11 +137,12 @@ public class ServletFinalFantasy extends HttpServlet {
                 String searchText = request.getParameter("searchText");
 
                 ArrayList<Objeto> lista = daoObjetos.searchByName(searchText);
+
                 request.setAttribute("listaObjetos", lista);
                 request.setAttribute("searchText",searchText);
-
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("objetos.jsp");
                 requestDispatcher.forward(request, response);
+
                 break;
         }
     }

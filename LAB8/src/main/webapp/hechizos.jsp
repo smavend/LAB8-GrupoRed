@@ -30,8 +30,15 @@
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
   <link rel="icon" href="images/favicon.png" type="image/x-icon">
 
+  <!-- Bootstrap By: Dana-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../css/style.min.css">
+  <link rel="stylesheet" href="../../css/flex.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 </head>
-<body>
+<body data-spy="scroll" data-target="#navbar-nav-header" class="static-layout" style="background: #FFFFFF">
 <!-- START preloader-wrapper -->
 <div class="preloader-wrapper">
   <div class="preloader-inner">
@@ -53,11 +60,11 @@
     <div class="navbar navbar-dark my-4 p-0 font-primary">
       <ul class="navbar-nav w-100">
         <li class="nav-item ">
-          <a class="nav-link text-white px-0 pt-0" href="<%=request.getContextPath()%>/ServletFinalFantasy">Home</a>
+          <a class="nav-link text-white px-0 pt-0" href="<%=request.getContextPath()%>/ServletFinalFantasy">Inicio</a>
         </li>
 
         <li class="nav-item ">
-          <a class="nav-link text-white px-0" href="<%=request.getContextPath()%>/ServletFinalFantasy?action=heroes">Héroes</a>
+          <a class="nav-link text-white px-0" href="<%=request.getContextPath()%>/Heroes">Héroes</a>
         </li>
 
         <li class="nav-item  accordion">
@@ -103,243 +110,67 @@
     <!-- end of social-links -->
   </div></aside>
   <!-- end of sidenav -->
+
+  <!-- start header-->
+  <!--
+  1. titulo e imagen juntos
+  2. que son los hechizos?
+  3. ¿cómo funcionan los hechizos?
+  abrir un modal, ponerlos como cuadrados y cuando demos click
+  4. tabla de hechizos
+  5. indices
+  -->
+
+  <!-- imagen y titulo-->
   <div class="main-content">
-    <!-- start of mobile-nav -->
-    <header class="mobile-nav pt-4">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-6">
-            <a href="home.html">
-              <img src="images/logo.png" alt="">
-            </a>
-          </div>
-          <div class="col-6 text-right">
-            <button class="nav-toggle bg-transparent border text-white">
-              <span class="fas fa-bars"></span>
-            </button>
+
+    <div>
+      Imagen y título
+    </div>
+
+    <div style="height: 30px; display: block;"></div>
+
+    <div class="accordion" id="accordionExample" style="margin: 10px 20px 10px 20px">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            ¿Qué son los hechizos?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
           </div>
         </div>
       </div>
-    </header>
-    <div class="nav-toggle-overlay"></div>
-    <!-- end of mobile-nav -->
-
-    <div class="container pt-4 mt-5">
-      <div class="row justify-content-between">
-        <div class="col-lg-7">
-          <div class="card post-item bg-transparent border-0 mb-5">
-            <a href="post-details.html">
-              <img class="card-img-top rounded-0" src="images/post/post-lg/01.png" alt="">
-            </a>
-            <div class="card-body px-0">
-              <h2 class="card-title">
-                <a class="text-white opacity-75-onHover" href="post-details.html">Id reprehrenderit mollit in tempor naid incididunt cupidatat consectetura</a>
-              </h2>
-              <ul class="post-meta mt-3">
-                <li class="d-inline-block mr-3">
-                  <span class="fas fa-clock text-primary"></span>
-                  <a class="ml-1" href="#">24 April, 2016</a>
-                </li>
-                <li class="d-inline-block">
-                  <span class="fas fa-list-alt text-primary"></span>
-                  <a class="ml-1" href="#">Photography</a>
-                </li>
-              </ul>
-              <p class="card-text my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt leo mi, viverra urna. Arcu velit risus, condimentum ut vulputate cursus porttitor turpis in. Diam egestas nec massa, habitasse. Tincidt dui.</p>
-              <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
-            </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Accordion Item #2
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
           </div>
-          <!-- end of post-item -->
-
-          <div class="card post-item bg-transparent border-0 mb-5">
-            <a href="post-details.html">
-              <img class="card-img-top rounded-0" src="images/post/post-lg/02.png" alt="">
-            </a>
-            <div class="card-body px-0">
-              <h2 class="card-title">
-                <a class="text-white opacity-75-onHover" href="post-details.html">Excepteur ado Do minim duis laborum Fugiat ea labore qui veniam labore</a>
-              </h2>
-              <ul class="post-meta mt-3">
-                <li class="d-inline-block mr-3">
-                  <span class="fas fa-clock text-primary"></span>
-                  <a class="ml-1" href="#">24 April, 2016</a>
-                </li>
-                <li class="d-inline-block">
-                  <span class="fas fa-list-alt text-primary"></span>
-                  <a class="ml-1" href="#">Photography</a>
-                </li>
-              </ul>
-              <p class="card-text my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt leo mi, viverra urna. Arcu velit risus, condimentum ut vulputate cursus porttitor turpis in. Diam egestas nec massa, habitasse. Tincidt dui.</p>
-              <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
-            </div>
-          </div>
-          <!-- end of post-item -->
-
-          <div class="card post-item bg-transparent border-0 mb-5">
-            <a href="post-details.html">
-              <img class="card-img-top rounded-0" src="images/post/post-lg/03.png" alt="">
-            </a>
-            <div class="card-body px-0">
-              <h2 class="card-title">
-                <a class="text-white opacity-75-onHover" href="post-details.html">Aliquip excepteur cilludm irure laboris sint ea qui ex amet id. Ex nulla etno</a>
-              </h2>
-              <ul class="post-meta mt-3">
-                <li class="d-inline-block mr-3">
-                  <span class="fas fa-clock text-primary"></span>
-                  <a class="ml-1" href="#">24 April, 2016</a>
-                </li>
-                <li class="d-inline-block">
-                  <span class="fas fa-list-alt text-primary"></span>
-                  <a class="ml-1" href="#">Photography</a>
-                </li>
-              </ul>
-              <p class="card-text my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt leo mi, viverra urna. Arcu velit risus, condimentum ut vulputate cursus porttitor turpis in. Diam egestas nec massa, habitasse. Tincidt dui.</p>
-              <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
-            </div>
-          </div>
-          <!-- end of post-item -->
         </div>
-        <div class="col-lg-4 col-md-5">
-          <div class="widget text-center">
-            <img class="author-thumb-sm rounded-circle d-block mx-auto" src="images/author-sm.png" alt="">
-            <h2 class="widget-title text-white d-inline-block mt-4">About Me</h2>
-            <p class="mt-4">Lorem ipsum dolor sit coectetur adiing elit. Tincidunfywjt leo mi, viearra urna. Arcu ve isus, condimentum ut vulpate cursus por turpis.</p>
-            <ul class="list-inline mt-3">
-              <li class="list-inline-item">
-                <a href="#!" class="text-white text-primary-onHover p-2">
-                  <span class="fab fa-twitter"></span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#!" class="text-white text-primary-onHover p-2">
-                  <span class="fab fa-facebook-f"></span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#!" class="text-white text-primary-onHover p-2">
-                  <span class="fab fa-instagram"></span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#!" class="text-white text-primary-onHover p-2">
-                  <span class="fab fa-linkedin-in"></span>
-                </a>
-              </li>
-            </ul>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Accordion Item #3
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
           </div>
-          <!-- end of author-widget -->
-
-          <div class="widget bg-dark p-4 text-center">
-            <h2 class="widget-title text-white d-inline-block mt-4">Subscribe Blog</h2>
-            <p class="mt-4">Lorem ipsum dolor sit coectetur elit. Tincidu nfywjt leo mi, urna. Arcu ve isus, condimentum ut vulpate cursus por.</p>
-            <form action="#">
-              <div class="form-group">
-                <input type="email" class="form-control bg-transparent rounded-0 my-4" placeholder="Your Email Address">
-                <button class="btn btn-primary">Subscribe Now <img src="images/arrow-right.png" alt=""></button>
-              </div>
-            </form>
-          </div>
-          <!-- end of subscription-widget -->
-
-          <div class="widget">
-            <div class="mb-5 text-center">
-              <h2 class="widget-title text-white d-inline-block">Featured Posts</h2>
-            </div>
-            <div class="card post-item bg-transparent border-0 mb-5">
-              <a href="post-details.html">
-                <img class="card-img-top rounded-0" src="images/post/post-sm/01.png" alt="">
-              </a>
-              <div class="card-body px-0">
-                <h2 class="card-title">
-                  <a class="text-white opacity-75-onHover" href="post-details.html">Excepteur ado Do minimal duis laborum Fugiat ea</a>
-                </h2>
-                <ul class="post-meta mt-3 mb-4">
-                  <li class="d-inline-block mr-3">
-                    <span class="fas fa-clock text-primary"></span>
-                    <a class="ml-1" href="#">24 April, 2016</a>
-                  </li>
-                  <li class="d-inline-block">
-                    <span class="fas fa-list-alt text-primary"></span>
-                    <a class="ml-1" href="#">Photography</a>
-                  </li>
-                </ul>
-                <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
-              </div>
-            </div>
-            <!-- end of widget-post-item -->
-            <div class="card post-item bg-transparent border-0 mb-5">
-              <a href="post-details.html">
-                <img class="card-img-top rounded-0" src="images/post/post-sm/02.png" alt="">
-              </a>
-              <div class="card-body px-0">
-                <h2 class="card-title">
-                  <a class="text-white opacity-75-onHover" href="post-details.html">Excepteur ado Do minimal duis laborum Fugiat ea</a>
-                </h2>
-                <ul class="post-meta mt-3 mb-4">
-                  <li class="d-inline-block mr-3">
-                    <span class="fas fa-clock text-primary"></span>
-                    <a class="ml-1" href="#">24 April, 2016</a>
-                  </li>
-                  <li class="d-inline-block">
-                    <span class="fas fa-list-alt text-primary"></span>
-                    <a class="ml-1" href="#">Photography</a>
-                  </li>
-                </ul>
-                <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
-              </div>
-            </div>
-            <!-- end of widget-post-item -->
-          </div>
-          <!-- end of post-items widget -->
         </div>
       </div>
     </div>
 
-    <!-- start of footer -->
-    <footer class="bg-dark">
-      <div class="container">
-        <div class="row text-center">
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Inspirations</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Templates</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Resource</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Company</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- end of footer -->
   </div>
+
 
 </section>
 <!-- END main-wrapper -->

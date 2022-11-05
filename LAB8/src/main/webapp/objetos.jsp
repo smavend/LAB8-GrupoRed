@@ -1,10 +1,4 @@
-<%@ page import="com.example.lab8.Beans.Objeto" %><%--
-  Created by IntelliJ IDEA.
-  User: USUARIO
-  Date: 4/11/2022
-  Time: 09:23
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.example.lab8.Beans.Objeto" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="listaObjetos" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.Objeto>"/>
 <%
@@ -57,11 +51,11 @@
     <div class="navbar navbar-dark my-4 p-0 font-primary">
       <ul class="navbar-nav w-100">
         <li class="nav-item ">
-          <a class="nav-link text-white px-0 pt-0" href="<%=request.getContextPath()%>/ServletFinalFantasy">Home</a>
+          <a class="nav-link text-white px-0 pt-0" href="<%=request.getContextPath()%>/ServletFinalFantasy">Inicio</a>
         </li>
 
         <li class="nav-item ">
-          <a class="nav-link text-white px-0" href="<%=request.getContextPath()%>/ServletFinalFantasy?action=heroes">Héroes</a>
+          <a class="nav-link text-white px-0" href="<%=request.getContextPath()%>/Heroes">Héroes</a>
         </li>
 
         <li class="nav-item  accordion">
@@ -138,15 +132,29 @@
           <table class="table table-bordered text-center text-white table-transparent">
             <thead class="bg-dark">
               <tr>
-
-                <th class="h3" scope="col">ID</th>
-                <th class="h3" scope="col">Nombre</th>
-                <th class="h3" scope="col">Efecto/Uso</th>
-                <th class="h3" scope="col">Peso</th>
-                <th class="h3" scope="col">Héroe</th>
-                <th class="h3" scope="col">Editar</th>
-                <th class="h3" scope="col">Eliminar</th>
-              </tr>
+              <th class="h3" scope="col">
+                <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=sortByid" style="color: white">
+                  ID
+                </a>
+              </th>
+              <th class="h3" scope="col">
+                <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=sortBynombre" style="color: white">
+                  Nombre
+                </a>
+              </th>
+              <th class="h3" scope="col">Efecto/Uso</th>
+              <th class="h3" scope="col">
+                <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=sortBypeso" style="color: white">
+                  Peso
+                </a>
+              </th>
+              <th class="h3" scope="col">
+                <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=sortByhero" style="color: white">
+                  Héroe
+                </a>
+              </th>
+              <th class="h3" scope="col">Editar</th>
+              <th class="h3" scope="col">Eliminar</th>
             </thead>
             <%for(Objeto object : listaObjetos){%>
             <tbody>
