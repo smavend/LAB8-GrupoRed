@@ -46,7 +46,7 @@
   <aside>
     <div class="sidenav position-sticky d-flex flex-column justify-content-between">
     <a class="navbar-brand" href="<%=request.getContextPath()%>/ServletFinalFantasy" class="logo">
-      <img src="images/FFlogo.png">
+      <img src="images/logo.png">
     </a>
     <!-- end of navbar-brand -->
     <div class="navbar navbar-dark my-4 p-0 font-primary">
