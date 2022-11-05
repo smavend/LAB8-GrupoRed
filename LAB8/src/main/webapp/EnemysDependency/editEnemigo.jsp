@@ -135,7 +135,7 @@
                                 <h1 class="text-white add-letter-space mb-5">Edita a tu enemigo</h1>
                                 <form method="POST" class="needs-validation" novalidate>
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group mb-5">
                                                 <label for="nombre" class="text-black-300">Nombre</label>
                                                     <input type="text" id="nombre" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="nombre"  value="<%=enemy.getNombre()%>" required>
@@ -160,13 +160,40 @@
                                                 <p class="invalid-feedback">¡Ingresa ataque!</p>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-2">
                                             <div class="form-group mb-5">
-                                                <label class="text-black-300">What Is This About?</label>
-                                                <select class="d-block w-100">
-                                                    <option value="1">Personal Proposal</option>
-                                                    <option value="2">Business Purpose</option>
-                                                    <option value="3">Want to say hello</option>
+                                                <label for="experiencia" class="text-black-300">Experiencia</label>
+                                                <input type="number" id="experiencia" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="experiencia" value="<%=enemy.getExperiencia()%>" required>
+
+                                                <p class="invalid-feedback">¡Ingresa la experiencia!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group mb-5">
+                                                <label for="objeto" class="text-black-300">Objeto que da</label>
+                                                <select class="d-block w-100" id="objeto" name="objeto">
+                                                    <% for (Enemigo e: listaEnemigos) {%>
+                                                    <option value="<%=e.getObjetoDado()%>" <%=(e.getObjetoDado().equalsIgnoreCase(enemy.getObjetoDado()))?"selected":""%>><%=e.getObjetoDado()%></option>
+                                                    <% } %>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-5">
+                                                <label for="probObjeto" class="text-black-300">Probabilidad de que dé el objeto</label>
+                                                <input type="text" id="probObjeto" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="probObjeto" value="<%=enemy.getProbObjeto()%>" required>
+
+                                                <p class="invalid-feedback">¡Ingresa la probabilidad!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group mb-5">
+                                                <label for="genero" class="text-black-300">Género</label>
+                                                <select class="d-block w-100" id="genero" name="genero">
+                                                    <option value="M" <%=(enemy.getGenero().equalsIgnoreCase("masculino"))?"selected":""%>>M</option>
+                                                    <option value="F" <%=(enemy.getGenero().equalsIgnoreCase("femenino"))?"selected":""%>>F</option>
+                                                    <option value="F" <%=(enemy.getGenero().equalsIgnoreCase("otro"))?"selected":""%>>O</option>
+                                                    <option value="" <%=(enemy.getGenero()==null)?"selected":""%>>-</option>
                                                 </select>
                                             </div>
                                         </div>

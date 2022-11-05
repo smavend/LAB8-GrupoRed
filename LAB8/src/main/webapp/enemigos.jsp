@@ -274,7 +274,7 @@
 
           <div class="widget">
             <div class="d-block">
-              <a class="btn btn-primary" href="clases.html">Descubre más sobre sus clases<img src="images/arrow-right.png" alt=""></a>
+              <a class="btn btn-primary" href="<%=request.getContextPath()%>/Enemigos?id=clase">Descubre más sobre sus clases<img src="images/arrow-right.png" alt=""></a>
             </div>
             <!-- end buttons -->
           </div>
