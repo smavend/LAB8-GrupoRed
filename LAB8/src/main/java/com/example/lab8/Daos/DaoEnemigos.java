@@ -90,7 +90,7 @@ public class DaoEnemigos {
         return enemigo;
     }
 
-    public boolean editar(int idEnemigo, String nombre, int clase, int ataque, int experiencia, int objeto, float probObjeto, String genero){
+    public boolean editar(Enemigo enemigo){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -101,19 +101,20 @@ public class DaoEnemigos {
         String pasw = "root";
         String url = "jdbc:mysql://localhost:3306/grupored";
         String sql = "UPDATE enemigo SET nombre = ?, idClase = ?, ataque = ?, experiencia = ?, idObjeto = ?, probObjeto=?, genero = ? WHERE idEnemigo = ?";
-        Enemigo enemigo;
+
 
         try(Connection conn = DriverManager.getConnection(url, user, pasw);
             PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.setString(1, nombre);
-            pstmt.setInt(2,clase);
-            pstmt.setInt(3, ataque);
-            pstmt.setInt(4,experiencia);
-            pstmt.setInt(5,objeto);
-            pstmt.setFloat(6,probObjeto);
-            pstmt.setString(7,(genero.equals("")?null:genero));
-            pstmt.setInt(8,idEnemigo);
+            pstmt.setString(1, enemigo.getNombre());
+            pstmt.setInt(2,enemigo.getIdClase());
+            pstmt.setInt(3, enemigo.getAtaque());
+            pstmt.setInt(4,enemigo.getExperiencia());
+            pstmt.setInt(5,enemigo.getIdObjeto());
+            pstmt.setFloat(6,enemigo.getProbObjeto());
+
+            pstmt.setString(7,enemigo.getGenero());
+            pstmt.setInt(8,enemigo.getIdEnemigo());
 
             pstmt.executeUpdate();
             return true;

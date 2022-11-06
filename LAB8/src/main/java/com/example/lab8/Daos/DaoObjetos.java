@@ -126,7 +126,6 @@ public class DaoObjetos {
 
             pstmt.setString(1,nombre);
             pstmt.setString(2,efecto);
-            pstmt.setString(3,efecto);
             pstmt.setFloat(3,peso);
             pstmt.setInt(4,id);
 

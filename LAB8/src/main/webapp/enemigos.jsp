@@ -170,9 +170,10 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+
               <% int i = 1;
                 for (Enemigo e : listaEnemigos){ %>
+                <tr>
                   <td><%=i%></td>
                   <td><%=e.getNombre()%></td>
                   <td><%=e.getClase()%></td>
@@ -180,16 +181,17 @@
                   <td><%=e.getExperiencia()%></td>
                   <td><%=e.getObjetoDado()%></td>
                   <td><%=e.getProbObjeto()%></td>
-                  <td><%=(e.getGenero() == null)?"-":(e.getGenero().equalsIgnoreCase("M"))?"Masculino":"Femenino"%></td>
+                  <td><%=(e.getGenero().equalsIgnoreCase("-"))?"Sin género":(e.getGenero().equalsIgnoreCase("M"))?"Masculino":(e.getGenero().equalsIgnoreCase("O"))?"Otro":"Femenino"%></td>
                   <td><a href="<%=request.getContextPath()%>/Enemigos?id=vistaEdit&enemy=<%=e.getIdEnemigo()%>" class="btn btn-secondary">
                     <i class="bi bi-pencil-square"></i>
                   </a>
                   </td>
                   <td><a class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
                   </td>
+                </tr>
                <%i++;
                 } %>
-                </tr>
+
               </tbody>
             </table>
             <!-- end table-style -->

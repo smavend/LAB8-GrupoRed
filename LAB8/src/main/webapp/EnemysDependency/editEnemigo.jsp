@@ -142,9 +142,7 @@
                                         <div class="col-lg-2 col-md-12 col-sm-12 col-12" hidden>
                                             <div class="form-group mb-5">
                                                 <label for="idEnemigo" class="text-black-300">id Enemigo</label>
-                                                <input type="number" id="idEnemigo" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="idEnemigo" value="<%=enemy.getIdEnemigo()%>">
-
-                                                <p class="invalid-feedback">¡Ingresa la experiencia!</p>
+                                                <input type="text" id="idEnemigo" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="idEnemigo" value="<%=enemy.getIdEnemigo()%>">
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-md-12 col-sm-12 col-12">
@@ -204,8 +202,8 @@
                                                 <select class="d-block w-100" id="genero" name="genero">
                                                     <option value="M" <%=(enemy.getGenero().equalsIgnoreCase("masculino"))?"selected":""%>>M</option>
                                                     <option value="F" <%=(enemy.getGenero().equalsIgnoreCase("femenino"))?"selected":""%>>F</option>
-                                                    <option value="F" <%=(enemy.getGenero().equalsIgnoreCase("otro"))?"selected":""%>>O</option>
-                                                    <option value="" <%=(enemy.getGenero()==null)?"selected":""%>>-</option>
+                                                    <option value="O" <%=(enemy.getGenero().equalsIgnoreCase("otro"))?"selected":""%>>O</option>
+                                                    <option value="-" <%=(enemy.getGenero().equalsIgnoreCase("-"))?"selected":""%>>-</option>
                                                 </select>
                                             </div>
                                         </div>

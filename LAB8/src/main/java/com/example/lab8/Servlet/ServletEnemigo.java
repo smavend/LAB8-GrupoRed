@@ -69,31 +69,24 @@ public class ServletEnemigo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String post = request.getParameter("post");
         DaoEnemigos daoEnemigos = new DaoEnemigos();
+        Enemigo enemigo;
 
         switch (post){
             case "edit":
-                String idEnemigoStr = request.getParameter("idEnemigo");
-                String nombre = request.getParameter("nombre");
-                String claseStr = request.getParameter("clase");
-                String ataqueStr = request.getParameter("ataque");
-                String experienciaStr = request.getParameter("experiencia");
-                String objetoStr = request.getParameter("objeto");
-                String probObjetoStr = request.getParameter("probObjeto");
-                String genero = request.getParameter("genero");
-                try {
-                    int ataque = Integer.parseInt(ataqueStr);
-                    int experiencia = Integer.parseInt(experienciaStr);
-                    float probObjeto = Float.parseFloat(probObjetoStr);
-                    int idEnemigo = Integer.parseInt(idEnemigoStr);
-                    int clase = Integer.parseInt(claseStr);
-                    int objeto = Integer.parseInt(objetoStr);
-                    if(ataque>0 & experiencia>0){
-                        if(daoEnemigos.editar(idEnemigo, nombre, clase, ataque, experiencia, objeto, probObjeto, genero)){
-                            response.sendRedirect(request.getContextPath() + "/Enemigos");
-                        }
-                    }
-                } catch (NumberFormatException e) {
-                    response.sendRedirect(request.getContextPath() + "/Enemigo?id=vistaEdit&enemy=" + idEnemigoStr);
+                enemigo = new Enemigo();
+                enemigo.setIdEnemigo(Integer.parseInt(request.getParameter("idEnemigo")));
+                enemigo.setNombre(request.getParameter("nombre"));
+                enemigo.setIdClase(Integer.parseInt(request.getParameter("clase")));
+                enemigo.setAtaque(Integer.parseInt(request.getParameter("ataque")));
+                enemigo.setExperiencia(Integer.parseInt(request.getParameter("experiencia")));
+                enemigo.setIdObjeto(Integer.parseInt(request.getParameter("objeto")));
+                enemigo.setProbObjeto(Float.parseFloat(request.getParameter("probObjeto")));
+                enemigo.setGenero(request.getParameter("genero"));
+                if(daoEnemigos.editar(enemigo)){
+                    response.sendRedirect(request.getContextPath() + "/Enemigos");
+                }
+                else{
+                    response.sendRedirect(request.getContextPath() + "/Enemigos?id=vistaEdit&enemy="+request.getParameter("idEnemigo"));
                 }
                 break;
         }
