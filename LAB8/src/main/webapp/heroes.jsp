@@ -190,7 +190,7 @@
               <td><%=hero.getIdPareja()%></td>
               <td><%=hero.getExperiencia()%></td>
               <td>
-                <a href="<%=request.getContextPath()%>/ServletHeroe?id=editHero&id=<%=hero.getIdHeroe()%>" class="btn btn-secondary">
+                <a href="<%=request.getContextPath()%>/ServletHeroe?id=editHero&heroid=<%=hero.getIdHeroe()%>" class="btn btn-secondary">
                   <i class="bi bi-pencil-square">
                   </i>
                 </a>
