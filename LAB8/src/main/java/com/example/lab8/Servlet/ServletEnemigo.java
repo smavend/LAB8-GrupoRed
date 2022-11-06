@@ -9,7 +9,6 @@ import com.example.lab8.Daos.DaoObjetos;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import jdk.internal.foreign.ArenaAllocator;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,7 +25,7 @@ public class ServletEnemigo extends HttpServlet {
         DaoClase daoClase = new DaoClase();
         DaoObjetos daoObjetos = new DaoObjetos();
         ArrayList<Clase> listaClases = daoClase.listarClases();
-        ArrayList<Objeto> listaObjetos = daoObjetos.list;
+        ArrayList<Objeto> listaObjetos = daoObjetos.getObjectList();
         ArrayList<Enemigo> listaEnemigos = daoEnemigos.listarEnemigos();
         Enemigo e;
 
@@ -48,7 +47,7 @@ public class ServletEnemigo extends HttpServlet {
                     request.setAttribute("enemy", e);
                     request.setAttribute("listaEnemigos", listaEnemigos);
                     request.setAttribute("listaClases", listaClases);
-                    request.setAttribute("listaClases", listaClases);
+                    request.setAttribute("listaObjetos", listaObjetos);
 
                     requestDispatcher = request.getRequestDispatcher("EnemysDependency/editEnemigo.jsp");
                     requestDispatcher.forward(request, response);

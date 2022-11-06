@@ -1,5 +1,6 @@
 <%@ page import="com.example.lab8.Beans.Enemigo" %>
-<%@ page import="com.example.lab8.Beans.Clase" %><%--
+<%@ page import="com.example.lab8.Beans.Clase" %>
+<%@ page import="com.example.lab8.Beans.Objeto" %><%--
   Created by IntelliJ IDEA.
   User: USUARIO
   Date: 4/11/2022
@@ -10,6 +11,7 @@
 <jsp:useBean id="enemy" scope="request" type="com.example.lab8.Beans.Enemigo"/>
 <jsp:useBean id="listaEnemigos" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.Enemigo>"/>
 <jsp:useBean id="listaClases" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.Clase>"/>
+<jsp:useBean id="listaObjetos" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.Objeto>"/>
 <html>
     <head>
         <meta charset="utf-8">
@@ -157,7 +159,7 @@
                                                 <label for="clase" class="text-black-300">Clase</label>
                                                 <select class="d-block w-100">
                                                     <% for (Clase c: listaClases) {%>
-                                                    <option id="clase" name="clase" value="<%=c.getIdClase()%>" <%=(c.getIdClase()==enemy.getIdClase())?"selected":""%>><%=e.getIdClase()%></option>
+                                                    <option id="clase" name="clase" value="<%=c.getIdClase()%>" <%=(c.getIdClase()==enemy.getIdClase())?"selected":""%>><%=c.getIdClase()%></option>
                                                     <% } %>
                                                 </select>
                                             </div>
@@ -182,8 +184,8 @@
                                             <div class="form-group mb-5">
                                                 <label for="idObjeto" class="text-black-300">Objeto que da</label>
                                                 <select class="d-block w-100" id="idObjeto" name="idObjeto">
-                                                    <% for (Enemigo e: listaEnemigos) {%>
-                                                    <option value="<%=e.getIdObjeto()%>" <%=(e.getObjetoDado().equalsIgnoreCase(enemy.getObjetoDado()))?"selected":""%>><%=e.getObjetoDado()%></option>
+                                                    <% for (Objeto o: listaObjetos) {%>
+                                                    <option value="<%=o.getIdObjeto()%>" <%=(enemy.getIdObjeto()==o.getIdObjeto())?"selected":""%>><%=o.getNombre()%></option>
                                                     <% } %>
                                                 </select>
                                             </div>
