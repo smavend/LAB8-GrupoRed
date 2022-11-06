@@ -68,7 +68,7 @@ public class DaoHeroes {
     }
 
 
-    public void deleteHero(int heroid) {
+    public void deleteHero(String heroid) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -81,7 +81,71 @@ public class DaoHeroes {
         try (Connection connection = DriverManager.getConnection(url, "root", "root");
              PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
-            pstmt.setInt(1,heroid);
+            pstmt.setString(1,heroid);
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public Heroes getHeroById(String heroid) {
+        Heroes hero = null;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String url = "jdbc:mysql://localhost:3306/grupored";
+
+        String sql = "select * from heroe WHERE idHeroe = ?";
+        try (Connection connection = DriverManager.getConnection(url, "root", "root");
+             PreparedStatement pstmt = connection.prepareStatement(sql);) {
+
+            pstmt.setString(1, heroid);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    hero = new Heroes();
+                    hero.setIdHeroe(rs.getInt(1));
+                    hero.setIdPareja(rs.getInt(2));
+                    hero.setNombre(rs.getString(3));
+                    hero.setEdad(rs.getInt(4));
+                    hero.setGenero(rs.getString(5));
+                    hero.setClase(rs.getString(6));
+                    hero.setNivelInicial(rs.getInt(7));
+                    hero.setAtaque(rs.getInt(8));
+                    hero.setExperiencia(getExp(hero.getNivelInicial()));
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return hero;
+    }
+
+    public void updateHero(int id, String nombre, int edad, String genero, String clase, int nvi, int ataque, int idPareja) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String url = "jdbc:mysql://localhost:3306/grupored";
+        String sql = "UPDATE heroe SET nombre=?,edad=?,genero=?,clase=?,nivelInicial=?,ataque=?,idPareja=? WHERE idHeroe=?";
+
+        try (Connection connection = DriverManager.getConnection(url, "root", "root");
+             PreparedStatement pstmt = connection.prepareStatement(sql)) {
+
+            pstmt.setString(1, nombre);
+            pstmt.setInt(2,edad);
+            pstmt.setString(3,genero);
+            pstmt.setString(4,clase);
+            pstmt.setInt(5,nvi);
+            pstmt.setInt(6,ataque);
+            pstmt.setInt(7,idPareja);
+            pstmt.setInt(8,id);
+
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
