@@ -210,12 +210,12 @@
                                         <div class="row justify-content-start">
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-6">
                                                 <div class="d-block">
-                                                    <button type="submit" class="btn btn-sm btn-primary">Confirmar<img src="images/arrow-right.png" alt=""></button>
+                                                    <button type="submit" class="btn btn-sm btn-primary">Confirmar</button>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-6">
                                                 <div class="d-block">
-                                                    <a href="<%=request.getContextPath()%>/Enemigo" class="btn btn-secondary">Cancelar<img src="images/arrow-right.png" alt=""></a>
+                                                    <a href="<%=request.getContextPath()%>/Enemigo" class="btn btn-secondary">Cancelar</a>
                                                 </div>
                                             </div>
                                         </div>
