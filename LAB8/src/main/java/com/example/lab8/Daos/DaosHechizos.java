@@ -92,5 +92,8 @@ public class DaosHechizos {
             throw new RuntimeException(e);
         }
         return hechizo;
+
     }
+
+
 }
