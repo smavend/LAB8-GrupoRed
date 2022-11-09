@@ -1,9 +1,7 @@
 <%@ page import="com.example.lab8.Beans.Hechizo" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-  ArrayList<Hechizo> listaHechizos = (ArrayList<Hechizo>) request.getAttribute("lista");
-%>
+<jsp:useBean id="lista" type="java.util.ArrayList<com.example.lab8.Beans.Hechizo>"/>
 
 <html>
 <head>
@@ -188,7 +186,7 @@
             <th class="h3" scope="col">Hechizo Base</th>
           </tr>
           </thead>
-          <%for(Hechizo hechizo : listaHechizos){%>
+          <%for(Hechizo hechizo : lista){%>
           <tbody>
             <tr>
               <td><%=hechizo.getNombreHechizo()%></td>

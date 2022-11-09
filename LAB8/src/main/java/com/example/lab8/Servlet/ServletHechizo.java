@@ -14,13 +14,13 @@ public class ServletHechizo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String action = request.getParameter("action") == null ? "lista" : request.getParameter("action");
+        String action = request.getParameter("action") == null ? "listar" : request.getParameter("action");
         DaosHechizos hechizoDao = new DaosHechizos();
         RequestDispatcher view;
 
         switch (action) {
             case "listar":
-                ArrayList<Hechizo> listaHechizo = hechizoDao.obtenerListaTrabajos();
+                ArrayList<Hechizo> listaHechizo = hechizoDao.obtenerListaHechizos();
                 request.setAttribute("lista", listaHechizo);
 
                 view = request.getRequestDispatcher("hechizos.jsp");
