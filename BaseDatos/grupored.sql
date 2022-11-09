@@ -127,7 +127,7 @@ CREATE TABLE `enemigo` (
 
 LOCK TABLES `enemigo` WRITE;
 /*!40000 ALTER TABLE `enemigo` DISABLE KEYS */;
-INSERT INTO `enemigo` VALUES (1,'Atrix',20,12,41.7,'M',1,1),(5,'Buyua',78,15,78.9,'M',3,1),(6,'Majio',49,15,15.4,'-',4,3),(9,'Helid',84,20,45.8,'M',2,2),(10,'Nobe',12,40,1.1,'F',1,1),(11,'Ruizo',80,45,1.1,'M',1,1),(12,'Wolphi',64,47,1.1,'M',1,6),(13,'Lurap',14,60,1.1,'-',1,3),(14,'Kuref',72,29,1.1,'F',1,2);
+INSERT INTO `enemigo` VALUES (1,'Atrix',20,12,41.7,'M',1,1),(5,'Buyua',78,15,78.9,'M',3,1),(6,'Majio',49,15,15.4,'-',4,3),(9,'Helid',84,20,45.8,'M',2,2),(10,'Nobe',12,40,1.1,'F',1,1),(11,'Ruizo',80,45,1.1,'M',1,1),(12,'Wolphi',64,47,1.1,'M',1,6),(14,'Kuref',72,29,1.1,'F',1,2);
 /*!40000 ALTER TABLE `enemigo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -181,7 +181,7 @@ CREATE TABLE `heroe` (
   `ataque` int NOT NULL,
   PRIMARY KEY (`idHeroe`),
   KEY `fk_heroes_heroes_idx` (`idPareja`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,7 +190,7 @@ CREATE TABLE `heroe` (
 
 LOCK TABLES `heroe` WRITE;
 /*!40000 ALTER TABLE `heroe` DISABLE KEYS */;
-INSERT INTO `heroe` VALUES (1,2,'Erdeeeee',9,'F','claseprimera',8,14),(2,1,'Robinn',10,'M','x',14,42),(3,NULL,'Mold',16,'F','clasetercera',18,13);
+INSERT INTO `heroe` VALUES (1,2,'Erde',9,'F','Nnnnn',8,14),(2,1,'Robin',10,'M','x',14,42),(3,5,'Mold',16,'F','ttttttt',18,13),(5,3,'Molde',12,'M','Nnnnna',15,87);
 /*!40000 ALTER TABLE `heroe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -257,4 +257,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-09 14:37:58
+-- Dump completed on 2022-11-09 18:51:23
