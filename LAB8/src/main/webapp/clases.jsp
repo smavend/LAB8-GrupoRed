@@ -154,25 +154,6 @@
 
           <div class="widget">
             <h1 class="widget-title text-white d-inline-block mb-4">Lista de clases de enemigos</h1>
-            <div class="row">
-              <div class="col-lg-5 col-md-6 col-sm-6 col-6">
-                <form class="search-form" action="#">
-                  <div class="input-group">
-                    <input type="search" class="form-control bg-transparent shadow-none rounded-0" placeholder="Buscar enemigo">
-                    <div class="input-group-append">
-                      <button class="btn" type="submit">
-                        <span class="fas fa-search"></span>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div class="col-lg-5 col-md-6 col-sm-6 col-6">
-                <div class="d-block">
-                  <a href="<%=request.getContextPath()%>/Enemigo?id=vistaAdd" class="btn btn-success">Añadir nuevo enemigo<img src="images/arrow-right.png" alt=""></a>
-                </div>
-              </div>
-            </div>
             <table class="table table-bordered text-center text-white table-transparent">
               <thead class="bg-dark">
                 <tr>
@@ -186,7 +167,8 @@
                 <tr>
                   <td><%=c.getIdClase()%></td>
                   <td><%=c.getNombre()%></td>
-                  <td style="background: #221c26;"><button class="btn"><i class="bi bi-arrows-angle-expand"></i></button></td>
+                  <td style="background: #221c26;">
+                    <a href="<%=request.getContextPath()%>/Enemigos?id=detail&clase=<%=c.getIdClase()%>" class="btn"><i class="bi bi-arrows-angle-expand"></i></a></td>
                 </tr>
                 <%}%>
 

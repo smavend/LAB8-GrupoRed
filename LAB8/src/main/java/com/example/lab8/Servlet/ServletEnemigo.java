@@ -1,9 +1,6 @@
 package com.example.lab8.Servlet;
 
-import com.example.lab8.Beans.Clase;
-import com.example.lab8.Beans.Enemigo;
-import com.example.lab8.Beans.Estadistica;
-import com.example.lab8.Beans.Objeto;
+import com.example.lab8.Beans.*;
 import com.example.lab8.Daos.DaoClase;
 import com.example.lab8.Daos.DaoEnemigos;
 import com.example.lab8.Daos.DaoObjetos;
@@ -71,6 +68,18 @@ public class ServletEnemigo extends HttpServlet {
                 requestDispatcher = request.getRequestDispatcher("clases.jsp");
                 requestDispatcher.forward(request,response);
                 break;
+            case "detail":
+                request.setAttribute("listaElementos", daoClase.obtenerElementos(Integer.parseInt(request.getParameter("clase"))));
+                request.setAttribute("clase", request.getParameter("clase"));
+                requestDispatcher = request.getRequestDispatcher("claseDetalles.jsp");
+                requestDispatcher.forward(request, response);
+                break;
+            case "editDano":
+                request.getParameter("clase");
+                request.getParameter("element");
+                requestDispatcher = request.getRequestDispatcher("claseEditDano.jsp");
+                requestDispatcher.forward(request, response);
+                break;
         }
 
 
@@ -122,6 +131,20 @@ public class ServletEnemigo extends HttpServlet {
                 }else{
                     response.sendRedirect(request.getContextPath() + "/Enemigos?post=add");
                 }
+                break;
+            case "buscar":
+                String buscar = request.getParameter("buscar");
+
+                ArrayList<Enemigo> lista = daoEnemigos.buscarNombre(buscar);
+
+                request.setAttribute("listaEnemigos", lista);
+                request.setAttribute("buscar",buscar);
+                request.setAttribute("estadistica", daoEnemigos.obtenerEstadGenero(daoEnemigos.obtenerEstadObjeto(daoEnemigos.obtenerEstadClase())));
+                requestDispatcher = request.getRequestDispatcher("enemigos.jsp");
+                requestDispatcher.forward(request, response);
+                break;
+            case "danio":
+                String danio = request.getParameter("porcentaje");
                 break;
         }
     }

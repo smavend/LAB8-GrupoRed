@@ -8,6 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="listaEnemigos" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.Enemigo>"/>
 <jsp:useBean id="estadistica" scope="request" type="com.example.lab8.Beans.Estadistica"/>
+<%
+  String buscar = (String) request.getAttribute("buscar");
+%>
 
 <html>
 <head>
@@ -134,22 +137,24 @@
 
 
       <div class="row justify-content-between">
-        <div class="col-lg-10">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
           <div class="widget">
             <h1 class="widget-title text-white d-inline-block mb-4">Lista de enemigos</h1>
             <div class="row">
               <div class="col-lg-5 col-md-6 col-sm-6 col-6">
-                <form class="search-form" action="#">
+                <form class="search-form" method="post" action="<%=request.getContextPath()%>/Enemigos?post=buscar">
                   <div class="input-group">
-                    <input type="search" class="form-control bg-transparent shadow-none rounded-0" placeholder="Buscar enemigo">
+                    <input type="search" name="buscar" class="form-control bg-transparent shadow-none rounded-0" id="busqueda"
+                           placeholder="Buscar enemigo" value="<%=buscar!=null?buscar:""%>">
                     <div class="input-group-append">
                       <button class="btn" type="submit">
                         <span class="fas fa-search"></span>
                       </button>
+                      <a href="<%=request.getContextPath()%>/Enemigos" class="btn btn-secondary">Limpiar</a>
                     </div>
                   </div>
                 </form>
-              </div>
+            </div>
               <div class="col-lg-5 col-md-6 col-sm-6 col-6">
                 <div class="d-block">
                   <a href="<%=request.getContextPath()%>/Enemigo?id=vistaAdd" class="btn btn-success">Añadir nuevo enemigo<img src="images/arrow-right.png" alt=""></a>
@@ -269,10 +274,6 @@
               </div>
             </div>
           </div>
-
-
-
-
 
           <div class="widget">
             <div class="d-block">

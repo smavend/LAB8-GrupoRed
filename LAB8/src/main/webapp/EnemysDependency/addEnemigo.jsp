@@ -220,43 +220,16 @@
                     </div>
                 </div>
                 <!-- start of footer -->
-                <footer class="bg-dark">
+                <footer class="bg-dark" style="margin: 0; padding: 2rem">
                     <div class="container">
-                        <div class="row text-center">
-                            <div class="col-lg-3 col-sm-6 mb-5">
-                                <h5 class="font-primary text-white mb-4">Inspirations</h5>
+                        <div class="col text-center" >
+                            <div class="col-lg-12 col-sm-12 mb-12" >
+                                <h4 class="font-primary text-white mb-4">Pagina Web elaborada para el curso de Ingenería Web</h4>
+                                <h5 class="font-primary text-white mb-4">Desarrolladores</h5>
                                 <ul class="list-unstyled">
-                                    <li><a href="#!">Privacy State</a></li>
-                                    <li><a href="#!">Privacy</a></li>
-                                    <li><a href="#!">State</a></li>
-                                    <li><a href="#!">Privacy</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 mb-5">
-                                <h5 class="font-primary text-white mb-4">Templates</h5>
-                                <ul class="list-unstyled">
-                                    <li><a href="#!">Privacy State</a></li>
-                                    <li><a href="#!">Privacy</a></li>
-                                    <li><a href="#!">State</a></li>
-                                    <li><a href="#!">Privacy</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 mb-5">
-                                <h5 class="font-primary text-white mb-4">Resource</h5>
-                                <ul class="list-unstyled">
-                                    <li><a href="#!">Privacy State</a></li>
-                                    <li><a href="#!">Privacy</a></li>
-                                    <li><a href="#!">State</a></li>
-                                    <li><a href="#!">Privacy</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 mb-5">
-                                <h5 class="font-primary text-white mb-4">Company</h5>
-                                <ul class="list-unstyled">
-                                    <li><a href="#!">Privacy State</a></li>
-                                    <li><a href="#!">Privacy</a></li>
-                                    <li><a href="#!">State</a></li>
-                                    <li><a href="#!">Privacy</a></li>
+                                    <li>Beatriz Manrique Avedaño</li>
+                                    <li>Dana Nolasco Vallejos</li>
+                                    <li>Sebastian Segura Abanto</li>
                                 </ul>
                             </div>
                         </div>

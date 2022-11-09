@@ -2,6 +2,7 @@ package com.example.lab8.Daos;
 
 import com.example.lab8.Beans.Enemigo;
 import com.example.lab8.Beans.Estadistica;
+import com.example.lab8.Beans.Heroes;
 import com.example.lab8.Beans.Objeto;
 
 import java.sql.*;
@@ -291,5 +292,47 @@ public class DaoEnemigos {
             throw new RuntimeException();
         }
         return previo;
+    }
+    public ArrayList<Enemigo> buscarNombre(String nombre) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String url = "jdbc:mysql://localhost:3306/grupored";
+
+        ArrayList<Enemigo> lista = new ArrayList<>();
+        Enemigo enemigo = null;
+        String sql = "SELECT e.nombre, c.nombre, ataque, experiencia, o.nombre, probObjeto, genero, e.idEnemigo, c.idClase, e.idObjeto" +
+                " FROM enemigo e, clase c, objeto o " +
+                "WHERE e.idClase = c.idClase and e.idObjeto=o.idObjeto and lower(e.nombre) like ?";
+
+        try (Connection connection = DriverManager.getConnection(url, "root", "root");
+             PreparedStatement pstmt = connection.prepareStatement(sql)) {
+
+            pstmt.setString(1, "%"+nombre+"%");
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    enemigo = new Enemigo();
+                    enemigo.setNombre(rs.getString(1));
+                    enemigo.setClase(rs.getString(2));
+                    enemigo.setAtaque(rs.getInt(3));
+                    enemigo.setExperiencia(rs.getInt(4));
+                    enemigo.setObjetoDado(rs.getString(5));
+                    enemigo.setProbObjeto(rs.getFloat(6));
+                    enemigo.setGenero(rs.getString(7));
+                    enemigo.setIdEnemigo(rs.getInt(8));
+                    enemigo.setIdClase(rs.getInt(9));
+                    enemigo.setIdObjeto(rs.getInt(10));
+
+                    lista.add(enemigo);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return lista;
     }
 }

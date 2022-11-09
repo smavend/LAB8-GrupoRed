@@ -109,6 +109,26 @@
     <!-- end of social-links -->
   </div></aside>
   <!-- end of sidenav -->
+  <div class="main-content">
+    <!-- start of mobile-nav -->
+    <header class="mobile-nav pt-4">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-6">
+            <a href="home.html">
+              <img src="images/logo.png" alt="">
+            </a>
+          </div>
+          <div class="col-6 text-right">
+            <button class="nav-toggle bg-transparent border text-white">
+              <span class="fas fa-bars"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="nav-toggle-overlay"></div>
+    <!-- end of mobile-nav -->
 
   <div class="container py-4 my-5">
     <div class="row justify-content-between">
