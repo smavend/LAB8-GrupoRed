@@ -117,7 +117,7 @@ CREATE TABLE `enemigo` (
   KEY `fk_enemigo_clase1_idx` (`idClase`),
   CONSTRAINT `fk_enemigo_clase1` FOREIGN KEY (`idClase`) REFERENCES `clase` (`idClase`),
   CONSTRAINT `fk_enemigo_objeto1` FOREIGN KEY (`idObjeto`) REFERENCES `objeto` (`idObjeto`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,7 +126,7 @@ CREATE TABLE `enemigo` (
 
 LOCK TABLES `enemigo` WRITE;
 /*!40000 ALTER TABLE `enemigo` DISABLE KEYS */;
-INSERT INTO `enemigo` VALUES (1,'Atrix',20,12,41.1,'M',1,1);
+INSERT INTO `enemigo` VALUES (1,'Atrix',20,12,41.7,'M',1,1),(5,'Buyua',78,15,78.9,'M',3,1),(6,'Majio',49,15,15.4,'-',4,3),(9,'Helid',84,20,45.8,'M',2,2),(10,'Nobe',12,40,1.1,'F',1,1),(11,'Ruizo',80,45,1.1,'M',1,1),(12,'Wolphi',64,47,1.1,'M',1,6),(13,'Lurap',14,60,1.1,'-',1,3),(14,'Kuref',72,29,1.1,'F',1,2);
 /*!40000 ALTER TABLE `enemigo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -190,7 +190,7 @@ CREATE TABLE `heroe` (
 
 LOCK TABLES `heroe` WRITE;
 /*!40000 ALTER TABLE `heroe` DISABLE KEYS */;
-INSERT INTO `heroe` VALUES (1,2,'Erde',15,'F','claseprimera',8,12),(2,1,'Robin',20,'M','clasesegunda',15,14),(3,NULL,'Mold',16,'F','clasetercera',18,13);
+INSERT INTO `heroe` VALUES (1,2,'Erde',15,'F','claseprimera',8,14),(2,1,'Robin',20,'M','clasesegunda',15,14),(3,NULL,'Mold',16,'F','clasetercera',18,13);
 /*!40000 ALTER TABLE `heroe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -257,4 +257,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-04 19:50:54
+-- Dump completed on 2022-11-09 11:18:07
