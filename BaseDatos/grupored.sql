@@ -93,6 +93,7 @@ CREATE TABLE `elementodeclase` (
 
 LOCK TABLES `elementodeclase` WRITE;
 /*!40000 ALTER TABLE `elementodeclase` DISABLE KEYS */;
+INSERT INTO `elementodeclase` VALUES (1,1,45),(1,2,12),(1,3,304),(1,4,25),(1,5,100),(1,6,598),(1,7,78),(1,8,60),(2,1,145),(2,2,240),(2,3,194),(2,4,48),(2,5,174),(2,6,457),(2,7,498),(2,8,100),(3,1,84),(3,2,45),(3,3,24),(3,4,67),(3,5,19),(3,6,545),(3,7,25),(3,8,48),(4,1,94),(4,2,97),(4,3,58),(4,4,90),(4,5,100),(4,6,10),(4,7,78),(4,8,548),(5,1,159),(5,2,58),(5,3,378),(5,4,184),(5,5,487),(5,6,54),(5,7,345),(5,8,412);
 /*!40000 ALTER TABLE `elementodeclase` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,7 +118,7 @@ CREATE TABLE `enemigo` (
   KEY `fk_enemigo_clase1_idx` (`idClase`),
   CONSTRAINT `fk_enemigo_clase1` FOREIGN KEY (`idClase`) REFERENCES `clase` (`idClase`),
   CONSTRAINT `fk_enemigo_objeto1` FOREIGN KEY (`idObjeto`) REFERENCES `objeto` (`idObjeto`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,9 +180,8 @@ CREATE TABLE `heroe` (
   `nivelInicial` int NOT NULL,
   `ataque` int NOT NULL,
   PRIMARY KEY (`idHeroe`),
-  KEY `fk_heroes_heroes_idx` (`idPareja`),
-  CONSTRAINT `fk_heroes_heroes` FOREIGN KEY (`idPareja`) REFERENCES `heroe` (`idHeroe`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+  KEY `fk_heroes_heroes_idx` (`idPareja`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,7 +190,7 @@ CREATE TABLE `heroe` (
 
 LOCK TABLES `heroe` WRITE;
 /*!40000 ALTER TABLE `heroe` DISABLE KEYS */;
-INSERT INTO `heroe` VALUES (1,2,'Erde',15,'F','claseprimera',8,14),(2,1,'Robin',20,'M','clasesegunda',15,14),(3,NULL,'Mold',16,'F','clasetercera',18,13);
+INSERT INTO `heroe` VALUES (1,2,'Erdeeeee',9,'F','claseprimera',8,14),(2,1,'Robinn',10,'M','x',14,42),(3,NULL,'Mold',16,'F','clasetercera',18,13);
 /*!40000 ALTER TABLE `heroe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -235,7 +235,7 @@ CREATE TABLE `objeto` (
   `efectoUso` varchar(200) NOT NULL,
   `peso` float NOT NULL,
   PRIMARY KEY (`idObjeto`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -244,7 +244,7 @@ CREATE TABLE `objeto` (
 
 LOCK TABLES `objeto` WRITE;
 /*!40000 ALTER TABLE `objeto` DISABLE KEYS */;
-INSERT INTO `objeto` VALUES (1,'Pala','Permite hacer hueco para atacar a un rival por sorpesa',1.5),(2,'Pico',' Permite obtener materia prima de la naturaleza',2.8),(3,'Espada','Ataca a los enemigos, baja los ps de estos',5),(4,'Hacha','Peleas y defensa. Quita la mitad de vida a los enemigos de la clase Dragón',1.2),(5,'Hi','destruccion',8.9),(6,'Hola','KAJSJA',4.1);
+INSERT INTO `objeto` VALUES (1,'Pala','Permite hacer hueco para atacar a un rival por sorpresa',1.5),(2,'Pico',' Permite obtener materia prima de la naturaleza',2.8),(3,'Espada','Ataca a los enemigos, baja los ps de estos',5),(4,'Hacha','Peleas y defensa. Quita la mitad de vida a los enemigos de la clase Dragón',1.2),(5,'Hi','destruccion',8.9),(6,'Hola','KAJSJA',4.1);
 /*!40000 ALTER TABLE `objeto` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -257,4 +257,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-09 11:18:07
+-- Dump completed on 2022-11-09 14:37:58
