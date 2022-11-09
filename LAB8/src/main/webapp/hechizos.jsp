@@ -1,11 +1,8 @@
-<%@ page import="com.example.lab8.Beans.Hechizo" %><%--
-  Created by IntelliJ IDEA.
-  User: USUARIO
-  Date: 4/11/2022
-  Time: 09:20
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.example.lab8.Beans.Hechizo" %>
+<%@ page import="com.mysql.cj.x.protobuf.MysqlxExpr" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="listaHechizos" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.Hechizo>"/>
 <html>
 <head>
   <meta charset="utf-8">
@@ -189,19 +186,18 @@
             <th class="h3" scope="col">Hechizo Base</th>
           </tr>
           </thead>
-          <!--
-          <//%for(Hechizo hechizo : listaHechizos){%>
+          <%for(Hechizo hechizo : listaHechizos){%>
           <tbody style="color: #B0B0B0">
           <tr>
-            <td><%//hechizo.getNombreHechizo()%></td>
-            <td><%//hechizo.getElementoRelacionado()%></td>
-            <td><%//hechizo.getPotencia()%></td>
-            <td><%//hechizo.getPrecision()%>%</td>
-            <td><%//hechizo.getNivelDeAprendizaje()%></td>
-            <td><%//hechizo.getHechizoBase()%></td>
+            <td><%hechizo.getNombreHechizo();%></td>
+            <td><%hechizo.getElementoRelacionado();%></td>
+            <td><%hechizo.getPotencia();%></td>
+            <td><%hechizo.getPrecision();%></td>
+            <td><%hechizo.getNivelDeAprendizaje();%></td>
+            <td><%hechizo.getHechizoBase();%></td>
           </tr>
+          <%}%>
           </tbody>
-          -->
         </table>
 
       </div>
