@@ -27,7 +27,7 @@ public class ServletEnemigo extends HttpServlet {
         ArrayList<Clase> listaClases = daoClase.listarClases();
         ArrayList<Objeto> listaObjetos = daoObjetos.getObjectList();
         ArrayList<Enemigo> listaEnemigos = daoEnemigos.listarEnemigos();
-        Enemigo e;
+        Enemigo enemigo;
 
         switch (id){
             case "inicio":
@@ -36,15 +36,17 @@ public class ServletEnemigo extends HttpServlet {
                 requestDispatcher.forward(request,response);
                 break;
             case "vistaAdd":
+                request.setAttribute("listaClases", listaClases);
+                request.setAttribute("listaObjetos", listaObjetos);
                 requestDispatcher = request.getRequestDispatcher("EnemysDependency/addEnemigo.jsp");
                 requestDispatcher.forward(request,response);
                 break;
             case "vistaEdit":
                 String enemy = request.getParameter("enemy");
-                e = daoEnemigos.buscarId(enemy);
+                enemigo = daoEnemigos.buscarId(enemy);
 
-                if(e!=null){
-                    request.setAttribute("enemy", e);
+                if(enemigo !=null){
+                    request.setAttribute("enemy", enemigo);
                     request.setAttribute("listaEnemigos", listaEnemigos);
                     request.setAttribute("listaClases", listaClases);
                     request.setAttribute("listaObjetos", listaObjetos);
@@ -88,6 +90,17 @@ public class ServletEnemigo extends HttpServlet {
                 else{
                     response.sendRedirect(request.getContextPath() + "/Enemigos?id=vistaEdit&enemy="+request.getParameter("idEnemigo"));
                 }
+                break;
+            case "add":
+                enemigo = new Enemigo();
+                enemigo.setNombre(request.getParameter("nombre"));
+                enemigo.setIdClase(Integer.parseInt(request.getParameter("clase")));
+                enemigo.setAtaque(Integer.parseInt(request.getParameter("ataque")));
+                enemigo.setExperiencia(Integer.parseInt(request.getParameter("experiencia")));
+                enemigo.setIdObjeto(Integer.parseInt(request.getParameter("objeto")));
+                enemigo.setProbObjeto(Float.parseFloat(request.getParameter("probObjeto")));
+                enemigo.setGenero(request.getParameter("genero"));
+                response.sendRedirect(request.getContextPath() + "/Enemigos");
                 break;
         }
     }

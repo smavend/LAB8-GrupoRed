@@ -1,7 +1,6 @@
 package com.example.lab8.Daos;
 
 import com.example.lab8.Beans.Enemigo;
-import com.example.lab8.Beans.Objeto;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -32,7 +31,7 @@ public class DaoEnemigos {
                 enemigo.setExperiencia(rs.getInt(4));
                 enemigo.setObjetoDado(rs.getString(5));
                 enemigo.setProbObjeto(rs.getFloat(6));
-                enemigo.setGenero(rs.getString(7));
+                enemigo.setGenero((rs.getString(7)==null)?"-":rs.getString(7));
                 enemigo.setIdEnemigo(rs.getInt(8));
                 enemigo.setIdClase(rs.getInt(9));
                 enemigo.setIdObjeto(rs.getInt(10));
