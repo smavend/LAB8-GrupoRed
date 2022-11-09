@@ -148,9 +148,9 @@
                                         <div class="col-lg-2 col-md-12 col-sm-12 col-12">
                                             <div class="form-group mb-5">
                                                 <label for="clase" class="text-black-300">Clase</label>
-                                                <select class="d-block w-100">
+                                                <select id="clase" name="clase" class="d-block w-100">
                                                     <% for (Clase c: listaClases) {%>
-                                                    <option id="clase" name="clase" value="<%=c.getIdClase()%>"><%=c.getIdClase()%></option>
+                                                    <option value="<%=c.getIdClase()%>"><%=c.getIdClase()%></option>
                                                     <% } %>
                                                 </select>
                                             </div>

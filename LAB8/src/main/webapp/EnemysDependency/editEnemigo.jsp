@@ -155,9 +155,9 @@
                                         <div class="col-lg-2 col-md-12 col-sm-12 col-12">
                                             <div class="form-group mb-5">
                                                 <label for="clase" class="text-black-300">Clase</label>
-                                                <select class="d-block w-100">
+                                                <select id="clase" name="clase" class="d-block w-100">
                                                     <% for (Clase c: listaClases) {%>
-                                                    <option id="clase" name="clase" value="<%=c.getIdClase()%>" <%=(c.getIdClase()==enemy.getIdClase())?"selected":""%>><%=c.getIdClase()%></option>
+                                                    <option value="<%=c.getIdClase()%>" <%=(c.getIdClase()==enemy.getIdClase())?"selected":""%>><%=c.getIdClase()%></option>
                                                     <% } %>
                                                 </select>
                                             </div>
@@ -167,7 +167,7 @@
                                                 <label for="ataque" class="text-black-300">Ataque</label>
                                                 <input type="number" id="ataque" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="ataque" value="<%=enemy.getAtaque()%>" required>
 
-                                                <p class="invalid-feedback">¡Ingresa ataque!</p>
+                                                <p class="invalid-feedback">¡Verifica el ataque!</p>
                                             </div>
                                         </div>
                                         <div class="col-lg-2 col-md-12 col-sm-12 col-12">
@@ -175,7 +175,7 @@
                                                 <label for="experiencia" class="text-black-300">Experiencia</label>
                                                 <input type="number" id="experiencia" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="experiencia" value="<%=enemy.getExperiencia()%>" required>
 
-                                                <p class="invalid-feedback">¡Ingresa la experiencia!</p>
+                                                <p class="invalid-feedback">¡Verifica la experiencia!</p>
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-md-12 col-sm-12 col-12">
@@ -193,7 +193,7 @@
                                                 <label for="probObjeto" class="text-black-300">Probabilidad de que dé el objeto</label>
                                                 <input type="text" id="probObjeto" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="probObjeto" value="<%=enemy.getProbObjeto()%>" required>
 
-                                                <p class="invalid-feedback">¡Ingresa la probabilidad!</p>
+                                                <p class="invalid-feedback">¡Verifica la probabilidad!</p>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-12 col-sm-12 col-12">
@@ -269,6 +269,20 @@
                     </div>
                 </footer>
                 <!-- end of footer -->
+                <div style="position: fixed; bottom: 40px; right: 40px;" aria-live="polite" aria-atomic="true">
+                    <div class="toast text-black" id=toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="6000">
+                        <div class="toast-header">
+                            <strong class="mr-auto text-danger">Alerta</strong>
+                            <small>justo ahora</small>
+                            <button type="button" class="ml-2 mb-1 close close-white" data-dismiss="toast" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="toast-body">
+                            En caso de error, revise los datos e intente nuevamente.
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </section>
@@ -280,5 +294,11 @@
 
         <!-- Main Script -->
         <script src="js/script.js"></script>
+
+        <script>
+            $(document).ready(function (){
+                $('.toast').toast('show');
+            })
+        </script>
     </body>
 </html>

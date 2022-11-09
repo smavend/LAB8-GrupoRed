@@ -1,6 +1,8 @@
 package com.example.lab8.Daos;
 
 import com.example.lab8.Beans.Enemigo;
+import com.example.lab8.Beans.Estadistica;
+import com.example.lab8.Beans.Objeto;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -121,5 +123,173 @@ public class DaoEnemigos {
         catch (SQLException e){
             return false;
         }
+    }
+
+    public boolean agregar(Enemigo enemigo){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String user = "root";
+        String pasw = "root";
+        String url = "jdbc:mysql://localhost:3306/grupored";
+        String sql = "INSERT INTO enemigo (nombre, idClase, ataque, experiencia, idObjeto, probObjeto, genero) VALUES (?,?,?,?,?,?,?)";
+
+
+        try(Connection conn = DriverManager.getConnection(url, user, pasw);
+            PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, enemigo.getNombre());
+            pstmt.setInt(2,enemigo.getIdClase());
+            pstmt.setInt(3, enemigo.getAtaque());
+            pstmt.setInt(4,enemigo.getExperiencia());
+            pstmt.setInt(5,enemigo.getIdObjeto());
+            pstmt.setFloat(6,enemigo.getProbObjeto());
+            pstmt.setString(7,enemigo.getGenero());
+
+            pstmt.executeUpdate();
+            return true;
+        }
+        catch (SQLException e){
+            return false;
+        }
+    }
+
+    public boolean borrar(int idEnemigo){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String user = "root";
+        String pasw = "root";
+        String url = "jdbc:mysql://localhost:3306/grupored";
+        String sql = "DELETE FROM enemigo WHERE idEnemigo = ?";
+
+
+        try(Connection conn = DriverManager.getConnection(url, user, pasw);
+            PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, idEnemigo);
+
+            pstmt.executeUpdate();
+            return true;
+        }
+        catch (SQLException e){
+            return false;
+        }
+    }
+/*
+    public Estadistica obtenerEstad (){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String user = "root";
+        String pasw = "root";
+        String url = "jdbc:mysql://localhost:3306/grupored";
+        String sql = "SELECT idClase, max(contador), sum(contador) FROM (SELECT idClase, count(idClase) contador FROM enemigo GROUP BY idClase) subQuery";
+        DaoClase daoClase = new DaoClase();
+        Estadistica estadistica = new Estadistica();
+
+        try(Connection connection = DriverManager.getConnection(url, user, pasw);
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);) {
+
+            int idClase = rs.getInt(1);
+            String clase = daoClase.buscarNombreXId(idClase);
+            estadistica.setClase((clase==null)?"Ninguna clase":clase);
+            estadistica.setPorcClase((clase.equals("Ninguna clase")?(float)0.0:100 * rs.getInt(2)/ rs.getInt(3)));
+        }
+        catch (SQLException e){
+            throw new RuntimeException();
+        }
+        return estadistica;
+    }
+    */
+
+    public Estadistica obtenerEstadClase() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        Estadistica estadistica = new Estadistica();
+        DaoClase daoClase = new DaoClase();
+        DaoObjetos daoObjetos = new DaoObjetos();
+        String user = "root";
+        String pasw = "root";
+        String url = "jdbc:mysql://localhost:3306/grupored";
+        String sql = "SELECT idClase, max(contador), sum(contador) FROM (SELECT idClase, count(idClase) contador FROM enemigo GROUP BY idClase) subQuery";
+        try (Connection connection = DriverManager.getConnection(url, user, pasw);
+             Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            if (rs.next()){
+                String nombre = (daoClase.buscarNombreXId(rs.getInt(1))==null)?"Sin clase": daoClase.buscarNombreXId(rs.getInt(1));
+                estadistica.setClase(nombre);
+                float porcentaje = (nombre.equals("Sin clase"))?0.0f:Math.round((1000f*rs.getInt(2))/rs.getInt(3))/10f;
+                estadistica.setPorcClase(porcentaje);
+            }
+        }
+        catch (SQLException e) {
+            throw new RuntimeException();
+        }
+        return estadistica;
+    }
+    public Estadistica obtenerEstadObjeto(Estadistica previo) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        DaoObjetos daoObjetos = new DaoObjetos();
+        String user = "root";
+        String pasw = "root";
+        String url = "jdbc:mysql://localhost:3306/grupored";
+        String sql = "SELECT idObjeto, max(contador), sum(contador) FROM (SELECT idObjeto, count(idObjeto) contador FROM enemigo " +
+                "GROUP BY idObjeto) subQuery1";
+        try (Connection connection = DriverManager.getConnection(url, user, pasw);
+             Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            if (rs.next()){
+                Objeto objeto = daoObjetos.getObjectbyId(""+rs.getInt(1)+"");
+                String nombre = (objeto.getNombre()==null)?"Sin objeto": objeto.getNombre();
+                previo.setObjeto(nombre);
+                float porcentaje = (nombre.equals("Sin objeto"))?0.0f:Math.round((1000f*rs.getInt(2))/rs.getInt(3))/10f;
+                previo.setPorcObjeto(porcentaje);
+            }
+        }
+        catch (SQLException e) {
+            throw new RuntimeException();
+        }
+        return previo;
+    }
+    public Estadistica obtenerEstadGenero(Estadistica previo) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        String user = "root";
+        String pasw = "root";
+        String url = "jdbc:mysql://localhost:3306/grupored";
+        String sql = "Select count(*), (select count(*) from enemigo) from enemigo WHERE genero = '-' GROUP BY genero";
+        try (Connection connection = DriverManager.getConnection(url, user, pasw);
+             Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            if (rs.next()){
+                float porcentaje = Math.round((1000f*rs.getInt(1))/rs.getInt(2))/10f;
+                previo.setPorcGenero(porcentaje);
+            }
+        }
+        catch (SQLException e) {
+            throw new RuntimeException();
+        }
+        return previo;
     }
 }

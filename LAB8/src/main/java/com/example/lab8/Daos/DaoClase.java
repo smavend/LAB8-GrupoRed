@@ -35,4 +35,33 @@ public class DaoClase {
         }
         return lista;
     }
+    public String buscarNombreXId(int idClase){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String user = "root";
+        String pasw = "root";
+        String url = "jdbc:mysql://localhost:3306/grupored";
+        String sql = "SELECT nombre FROM clase WHERE idClase = ?";
+        String nombre = null;
+
+        try(Connection conn = DriverManager.getConnection(url, user, pasw);
+            PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, idClase);
+
+            try (ResultSet rs = pstmt.executeQuery()){
+                if (rs.next()){
+                    nombre = rs.getString(1);
+                }
+            }
+        }
+        catch (SQLException e){
+            throw new RuntimeException();
+        }
+        return nombre;
+    }
 }

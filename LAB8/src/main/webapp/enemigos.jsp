@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="listaEnemigos" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.Enemigo>"/>
+<jsp:useBean id="estadistica" scope="request" type="com.example.lab8.Beans.Estadistica"/>
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -183,11 +185,8 @@
                   <td><%=e.getProbObjeto()%></td>
                   <td><%=(e.getGenero().equalsIgnoreCase("-"))?"Sin género":(e.getGenero().equalsIgnoreCase("M"))?"Masculino":(e.getGenero().equalsIgnoreCase("O"))?"Otro":"Femenino"%></td>
                   <td><a href="<%=request.getContextPath()%>/Enemigos?id=vistaEdit&enemy=<%=e.getIdEnemigo()%>" class="btn btn-secondary">
-                    <i class="bi bi-pencil-square"></i>
-                  </a>
-                  </td>
-                  <td><a class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
-                  </td>
+                    <i class="bi bi-pencil-square"></i></a>
+                  </td><td><a href="<%=request.getContextPath()%>/Enemigos?id=delete&enemy=<%=e.getIdEnemigo()%>" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a></td>
                 </tr>
                <%i++;
                 } %>
@@ -225,14 +224,14 @@
                   <h4 style="padding-top: 10px;">Clase más común</h4>
                   <div class="row justify-content-center">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center justify-content-center">
-                      <span class="me-2 text-xs font-weight-bold">Dragón</span>
+                      <span class="me-2 text-xs font-weight-bold"><%=estadistica.getClase()%></span>
                       <div class="figure">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="80" height="50" viewBox="-5 20 120 100">
                           <line x1="10" y1="70" x2="100" y2="70" stroke-width="25" stroke="Gainsboro" stroke-linecap="round"></line>
-                          <line x1="10" y1="70" x2="60" y2="70" stroke-width="20" stroke="crimson" stroke-linecap="round"></line>
+                          <line x1="10" y1="70" x2="<%=estadistica.getPorcClase()%>" y2="70" stroke-width="20" stroke="crimson" stroke-linecap="round"></line>
                         </svg>
                       </div>
-                      <span class="me-2 text-xs font-weight">60%</span>
+                      <span class="me-2 text-xs font-weight"><%=estadistica.getPorcClase()%>%</span>
                     </div>
                   </div>
                 </div>
@@ -240,14 +239,14 @@
                   <h4 style="padding-top: 10px;">Objeto regalado más común</h4>
                   <div class="row justify-content-center">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center justify-content-center">
-                      <span class="me-2 text-xs font-weight-bold">Pico</span>
+                      <span class="me-2 text-xs font-weight-bold"><%=estadistica.getObjeto()%></span>
                       <div class="figure">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="80" height="50" viewBox="-5 20 120 100">
                           <line x1="10" y1="70" x2="100" y2="70" stroke-width="25" stroke="Gainsboro" stroke-linecap="round"></line>
-                          <line x1="10" y1="70" x2="50.6" y2="70" stroke-width="20" stroke="crimson" stroke-linecap="round"></line>
+                          <line x1="10" y1="70" x2="<%=estadistica.getPorcObjeto()%>" y2="70" stroke-width="20" stroke="crimson" stroke-linecap="round"></line>
                         </svg>
                       </div>
-                      <span class="me-2 text-xs font-weight">50.6%</span>
+                      <span class="me-2 text-xs font-weight"><%=estadistica.getPorcObjeto()%>%</span>
                     </div>
                   </div>
                 </div>
@@ -259,10 +258,10 @@
                       <div class="figure">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="80" height="50" viewBox="-5 20 120 100">
                           <line x1="10" y1="70" x2="100" y2="70" stroke-width="25" stroke="Gainsboro" stroke-linecap="round"></line>
-                          <line x1="10" y1="70" x2="20" y2="70" stroke-width="20" stroke="crimson" stroke-linecap="round"></line>
+                          <line x1="10" y1="70" x2="<%=estadistica.getPorcGenero()%>" y2="70" stroke-width="20" stroke="crimson" stroke-linecap="round"></line>
                         </svg>
                       </div>
-                      <span class="me-2 text-xs font-weight">20%</span>
+                      <span class="me-2 text-xs font-weight"><%=estadistica.getPorcGenero()%>%</span>
                     </div>
                   </div>
                 </div>
