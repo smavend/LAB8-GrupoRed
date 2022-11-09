@@ -1,8 +1,7 @@
-<%@ page import="com.example.lab8.Beans.Hechizo" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean id="lista" type="java.util.ArrayList<com.example.lab8.Beans.Hechizo>"/>
-
+<!--<%//@ page import="com.example.lab8.Beans.Hechizo" %>
+<%//@ page import="java.util.ArrayList" %>
+<%//@ page contentType="text/html;charset=UTF-8" language="java" %>
+-->
 <html>
 <head>
   <meta charset="utf-8">
@@ -175,30 +174,9 @@
 
       <div class="col-sm-11">
 
-        <table class="table table-bordered text-center text-white table-transparent" style="margin: 0 30px 30px 30px">
-          <thead class="bg-dark">
-          <tr>
-            <th class="h3" scope="col">Nombre</th>
-            <th class="h3" scope="col">Elemento</th>
-            <th class="h3" scope="col">Potencia</th>
-            <th class="h3" scope="col">Precisión</th>
-            <th class="h3" scope="col">Aprendizaje</th>
-            <th class="h3" scope="col">Hechizo Base</th>
-          </tr>
-          </thead>
-          <%for(Hechizo hechizo : lista){%>
-          <tbody>
-            <tr>
-              <td><%=hechizo.getNombreHechizo()%></td>
-              <td><%=hechizo.getElementoRelacionado()%></td>
-              <td><%=hechizo.getPotencia()%></td>
-              <td><%=hechizo.getPrecision()%></td>
-              <td><%=hechizo.getNivelDeAprendizaje()%></td>
-              <td><%=hechizo.getHechizoBase()%></td>
-            </tr>
-          </tbody>
-          <%}%>
-        </table>
+        <!--
+
+        -->
 
       </div>
       <div class="col-sm"></div>
@@ -267,3 +245,4 @@
 <script src="js/script.js"></script>
 </body>
 </html>
+
