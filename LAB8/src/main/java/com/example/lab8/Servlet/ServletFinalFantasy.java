@@ -27,10 +27,6 @@ public class ServletFinalFantasy extends HttpServlet {
         }
         else {
             switch (action){
-                case "claseEnemigos":
-                    requestDispatcher = request.getRequestDispatcher("clases.jsp");
-                    requestDispatcher.forward(request,response);
-                    break;
                 case "hechizos":
                     requestDispatcher = request.getRequestDispatcher("hechizos.jsp");
                     requestDispatcher.forward(request,response);
@@ -58,7 +54,7 @@ public class ServletFinalFantasy extends HttpServlet {
                         requestDispatcher = request.getRequestDispatcher("/ObjectsDependency/editObject.jsp");
                         requestDispatcher.forward(request, response);
                     } else { //id no encontrado
-                        response.sendRedirect(request.getContextPath() + "//ServletFinalFantasy?action=objetos");
+                        response.sendRedirect(request.getContextPath() + "/ServletFinalFantasy?action=objetos");
                     }
 
                     requestDispatcher = request.getRequestDispatcher("/ObjectsDependency/editObjects.jsp");

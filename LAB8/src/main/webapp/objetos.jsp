@@ -109,12 +109,8 @@
       <div class="col-lg-10">
         <div class="widget">
           <h1 class="widget-title text-white d-inline-block mb-4">Lista de objetos</h1>
-          <br>
-          <a class="btn btn-primary" href="<%=request.getContextPath()%>/ServletFinalFantasy?action=newObject" role="button">Añadir Objeto</a>
-          <br>
           <div class="row">
             <div class="col-lg-5 col-md-8">
-              <br>
               <form class="search-form" method="post" action="<%=request.getContextPath()%>/ServletFinalFantasy?action=buscar">
                 <div class="input-group">
                   <input type="search" name="searchText" class="form-control bg-transparent shadow-none rounded-0" id="busqueda"
@@ -127,6 +123,11 @@
                   </div>
                 </div>
               </form>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-6 col-6">
+              <div class="d-block">
+                <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=newObject" class="btn btn-success">Añadir nuevo objeto<img src="images/arrow-right.png" alt=""></a>
+              </div>
             </div>
           </div>
 

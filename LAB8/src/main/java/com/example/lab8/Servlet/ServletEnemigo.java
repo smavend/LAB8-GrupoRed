@@ -67,6 +67,7 @@ public class ServletEnemigo extends HttpServlet {
                 response.sendRedirect(request.getContextPath()+"/Enemigos");
                 break;
             case "clase":
+                request.setAttribute("clases", daoClase.listarClases());
                 requestDispatcher = request.getRequestDispatcher("clases.jsp");
                 requestDispatcher.forward(request,response);
                 break;

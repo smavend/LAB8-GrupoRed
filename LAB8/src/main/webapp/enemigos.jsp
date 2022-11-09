@@ -186,7 +186,8 @@
                   <td><%=(e.getGenero().equalsIgnoreCase("-"))?"Sin género":(e.getGenero().equalsIgnoreCase("M"))?"Masculino":(e.getGenero().equalsIgnoreCase("O"))?"Otro":"Femenino"%></td>
                   <td><a href="<%=request.getContextPath()%>/Enemigos?id=vistaEdit&enemy=<%=e.getIdEnemigo()%>" class="btn btn-secondary">
                     <i class="bi bi-pencil-square"></i></a>
-                  </td><td><a href="<%=request.getContextPath()%>/Enemigos?id=delete&enemy=<%=e.getIdEnemigo()%>" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a></td>
+                  </td>
+                  <td><a href="<%=request.getContextPath()%>/Enemigos?id=delete&enemy=<%=e.getIdEnemigo()%>" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a></td>
                 </tr>
                <%i++;
                 } %>
@@ -202,11 +203,11 @@
           <ul class="post-meta mt-3 mb-4">
             <li class="d-inline-block mr-3">
               <span class="fas fa-clock text-primary"></span>
-              <a class="ml-1">24 April, 2016</a>
+              <span class="ml-1">Creado desde 2018</span>
             </li>
             <li class="d-inline-block">
               <span class="fas fa-list-alt text-primary"></span>
-              <a class="ml-1">Photography</a>
+              <span class="ml-1">Wiki Fastástica</span>
             </li>
           </ul>
 
@@ -285,43 +286,16 @@
 
 
     <!-- start of footer -->
-    <footer class="bg-dark">
+    <footer class="bg-dark" style="margin: 0; padding: 2rem">
       <div class="container">
-        <div class="row text-center">
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Inspirations</h5>
+        <div class="col text-center" >
+          <div class="col-lg-12 col-sm-12 mb-12" >
+            <h4 class="font-primary text-white mb-4">Pagina Web elaborada para el curso de Ingenería Web</h4>
+            <h5 class="font-primary text-white mb-4">Desarrolladores</h5>
             <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Templates</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Resource</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Company</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
+              <li>Beatriz Manrique Avedaño</li>
+              <li>Dana Nolasco Vallejos</li>
+              <li>Sebastian Segura Abanto</li>
             </ul>
           </div>
         </div>

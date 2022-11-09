@@ -48,6 +48,7 @@ public class ServletHeroe extends HttpServlet {
 
                 if (hero != null) { //abro el form para editar
                     request.setAttribute("hero", hero);
+                    request.setAttribute("heroList", daoHeroes.getHeroesList());
                     requestDispatcher = request.getRequestDispatcher("/HeroDependency/editHero.jsp");
                     requestDispatcher.forward(request, response);
                 } else { //id no encontrado
@@ -105,12 +106,17 @@ public class ServletHeroe extends HttpServlet {
                 String pareja_up = request.getParameter("pareja");
                 try {
                     int idH = Integer.parseInt(id_up);
-                    int  edad = Integer.parseInt(age_up);
+                    int edad = Integer.parseInt(age_up);
                     int nivelInicial = Integer.parseInt(nvI_up);
                     int ataque = Integer.parseInt(atq_up);
-                    int idParjea = Integer.parseInt(pareja_up);
-                    daoHeroes.updateHero(idH,nombre_up,edad,genero_up,clase_up,nivelInicial,ataque,idParjea);
-                    response.sendRedirect(request.getContextPath() + "/ServletHeroe");
+                    int idParjea = (pareja_up==null)?0:Integer.parseInt(pareja_up);
+                    if((nombre_up.length())<=10 && edad>=8 && edad <= 999 && clase_up.length()<=50 && nivelInicial >=1 && nivelInicial<=100 && ataque>0){
+                        daoHeroes.updateHero(idH,nombre_up,edad,genero_up,clase_up,nivelInicial,ataque,idParjea);
+                        response.sendRedirect(request.getContextPath() + "/ServletHeroe");
+                    }
+                    else{
+                        response.sendRedirect(request.getContextPath() + "/ServletHeroe?id=editHero&heroid=" + id_up);
+                    }
                 } catch (NumberFormatException e) {
                     response.sendRedirect(request.getContextPath() + "/ServletHeroe?id=editHero&heroid=" + id_up);
                 }

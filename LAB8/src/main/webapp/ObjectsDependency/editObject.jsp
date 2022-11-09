@@ -104,67 +104,74 @@
     <!-- end of social-links -->
   </div></aside>
   <!-- end of sidenav -->
-
   <div class="container py-4 my-5">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="contact-form bg-dark">
+          <!-- https://staticg.sportskeeda.com/editor/2022/10/45ab6-16650758896894-1920.jpg para vista de enemigo individual-->
+          <h1 class="text-white add-letter-space mb-5">Edita el objeto</h1>
+          <form method="POST" class="needs-validation" action="<%=request.getContextPath()%>/ServletFinalFantasy?action=actualizar" novalidate>
+            <div class="row">
+              <div class="col-lg-2 col-md-12 col-sm-12 col-12" hidden>
+                <div class="form-group mb-5">
+                  <label for="idObject" class="text-black-300">id Objeto</label>
+                  <input type="text" id="idObject" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="idObject" value="<%=objeto.getIdObjeto()%>">
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="form-group mb-5">
+                  <label for="nombre" class="text-black-300">Nombre</label>
+                  <input type="text" id="nombre" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="nombre" value="<%=objeto.getNombre()%>" required>
+                  <p class="invalid-feedback">¡Se necesita un nombre!</p>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="form-group mb-5">
+                  <label for="peso" class="text-black-300">Peso</label>
+                  <input type="text" id="peso" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="peso" value="<%=objeto.getPeso()%>" required>
 
-    <div class="col-lg-10">
-      <img class="img-fluid" src="images/items_objetos.png" alt="">
+                  <p class="invalid-feedback">¡Ingresa el peso!</p>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="form-group mb-5">
+                  <label for="efecto" class="text-black-300">Efecto</label>
+                  <input type="text" id="efecto" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="efecto" value="<%=objeto.getEfectoUso()%>" required>
 
-      <!-- https://staticg.sportskeeda.com/editor/2022/10/45ab6-16650758896894-1920.jpg para vista de enemigo individual-->
-      <h1 class="text-white add-letter-space mt-4">Objetos</h1>
-
-      <br>
-
-      <p>Aquí puede añadir objetos al juego</p>
-      <br>
-      <div class="d-flex justify-content-center">
-        <div class="widget">
-          <h1 class="widget-title text-white d-inline-block mb-4">Edición de Objeto</h1>
-          <br>
-          <form method="post" action="<%=request.getContextPath()%>/ServletFinalFantasy?action=actualizar">
-            <table>
-              <tr>
-                <td>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item" style="border-radius: 10%;">Nombres:</li>
-                  </ul>
-                  <br>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item" style="border-radius: 10%;">Efecto:</li>
-                  </ul>
-                  <br>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item" style="border-radius: 10%;">Peso:</li>
-                  </ul>
-                </td>
-                <td style="padding-left: 1rem;">
-                  <ul class="list-group list-group-flush">
-                    <input type="hidden" name = "idObject" value="<%=objeto.getIdObjeto()%>">
-                  </ul>
-                  <ul class="list-group list-group-flush">
-                    <input type="text" class="form-control"  style="color: black" id="nombre" name="nombre"  value="<%=objeto.getNombre()%>">
-                  </ul>
-                  <br>
-                  <ul class="list-group list-group-flush">
-                    <input type="text" class="form-control" style="color: black"   id="efecto" name="efecto"  value="<%=objeto.getEfectoUso()%>">
-                  </ul>
-                  <br>
-                  <ul class="list-group list-group-flush">
-                    <input type="text" class="form-control"  style="color: black" id="peso" name="peso"  value="<%=objeto.getPeso()%>">
-                  </ul>
-                </td>
-              </tr>
-            </table>
-            <br>
-            <div class="d-flex justify-content-center">
-              <button type="submit" class="btn btn-primary">Confirmar</button>
+                  <p class="invalid-feedback">¡Ingresa el efecto!</p>
+                </div>
+              </div>
+              <div class="row justify-content-start">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                  <div class="d-block">
+                    <button type="submit" class="btn btn-sm btn-primary">Confirmar</button>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                  <div class="d-block">
+                    <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=objetos" class="btn btn-secondary">Cancelar</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </form>
         </div>
       </div>
-
     </div>
-
+    <div style="position: fixed; bottom: 40px; right: 40px;" aria-live="polite" aria-atomic="true">
+      <div class="toast text-black" id=toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="6000">
+        <div class="toast-header">
+          <strong class="mr-auto text-danger">Alerta</strong>
+          <small>justo ahora</small>
+          <button type="button" class="ml-2 mb-1 close close-white" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="toast-body">
+          En caso de error, revise los datos e intente nuevamente.
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 <!-- END main-wrapper -->
@@ -175,5 +182,10 @@
 
 <!-- Main Script -->
 <script src="js/script.js"></script>
+  <script>
+    $(document).ready(function (){
+      $('.toast').toast('show');
+    })
+  </script>
 </body>
 </html>

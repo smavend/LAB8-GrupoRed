@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.lab8.Beans.Heroes" %><%--
   Created by IntelliJ IDEA.
   User: USUARIO
   Date: 5/11/2022
@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="hero" scope="request" type="com.example.lab8.Beans.Heroes"/>
+<jsp:useBean id="heroList" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.Heroes>"/>
 <html>
 <head>
     <meta charset="utf-8">
@@ -106,73 +107,111 @@
     <!-- end of sidenav -->
 
     <div class="container py-4 my-5">
+        <div class="row">
+            <div class="col-md-10">
+                <img class="img-fluid" src="images/addHero.png" alt="">
+                <div class="contact-form bg-dark">
+                    <h1 class="text-white add-letter-space mb-5">Edita a tu héroe</h1>
+                    <form method="POST" class="needs-validation" action="<%=request.getContextPath()%>/ServletHeroe?id=actualizar" novalidate>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-12 col-sm-12 col-12" hidden>
+                                <div class="form-group mb-5">
+                                    <label for="id_up" class="text-black-300">id Hero</label>
+                                    <input type="text" id="id_up" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="id_up" value="<%=hero.getIdHeroe()%>">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-12 col-sm-12 col-12">
+                                <div class="form-group mb-5">
+                                    <label for="nombre" class="text-black-300">Nombre</label>
+                                    <input type="text" id="nombre" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="nombre"  value="<%=hero.getNombre()%>" required>
+                                    <p class="invalid-feedback">¡Se necesita un nombre!</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-12 col-sm-12 col-12">
+                                <div class="form-group mb-5">
+                                    <label for="edad" class="text-black-300">Edad</label>
+                                    <input type="number" id="edad" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="edad"  value="<%=hero.getEdad()%>" required>
+                                    <p class="invalid-feedback">¡Se necesita una edad!</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                                <div class="form-group mb-5">
+                                    <label for="genero" class="text-black-300">Género del enemigo</label>
+                                    <select class="d-block w-100" id="genero" name="genero">
+                                        <option value="M" <%=(hero.getGenero().equalsIgnoreCase("M"))?"selected":""%>>M</option>
+                                        <option value="F" <%=(hero.getGenero().equalsIgnoreCase("F"))?"selected":""%>>F</option>
+                                        <option value="O" <%=(hero.getGenero().equalsIgnoreCase("O"))?"selected":""%>>O</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-12 col-sm-12 col-12">
+                                <div class="form-group mb-5">
+                                    <label for="clase" class="text-black-300">Clase</label>
+                                    <input type="text" id="clase" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="clase" value="<%=hero.getClase()%>" required>
 
-        <div class="col-lg-10">
-            <img class="img-fluid" src="images/addHero.png" alt="">
+                                    <p class="invalid-feedback">¡Verifica la clase!</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-12 col-sm-12 col-12">
+                                <div class="form-group mb-5">
+                                    <label for="nivelInicial" class="text-black-300">Nivel inicial</label>
+                                    <input type="number" id="nivelInicial" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="nivelInicial" value="<%=hero.getNivelInicial()%>" required>
 
-            <!-- https://staticg.sportskeeda.com/editor/2022/10/45ab6-16650758896894-1920.jpg para vista de enemigo individual-->
-            <h1 class="text-white add-letter-space mt-4">Editar Héroe</h1>
+                                    <p class="invalid-feedback">¡Verifica el nivel!</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-12 col-sm-12 col-12">
+                                <div class="form-group mb-5">
+                                    <label for="ataque" class="text-black-300">Ataque</label>
+                                    <input type="number" id="ataque" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="ataque" value="<%=hero.getAtaque()%>" required>
 
-            <br>
-
-            <p>Aquí puede editar los heroes del juego</p>
-            <br>
-            <div class="d-flex justify-content-center">
-                <div class="widget">
-                    <h1 class="widget-title text-white d-inline-block mb-4">Edición de héroe</h1>
-                    <br>
-                    <form method="post" action="<%=request.getContextPath()%>/ServletHeroe?id=actualizar">
-                        <ul class="list-group list-group-flush">
-                            <input type="hidden" name = "id_up" value="<%=hero.getIdHeroe()%>">
-                        </ul>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" >Nombre</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
-                                   id="nombre" name="nombre" style="color:black " value="<%=hero.getNombre()%>">
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" >Edad</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
-                                   id="edad" name="edad" style="color:black" value="<%=hero.getEdad()%>">
-                        </div>
-                        <div class="input-group mb-3">
-                            <label class="input-group-text" for="genero">Options</label>
-                            <select class="form-select" id="genero" name="genero">
-                                <option selected><%=hero.getGenero()%></option>
-                                <option value="M">Masculino</option>
-                                <option value="F">Femenino</option>
-                                <option value="O">Otros</option>
-                            </select>
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" >Clase</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
-                                   id="clase" name="clase" style="color:black" value="<%=hero.getClase()%>">
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" >Nivel Inicial</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
-                                   id="nivelInicial" name="nivelInicial" style="color:black" value="<%=hero.getNivelInicial()%>">
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" >Ataque</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
-                                   id="ataque" name="ataque" style="color:black" value="<%=hero.getAtaque()%>">
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" >Pareja</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
-                                   id="pareja" name="pareja" style="color:black" value="<%=hero.getIdPareja()%>">
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary">Confirmar</button>
+                                    <p class="invalid-feedback">¡Verifica el ataque!</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-12 col-sm-12 col-12">
+                                <div class="form-group mb-5">
+                                    <label for="pareja" class="text-black-300">Pareja Id</label>
+                                    <select class="d-block w-100" id="pareja" name="pareja">
+                                        <option value="0" <%=(hero.getIdPareja()==0)?"selected":""%>>Sin pareja</option>
+                                        <% for (Heroes h: heroList) {
+                                        if(h.getIdHeroe()!=hero.getIdHeroe()){%>
+                                        <option value="<%=h.getIdHeroe()%>" <%=(h.getIdHeroe()==hero.getIdPareja())?"selected":""%>><%=h.getIdHeroe()%></option>
+                                        <% }
+                                        }%>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row justify-content-start">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                                    <div class="d-block">
+                                        <button type="submit" class="btn btn-sm btn-primary">Confirmar</button>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                                    <div class="d-block">
+                                        <a href="<%=request.getContextPath()%>/Heroes" class="btn btn-secondary">Cancelar</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
-
         </div>
-
+        <div style="position: fixed; bottom: 40px; right: 40px;" aria-live="polite" aria-atomic="true">
+            <div class="toast text-black" id=toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="6000">
+                <div class="toast-header">
+                    <strong class="mr-auto text-danger">Alerta</strong>
+                    <small>justo ahora</small>
+                    <button type="button" class="ml-2 mb-1 close close-white" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="toast-body">
+                    En caso de error, revise los datos e intente nuevamente.
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 <!-- END main-wrapper -->
@@ -183,5 +222,10 @@
 
 <!-- Main Script -->
 <script src="js/script.js"></script>
+    <script>
+        $(document).ready(function (){
+            $('.toast').toast('show');
+        })
+    </script>
 </body>
 </html>

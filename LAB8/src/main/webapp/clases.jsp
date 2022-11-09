@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.lab8.Beans.Clase" %><%--
   Created by IntelliJ IDEA.
   User: USUARIO
   Date: 4/11/2022
@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="clases" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.Clase>"/>
 <html>
 <head>
   <meta charset="utf-8">
@@ -22,6 +23,7 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="plugins/fontawesome/css/all.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
   <!-- Main Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
@@ -136,28 +138,24 @@
           <ul class="post-meta mt-3 mb-4">
             <li class="d-inline-block mr-3">
               <span class="fas fa-clock text-primary"></span>
-              <a class="ml-1" href="#">24 April, 2016</a>
+              <span class="ml-1">Creado desde 2018</span>
             </li>
             <li class="d-inline-block">
               <span class="fas fa-list-alt text-primary"></span>
-              <a class="ml-1" href="#">Photography</a>
+              <span class="ml-1">Wiki Fastástica</span>
             </li>
           </ul>
 
-          <p>Los enemigos son seres malignos dispuestos a destruir a los héroes.</p>
-          <p>Rellenar aquí</p>
+          <p>Como ya sabes, los enemigos son seres malignos que buscan destruirte, y estas son las clases que los ordenan.</p>
+          <p>Cada quien posee debilidades frente a ciertos elementos de Final Fantasy. Es tu responsabilidad poder aprovechar tus conocimientos para destruirlos eficazmente.</p>
           <br>
-          <p>En esta wiki podrás encontrar a todos los enemigos vigentes del juego. Diviértete explorando sus caracterísiticas y descubre curiosidades que quizás aún no conocías. Nútrete de conocimiento, querido héroe.</p>
+          <p>En esta wiki podrás encontrar todas las clases de los enemigos vigentes del juego. Valora esta información, héroe. Servirá mucho para tu lucha.</p>
 
-          <div class="blockquote bg-dark my-5">
-            <p class="blockquote-text pl-2">A wise girls knows her limit to touch sky.Rpelat sapiesd praesentium adipisci.The question me an idea so asered</p>
-            <span class="blockquote-footer text-white h4 mt-3">James Hopkins</span>
-          </div>
 
           <div class="widget">
             <h1 class="widget-title text-white d-inline-block mb-4">Lista de clases de enemigos</h1>
             <div class="row">
-              <div class="col-lg-5 col-md-8">
+              <div class="col-lg-5 col-md-6 col-sm-6 col-6">
                 <form class="search-form" action="#">
                   <div class="input-group">
                     <input type="search" class="form-control bg-transparent shadow-none rounded-0" placeholder="Buscar enemigo">
@@ -169,85 +167,54 @@
                   </div>
                 </form>
               </div>
+              <div class="col-lg-5 col-md-6 col-sm-6 col-6">
+                <div class="d-block">
+                  <a href="<%=request.getContextPath()%>/Enemigo?id=vistaAdd" class="btn btn-success">Añadir nuevo enemigo<img src="images/arrow-right.png" alt=""></a>
+                </div>
+              </div>
             </div>
             <table class="table table-bordered text-center text-white table-transparent">
               <thead class="bg-dark">
-              <tr>
-                <th class="h3" scope="col">Table</th>
-                <th class="h3" scope="col">Column</th>
-                <th class="h3" scope="col">Column</th>
-              </tr>
+                <tr>
+                  <th class="h3" scope="col">#id</th>
+                  <th class="h3" scope="col">Nombre</th>
+                  <th class="h3" scope="col">Detalles</th>
+                </tr>
               </thead>
               <tbody>
-              <tr>
-                <td>Row 1.1</td>
-                <td>Row 2.1</td>
-                <td>Row 3.1</td>
-              </tr>
-              <tr>
-                <td>Row 1.2</td>
-                <td>Row 2.2</td>
-                <td>Row 3.2</td>
-              </tr>
-              <tr>
-                <td>Row 1.3</td>
-                <td>Row 2.3</td>
-                <td>Row 3.3</td>
-              </tr>
+                <%for(Clase c : clases){%>
+                <tr>
+                  <td><%=c.getIdClase()%></td>
+                  <td><%=c.getNombre()%></td>
+                  <td style="background: #221c26;"><button class="btn"><i class="bi bi-arrows-angle-expand"></i></button></td>
+                </tr>
+                <%}%>
+
+
               </tbody>
             </table>
             <!-- end table-style -->
           </div>
 
-          <div class="widget">
-            <div class="d-block">
-              <a class="btn btn-primary" href="clases.html">Descubre más sobre sus clases<img src="images/arrow-right.png" alt=""></a>
-            </div>
+
             <!-- end buttons -->
-          </div>
+
         </div>
       </div>
     </div>
 
 
     <!-- start of footer -->
-    <footer class="bg-dark">
+    <footer class="bg-dark" style="margin: 0; padding: 2rem">
       <div class="container">
-        <div class="row text-center">
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Inspirations</h5>
+        <div class="col text-center" >
+          <div class="col-lg-12 col-sm-12 mb-12" >
+            <h4 class="font-primary text-white mb-4">Pagina Web elaborada para el curso de Ingenería Web</h4>
+            <h5 class="font-primary text-white mb-4">Desarrolladores</h5>
             <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Templates</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Resource</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-5">
-            <h5 class="font-primary text-white mb-4">Company</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!">Privacy State</a></li>
-              <li><a href="#!">Privacy</a></li>
-              <li><a href="#!">State</a></li>
-              <li><a href="#!">Privacy</a></li>
+              <li>Beatriz Manrique Avedaño</li>
+              <li>Dana Nolasco Vallejos</li>
+              <li>Sebastian Segura Abanto</li>
             </ul>
           </div>
         </div>

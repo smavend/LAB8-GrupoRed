@@ -263,6 +263,20 @@
                     </div>
                 </footer>
                 <!-- end of footer -->
+                <div style="position: fixed; bottom: 40px; right: 40px;" aria-live="polite" aria-atomic="true">
+                    <div class="toast text-black" id=toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="6000">
+                        <div class="toast-header">
+                            <strong class="mr-auto text-danger">Alerta</strong>
+                            <small>justo ahora</small>
+                            <button type="button" class="ml-2 mb-1 close close-white" data-dismiss="toast" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="toast-body">
+                            En caso de error, revise los datos e intente nuevamente.
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </section>
@@ -274,5 +288,10 @@
 
         <!-- Main Script -->
         <script src="js/script.js"></script>
+        <script>
+            $(document).ready(function (){
+                $('.toast').toast('show');
+            })
+        </script>
     </body>
 </html>

@@ -100,62 +100,53 @@
     <!-- end of sidenav -->
 
     <div class="container py-4 my-5">
-
-            <div class="col-lg-10">
-                <img class="img-fluid" src="images/items_objetos.png" alt="">
-
-                <!-- https://staticg.sportskeeda.com/editor/2022/10/45ab6-16650758896894-1920.jpg para vista de enemigo individual-->
-                <h1 class="text-white add-letter-space mt-4">Objetos</h1>
-
-                <br>
-
-                <p>Aquí puede añadir objetos al juego</p>
-                <br>
-                <div class="d-flex justify-content-center">
-                    <div class="widget">
-                        <h1 class="widget-title text-white d-inline-block mb-4">Creación de nuevo Objeto</h1>
-                        <br>
-                        <form method="post" action="<%=request.getContextPath()%>/ServletFinalFantasy?action=guardar">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item" style="border-radius: 10%;">Nombres:</li>
-                                        </ul>
-                                        <br>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item" style="border-radius: 10%;">Efecto:</li>
-                                        </ul>
-                                        <br>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item" style="border-radius: 10%;">Peso:</li>
-                                        </ul>
-                                    </td>
-                                    <td style="padding-left: 1rem;">
-                                        <ul class="list-group list-group-flush">
-                                            <input type="text" class="form-control"  style="color: black" id="nombre" name="nombre"  value="">
-                                        </ul>
-                                        <br>
-                                        <ul class="list-group list-group-flush">
-                                            <input type="text" class="form-control" style="color: black"   id="efecto" name="efecto"  value="">
-                                        </ul>
-                                        <br>
-                                        <ul class="list-group list-group-flush">
-                                            <input type="text" class="form-control"  style="color: black" id="peso" name="peso"  value="">
-                                        </ul>
-                                    </td>
-                                </tr>
-                            </table>
-                            <br>
-                            <div class="d-flex justify-content-center">
-                                <button type="submit" class="btn btn-primary">Confirmar</button>
+        <div class="row">
+            <div class="col-md-10">
+                <div class="contact-form bg-dark">
+                    <!-- https://staticg.sportskeeda.com/editor/2022/10/45ab6-16650758896894-1920.jpg para vista de enemigo individual-->
+                    <h1 class="text-white add-letter-space mb-5">Agrega un nuevo objeto</h1>
+                    <form method="POST" class="needs-validation" action="<%=request.getContextPath()%>/ServletFinalFantasy?action=guardar" novalidate>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="form-group mb-5">
+                                    <label for="nombre" class="text-black-300">Nombre</label>
+                                    <input type="text" id="nombre" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="nombre" required>
+                                    <p class="invalid-feedback">¡Se necesita un nombre!</p>
+                                </div>
                             </div>
-                        </form>
-                    </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="form-group mb-5">
+                                    <label for="peso" class="text-black-300">Peso</label>
+                                    <input type="text" id="peso" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="peso" required>
+
+                                    <p class="invalid-feedback">¡Ingresa el peso!</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="form-group mb-5">
+                                    <label for="efecto" class="text-black-300">Efecto</label>
+                                    <input rows="3" id="efecto" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" name="efecto" required>
+
+                                    <p class="invalid-feedback">¡Ingresa el efecto!</p>
+                                </div>
+                            </div>
+                            <div class="row justify-content-start">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                                    <div class="d-block">
+                                        <button type="submit" class="btn btn-sm btn-primary">Confirmar</button>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                                    <div class="d-block">
+                                        <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=objetos" class="btn btn-secondary">Cancelar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-
             </div>
-
+        </div>
     </div>
 </section>
 <!-- END main-wrapper -->

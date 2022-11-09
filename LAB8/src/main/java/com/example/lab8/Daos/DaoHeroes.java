@@ -22,7 +22,7 @@ public class DaoHeroes {
             while (rs.next()) {
                 Heroes newHero = new Heroes();
                 newHero.setIdHeroe(rs.getInt(1));
-                newHero.setIdPareja(rs.getInt(2));
+                newHero.setIdPareja((rs.getString(2)==null)?0:rs.getInt(2));
                 newHero.setNombre(rs.getString(3));
                 newHero.setEdad(rs.getInt(4));
                 newHero.setGenero(rs.getString(5));
@@ -52,7 +52,7 @@ public class DaoHeroes {
         try (Connection connection = DriverManager.getConnection(url, "root", "root");
              PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
-            pstmt.setInt(1,hero.getIdPareja());
+            pstmt.setString(1,(hero.getIdPareja()==0)?"null":""+hero.getIdPareja());
             pstmt.setString(2, hero.getNombre());
             pstmt.setInt(3,hero.getEdad());
             pstmt.setString(4,hero.getGenero());
@@ -132,7 +132,13 @@ public class DaoHeroes {
         }
 
         String url = "jdbc:mysql://localhost:3306/grupored";
-        String sql = "UPDATE heroe SET nombre=?,edad=?,genero=?,clase=?,nivelInicial=?,ataque=?,idPareja=? WHERE idHeroe=?";
+        String sql;
+        if(idPareja==0){
+            sql = "UPDATE heroe SET nombre=?,edad=?,genero=?,clase=?,nivelInicial=?,ataque=?,idPareja = NULL WHERE idHeroe=?";
+        }
+        else{
+            sql = "UPDATE heroe SET nombre=?,edad=?,genero=?,clase=?,nivelInicial=?,ataque=?,idPareja = ? WHERE idHeroe=?";
+        }
 
         try (Connection connection = DriverManager.getConnection(url, "root", "root");
              PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -143,8 +149,13 @@ public class DaoHeroes {
             pstmt.setString(4,clase);
             pstmt.setInt(5,nvi);
             pstmt.setInt(6,ataque);
-            pstmt.setInt(7,idPareja);
-            pstmt.setInt(8,id);
+            if(idPareja!=0){
+                pstmt.setInt(7, idPareja);
+                pstmt.setInt(8,id);
+            }
+            else{
+                pstmt.setInt(7,id);
+            }
 
             pstmt.executeUpdate();
 

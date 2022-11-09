@@ -114,12 +114,8 @@
       <div class="col-lg-12">
         <div class="widget">
           <h1 class="widget-title text-white d-inline-block mb-4">Lista de Héroes</h1>
-          <br>
-          <a class="btn btn-primary" href="<%=request.getContextPath()%>/ServletHeroe?id=newHero" role="button">Añadir Héroe</a>
-          <br>
           <div class="row">
-            <div class="col-lg-4 col-md-6">
-              <br>
+            <div class="col-lg-5 col-md-6 col-sm-6 col-6">
               <form class="search-form" method="post" action="<%=request.getContextPath()%>/ServletFinalFantasy?action=buscar">
                 <div class="input-group">
                   <input type="search" name="searchText" class="form-control bg-transparent shadow-none rounded-0" id="busqueda"
@@ -128,10 +124,15 @@
                     <button class="btn" type="submit">
                       <span class="fas fa-search"></span>
                     </button>
-                    <a href="<%=request.getContextPath()%>/ServletFinalFantasy?action=objetos" class="btn btn-secondary">Limpiar</a>
+                    <a href="<%=request.getContextPath()%>/Heroes" class="btn btn-secondary">Limpiar</a>
                   </div>
                 </div>
               </form>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-6 col-6">
+              <div class="d-block">
+                <a href="<%=request.getContextPath()%>/ServletHeroe?id=newHero" class="btn btn-success">Añadir nuevo héroe<img src="images/arrow-right.png" alt=""></a>
+              </div>
             </div>
           </div>
 
