@@ -133,7 +133,7 @@
                   todo lo que debes saber sobre este juego lo podrás encontrar aca.
                 </a>
               </h2>
-              <img class="card-img-top rounded-0" src="/images/imageHome.jpg" alt="">
+              <img class="card-img-top rounded-0" src="https://www.alkapone.tv/wp-content/uploads/2021/12/final-fantasy.png" alt="">
               <p class="card-text my-4">
                 Empezaremos con una breve explicación delo juego.....
                 Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto
