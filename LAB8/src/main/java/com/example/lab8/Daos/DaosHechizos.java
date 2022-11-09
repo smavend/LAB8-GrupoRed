@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class DaosHechizos {
 
-    public ArrayList<Hechizo> getHechizoList() {
+    public ArrayList<Hechizo> obtenerListaHechizos() {
         ArrayList<Hechizo> HechizoList = new ArrayList<>();
         try {
             String user = "root";
@@ -38,7 +38,7 @@ public class DaosHechizos {
         return HechizoList;
     }
 
-    public void deleteHechizo(String hechizoID) {
+    public void borrarHechizo(String hechizoID) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -59,5 +59,38 @@ public class DaosHechizos {
         }
     }
 
+    public Hechizo obtenerHechizo(String hechizoID){
+        Hechizo hechizo = null;
 
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e){
+            throw new RuntimeException(e);
+        }
+
+        String url = "jdbc:mysql://localhost:3306/grupored";
+        String sql = "select * from heroe WHERE idHechizo = ?";
+
+        try (Connection connection = DriverManager.getConnection(url, "root", "root");
+             PreparedStatement pstmt = connection.prepareStatement(sql);) {
+
+            pstmt.setInt(1, Integer.parseInt(hechizoID));
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    hechizo = new Hechizo();
+                    hechizo.setIdHechizo(rs.getInt(1));
+                    hechizo.setNombreHechizo(rs.getString(2));
+                    hechizo.setPotencia(rs.getInt(3));
+                    hechizo.setPrecision(rs.getInt(4));
+                    hechizo.setNivelDeAprendizaje(rs.getInt(5));
+                    hechizo.setElementoRelacionado(rs.getInt(6));
+                    hechizo.setHechizoBase(rs.getInt(7));
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return hechizo;
+    }
 }
