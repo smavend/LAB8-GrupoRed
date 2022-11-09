@@ -44,7 +44,7 @@ public class ServletHeroe extends HttpServlet {
                 break;
             case "editHero":
                 heroID = request.getParameter("heroid");
-                hero = daoHeroes.getHeroById(heroID);
+                hero = daoHeroes.getHeroById(Integer.parseInt(heroID));
 
                 if (hero != null) { //abro el form para editar
                     request.setAttribute("hero", hero);
@@ -121,6 +121,15 @@ public class ServletHeroe extends HttpServlet {
                     response.sendRedirect(request.getContextPath() + "/ServletHeroe?id=editHero&heroid=" + id_up);
                 }
                 break;
+            case "buscar":
+                String buscar = request.getParameter("buscar");
+
+                ArrayList<Heroes> lista = daoHeroes.buscarNombre(buscar);
+
+                request.setAttribute("listaHeroes", lista);
+                request.setAttribute("buscar",buscar);
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("heroes.jsp");
+                requestDispatcher.forward(request, response);
         }
 
     }

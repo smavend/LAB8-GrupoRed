@@ -25,7 +25,7 @@ public class DaoHeroes {
                 newHero.setIdPareja((rs.getString(2)==null)?0:rs.getInt(2));
                 newHero.setNombre(rs.getString(3));
                 newHero.setEdad(rs.getInt(4));
-                newHero.setGenero(rs.getString(5));
+                newHero.setGenero((rs.getString(5).equals("M"))?"Masculino":(rs.getString(5).equals("F"))?"Femenino":"Otro");
                 newHero.setClase(rs.getString(6));
                 newHero.setNivelInicial(rs.getInt(7));
                 newHero.setAtaque(rs.getInt(8));
@@ -88,7 +88,7 @@ public class DaoHeroes {
             throw new RuntimeException(e);
         }
     }
-    public Heroes getHeroById(String heroid) {
+    public Heroes getHeroById(int heroid) {
         Heroes hero = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -99,10 +99,11 @@ public class DaoHeroes {
         String url = "jdbc:mysql://localhost:3306/grupored";
 
         String sql = "select * from heroe WHERE idHeroe = ?";
+
         try (Connection connection = DriverManager.getConnection(url, "root", "root");
              PreparedStatement pstmt = connection.prepareStatement(sql);) {
 
-            pstmt.setString(1, heroid);
+            pstmt.setInt(1, heroid);
 
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
@@ -175,5 +176,42 @@ public class DaoHeroes {
         }
         return exp;
     }
+    public ArrayList<Heroes> buscarNombre(String nombre) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
+        String url = "jdbc:mysql://localhost:3306/grupored";
+
+        ArrayList<Heroes> lista = new ArrayList<>();
+        Heroes heroe = null;
+        String sql = "select * from heroe where lower(nombre) like ?";
+
+        try (Connection connection = DriverManager.getConnection(url, "root", "root");
+             PreparedStatement pstmt = connection.prepareStatement(sql)) {
+
+            pstmt.setString(1, "%"+nombre+"%");
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    heroe = new Heroes();
+                    heroe.setIdHeroe(rs.getInt(1));
+                    heroe.setIdPareja((rs.getString(2)==null)?0:rs.getInt(2));
+                    heroe.setNombre(rs.getString(3));
+                    heroe.setEdad(rs.getInt(4));
+                    heroe.setGenero(rs.getString(5));
+                    heroe.setClase(rs.getString(6));
+                    heroe.setNivelInicial(rs.getInt(7));
+                    heroe.setAtaque(rs.getInt(8));
+                    heroe.setExperiencia(getExp(heroe.getNivelInicial()));
+                    lista.add(heroe);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return lista;
+    }
 }

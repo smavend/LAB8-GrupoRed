@@ -1,4 +1,5 @@
-<%@ page import="com.example.lab8.Beans.Heroes" %><%--
+<%@ page import="com.example.lab8.Beans.Heroes" %>
+<%@ page import="com.example.lab8.Daos.DaoHeroes" %><%--
   Created by IntelliJ IDEA.
   User: USUARIO
   Date: 4/11/2022
@@ -8,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="listaHeroes" scope="request" type="java.util.ArrayList<com.example.lab8.Beans.Heroes>"/>
 <%
-  String searchText = (String) request.getAttribute("searchText");
+  String buscar = (String) request.getAttribute("buscar");
 %>
 <html>
 <head>
@@ -116,10 +117,10 @@
           <h1 class="widget-title text-white d-inline-block mb-4">Lista de Héroes</h1>
           <div class="row">
             <div class="col-lg-5 col-md-6 col-sm-6 col-6">
-              <form class="search-form" method="post" action="<%=request.getContextPath()%>/ServletFinalFantasy?action=buscar">
+              <form class="search-form" method="post" action="<%=request.getContextPath()%>/Heroes?id=buscar">
                 <div class="input-group">
-                  <input type="search" name="searchText" class="form-control bg-transparent shadow-none rounded-0" id="busqueda"
-                         placeholder="Buscar Héroe" value="<%=searchText!=null?searchText:""%>">
+                  <input type="search" name="buscar" class="form-control bg-transparent shadow-none rounded-0" id="busqueda"
+                         placeholder="Buscar Héroe" value="<%=buscar!=null?buscar:""%>">
                   <div class="input-group-append">
                     <button class="btn" type="submit">
                       <span class="fas fa-search"></span>
@@ -169,7 +170,7 @@
                 Ataque
               </th>
               <th class="h3" scope="col">
-                Nombre Pareja
+                Pareja
               </th>
               <th class="h3" scope="col">
                 Pts Exp
@@ -178,7 +179,9 @@
               <th class="h3" scope="col">Eliminar</th>
               <th class="h3" scope="col">Inventario</th>
             </thead>
-            <%for(Heroes hero : listaHeroes){%>
+            <%
+              DaoHeroes daoHeroes = new DaoHeroes();
+              for(Heroes hero : listaHeroes){%>
             <tbody>
             <tr>
               <td><%=hero.getIdHeroe()%></td>
@@ -188,7 +191,13 @@
               <td><%=hero.getClase()%></td>
               <td><%=hero.getNivelInicial()%></td>
               <td><%=hero.getAtaque()%></td>
-              <td><%=hero.getIdPareja()%></td>
+              <% if(hero.getIdPareja()!=0) {
+                Heroes heroe = daoHeroes.getHeroById(hero.getIdPareja());%>
+                <td><%=heroe.getNombre()%></td>
+              <% }
+              else{ %>
+              <td>Sin pareja</td>
+                <% } %>
               <td><%=hero.getExperiencia()%></td>
               <td>
                 <a href="<%=request.getContextPath()%>/ServletHeroe?id=editHero&heroid=<%=hero.getIdHeroe()%>" class="btn btn-secondary">
